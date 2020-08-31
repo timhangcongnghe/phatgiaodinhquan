@@ -1,0 +1,103 @@
+<table class="table table-advance table-hover table-striped table-checkable order-column">
+    <thead>
+        <tr>
+            <th width='1%'><%= erp_datalist_check_all %></th>
+            <% if get_columns(params).include?("name") %>
+                <th class="text-left" width='40%'><%= t('.name') %></th>
+            <% end %>
+            <% if get_columns(params).include?("category") %>
+                <th class="text-center"><%= t('.category') %></th>
+            <% end %>
+            <% if get_columns(params).include?("status") %>
+                <th class="text-center"><%= t('status') %></th>
+            <% end %>
+            <% if get_columns(params).include?("creator") %>
+                <th class="text-center"><%= t('creator') %></th>
+            <% end %>
+            <% if get_columns(params).include?("created_at") %>
+                <th class="text-center"><%= t('created_at') %></th>
+            <% end %>
+            <th class="text-right" width="7%"><%= t('actions') %></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @articles.each do |article| %>
+            <tr class="odd gradeX">
+                <td><%= erp_datalist_check_row(id: article.id) %></td>
+                <% if get_columns(params).include?("name") %>
+                    <td class="text-left">
+                        <%= link_to article.get_name, erp_pgdq.edit_backend_article_path(article), class: 'title', title: article.get_name %>
+                        <% if article.alias.present? %><br><strong>alias: </strong><em><%= article.alias %></em><% end %>
+                    </td>
+                <% end %>
+                <% if get_columns(params).include?("name") %>
+                    <td class="text-center"><%= article.get_category_name %></td>
+                <% end %>
+                <% if get_columns(params).include?("status") %>
+                    <td class="text-center">
+                        <% if article.archived == true %>
+                            <%= erp_component('label/danger', {
+                                text: t('.archived')
+                            }) %>
+                        <% else %>
+                            <%= erp_component('label/success', {
+                                text: t('.active')
+                            }) %>
+                        <% end %>
+                        <% if article.is_slider == true %>
+                            <br><%= erp_component('label/primary', {
+                                text: t('.article_is_slider')
+                            }) %>
+                        <% end %>
+                    </td>
+                <% end %>
+                <% if get_columns(params).include?("creator") %>
+                    <td class="text-center">
+                        <%= erp_component('avatar', {
+                            user: article.creator
+                        }) %>
+                    </td>
+                <% end %>
+                <% if get_columns(params).include?("created_at") %>
+                    <td class="text-center"><%= article.created_at.strftime("%d-%m-%Y") %></td>
+                <% end %>                
+                <td class="text-right">
+                    <%= erp_datalist_row_actions(
+                        [
+                            {
+                                text: '<i class="fa fa-edit"></i> '+t('.edit'),
+                                href: erp_pgdq.edit_backend_article_path(article)
+                            },
+                            {
+                                text: '<i class="fa fa-remove"></i> '+t('.archive'),
+                                url: erp_pgdq.archive_backend_articles_path(id: article.id),
+                                data_method: 'PUT',
+                                hide: article.archived,
+                                class: 'ajax-link'
+                            },
+                            {
+                                text: '<i class="fa fa-check"></i> '+t('.unarchive'),
+                                url: erp_pgdq.unarchive_backend_articles_path(id: article.id),
+                                data_method: 'PUT',
+                                hide: !article.archived,
+                                class: 'ajax-link'
+                            },
+                            {
+                                divider: true
+                            },
+                            {
+                                text: '<i class="fa fa-trash"></i> '+t('.delete'),
+                                url: erp_pgdq.backend_article_path(article),
+                                data_method: 'DELETE',
+                                class: 'ajax-link',
+                                data_confirm: t('delete_confirm')
+                            }
+                        ]
+                    ) %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<% if @articles.empty? %><div class="datalist-empty-line"><%= t('.no_matching_records_found') %></div><% end %>
+<%= erp_datalist_pagination(@articles) %>

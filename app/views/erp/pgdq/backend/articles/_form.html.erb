@@ -1,0 +1,98 @@
+<%= form_for([erp_pgdq, :backend, article], html: {multipart: true}) do |f| %>
+    <div class="row">
+        <div class="col-md-2">
+            <%= erp_form_control('image', {
+                img_src: article.image.system,
+                name: 'article[image]',
+                width: 150,
+                height: 150
+            }) %>
+        </div>
+        <div class="col-md-10">
+            <div class="portlet light bordered">
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <%= erp_form_control("text", {
+                                name: 'article[name]',
+                                value: article.get_name,
+                                label: t('.name'),
+                                placeholder: t('.placeholder_name'),
+                                required: true,
+                                errors: article.errors.full_messages_for(:name)
+                            }) %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <%= erp_form_control("dataselect", {
+                                name: 'article[category_id]',
+                                value: article.category_id,
+                                text: article.get_category_name,
+                                placeholder: t('.choose_category'),
+                                label: t('.category'),
+                                url: erp_pgdq.dataselect_backend_categories_path(format: 'json')
+                            }) %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <%= erp_form_control("textarea", {
+                                name: 'article[meta_keywords]',
+                                value: article.meta_keywords,
+                                label: t('.meta_keywords'),
+                                placeholder: t('.placeholder_meta_keywords')
+                            }) %>
+                        </div>
+                        <div class="col-md-6">
+                            <%= erp_form_control("textarea", {
+                                name: 'article[meta_description]',
+                                value: article.meta_description,
+                                label: t('.meta_description'),
+                                placeholder: t('.placeholder_meta_description')
+                            }) %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <%= erp_form_control('checkbox', {
+                                name: 'article[is_slider]',
+                                id: 'article_is_slider',
+                                value: article.is_slider,
+                                not_selected_value: 'false',
+                                label: t('.article_is_slider'),
+                                options: [{value: 'true', text: t('.is_slider')}]
+                            }) %>
+                        </div>
+                        <div class="col-md-8">
+                            <%= erp_form_control("text", {
+                                name: 'article[tags]',
+                                value: article.tags,
+                                label: t('.tags'),
+                                placeholder: t('.placeholder_tags')
+                            }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-body">
+                    <%= erp_form_control("editor", {
+                        name: 'article[content]',
+                        value: article.content,
+                        label: t('.content')
+                    }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= erp_component('button/save', {
+        text: t('submit')
+    }) %>
+    <%= erp_component('button/cancel', {
+        text: t('cancel'),
+        href: erp_pgdq.backend_articles_path
+    }) %>
+<% end %>

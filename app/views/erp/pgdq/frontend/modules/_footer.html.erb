@@ -1,0 +1,103 @@
+<footer id="footer" class="site-footer dark-skin dark-widgetized-area">
+    <div id="footer-widgets-container">
+        <div class="container">
+            <div class="footer-widget-area ">
+                <div class="tie-row">
+                    <div class="tie-col-md-3 normal-side">
+                        <div class="container-wrapper widget posts-list">
+                            <div class="widget-title the-global-title">
+                                <div class="the-subtitle">Hoạt Động Phật Sự Mới<span class="widget-title-icon fa"></span></div>
+                            </div>
+                            <div class="timeline-widget">
+                                <ul class="posts-list-items">
+                                    <% Erp::Pgdq::Category.find(9).get_articles_for_categories(params).limit(3).each do |article| %>
+                                    <li><a href="<%= article_link(article) %>" title="<%= article.get_name %>">
+                                        <span class="date meta-item fa-before"><%= article.created_at.strftime("%A, %d/%m/%Y") %></span> 
+                                        <h3><%= truncate(article.get_name, length: 70) %></h3>
+                                    </a></li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="tie-col-md-3 normal-side">
+                        <div class="container-wrapper widget posts-list">
+                            <div class="widget-title the-global-title">
+                                <div class="the-subtitle">Hoạt Động Ban Ngành Mới<span class="widget-title-icon fa"></span></div>
+                            </div>
+                            <div class="timeline-widget">
+                                <ul class="posts-list-items">
+                                    <% Erp::Pgdq::Category.find(12).get_articles_for_categories(params).limit(3).each do |article| %>
+                                    <li><a href="<%= article_link(article) %>" title="<%= article.get_name %>">
+                                        <span class="date meta-item fa-before"><%= article.created_at.strftime("%A, %d/%m/%Y") %></span> 
+                                        <h3><%= truncate(article.get_name, length: 70) %></h3>
+                                    </a></li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="tie-col-md-3 normal-side">
+                        <div class="container-wrapper widget posts-list">
+                            <div class="widget-title the-global-title">
+                                <div class="the-subtitle">Văn Bản Mới<span class="widget-title-icon fa"></span></div>
+                            </div>
+                            <div class="timeline-widget">
+                                <ul class="posts-list-items">
+                                    <% Erp::Pgdq::Category.find(26).get_articles_for_categories(params).limit(3).each do |article| %>
+                                    <li><a href="<%= article_link(article) %>" title="<%= article.get_name %>">
+                                        <span class="date meta-item fa-before"><%= article.created_at.strftime("%A, %d/%m/%Y") %></span> 
+                                        <h3><%= truncate(article.get_name, length: 70) %></h3>
+                                    </a></li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>                    
+                    <div class="tie-col-md-3 normal-side">
+                        <div class="container-wrapper widget widget_tag_cloud">
+                            <div class="widget-title the-global-title">
+                                <div class="the-subtitle">Tags Phật Giáo Định Quán<span class="widget-title-icon fa"></span></div>
+                            </div>
+                            <div class="tagcloud">
+                                <a href="">đại lễ phật đản</a>
+                                <a href="">đại lễ vu lan</a>
+                                <a href="">phật sự định quán</a>
+                                <a href="">phật sự đồng nai</a>
+                                <a href="">phật sự 2564</a>
+                                <a href="">phật sự 2020</a>
+                                <a href="">tài liệu phật học</a>
+                                <a href="">video thuyết giảng</a>
+                                <a href="">ti tức phật sự</a>
+                                <a href="">bts định quán</a>
+                                <a href="">bts phật giáo huyện định quán</a>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                                
+        </div>
+    </div>
+    <div class="site-info site-info-layout-2">
+        <div class="container">
+            <div class="tie-row">
+                <div class="tie-col-md-12">
+                    <div class="copyright-text copyright-text-first">&copy; Copyright 2020 Phật Giáo Định Quán. All Rights Reserved.</div>
+                    <div class="footer-menu">
+                        <ul class="menu">
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">Trang Chủ</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">Tin tức</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">Văn bản</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">Phật học</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">Tự viện</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

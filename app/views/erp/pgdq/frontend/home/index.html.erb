@@ -1,0 +1,188 @@
+<%= stylesheet_link_tag '/css/style.min.css' %>
+<% if @slide_articles.count > 0 %>
+<div id="tiepost-2487-section-1114" class="section-wrapper container-full without-background">
+    <div class="section-item is-first-section full-width">
+        <div class="container">
+            <div class="tie-row main-content-row">
+                <div class="main-content tie-col-md-12">
+                    <section id="tie-block_2068" class="slider-area mag-box">
+                        <div id="tie-main-slider-14-block_2068" class="tie-main-slider main-slider grid-5-first-big grid-5-slider boxed-slider grid-slider-wrapper tie-slick-slider-wrapper" data-slider-id="14" data-speed="3000">
+                            <div class="main-slider-inner">
+                                <div class="containerblock_2068">
+                                    <div class="tie-slick-slider">
+                                        <ul class="tie-slider-nav"></ul>
+                                        <div class="slide">
+                                            <% @slide_articles.each do |article| %>
+                                            <div class="grid-item lazy-bg slide-id-1959 tie-slide-1 is-trending">
+                                                <img data-lazy="<%= article.image.detail %>" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKYAAABkCAMAAAA7drv6AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////AAAAVcLTfgAAAAF0Uk5TAEDm2GYAAAAqSURBVHja7MEBDQAAAMKg909tDjegAAAAAAAAAAAAAAAAAAAAAH5NgAEAQTwAAWZtItYAAAAASUVORK5CYII="
+                                                     width="780" height="470" alt="<%= article.get_name %>" title="<%= article.get_name %>">
+                                                <div class="slide-bg"></div>
+                                                <a href="<%= article_link(article) %>" class="all-over-thumb-link" aria-label="<%= article.get_name %>" title="<%= article.get_name %>"></a> 
+                                                <div class="thumb-overlay">
+                                                    <span class="post-cat-wrap">
+                                                        <a class="post-cat" href="">Phật Giáo Định Quán</a>
+                                                    </span>
+                                                    <div class="thumb-content">
+                                                        <div class="thumb-meta">
+                                                            <span class="trending-post fa fa-bolt " aria-hidden="true">                                                                
+                                                            </span><span class="date meta-item fa-before"><%= article.created_at.strftime("%A, %d/%m/%Y") %></span>
+                                                        </div>
+                                                        <h2 class="thumb-title text-justify"><%= link_to truncate(article.get_name, length: 70), article_link(article), title: article.get_name %></h2>
+                                                        <div class="thumb-desc text-justify"><%= truncate(article.meta_description, length: 200) %></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <% end %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>
+<div id="tiepost-2487-section-2226" class="section-wrapper container normal-width without-background">
+    <div class="section-item sidebar-right has-sidebar">
+        <div class="container-normal">
+            <div class="tie-row main-content-row">
+                <!--<div class="main-content tie-col-md-8 tie-col-xs-12" role="main">                                    
+                    <div id="tie-block_1810" class="mag-box tie-col-sm-6 half-box has-first-big-post has-custom-color first-half-box">
+                        <div class="container-wrapper">
+                            <div class="mag-box-title the-global-title">
+                                <h3>Hoạt Động Phật Giáo</h3>
+                            </div>
+                            <div class="mag-box-container clearfix">
+                                <ul class="posts-items posts-list-container">
+                                    <li class="post-item is-trending">
+                                        <a aria-label="" href="" class="post-thumb">
+                                            <span class="trending-post fa fa-bolt trending-lg" aria-hidden="true"></span>
+                                            <span class="post-cat-wrap"><span class="post-cat tie-cat-48">Phật giáo Định Quán</span></span>
+                                            <img width="390" height="220" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYYAAADcAQMAAABOLJSDAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAACJJREFUaIHtwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAA4N8AKvgAAUFIrrEAAAAASUVORK5CYII=" class="attachment-jannah-image-large size-jannah-image-large lazy-img wp-post-image" alt="" data-src="img/tmp/garrett-parker-1-390x220.jpg" />
+                                        </a> 
+                                        <div class="post-details">
+                                            <div class="post-meta clearfix">
+                                                <span class="single-author no-avatars">
+                                                    <span class="meta-item meta-author-wrapper">
+                                                        <span class="meta-author">
+                                                            <a href="" class="author-name" title="Ashraf Reda">
+                                                                <span class="fa fa-user" aria-hidden="true"></span> Phật Giáo Định Quán
+                                                            </a>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                                <span class="date meta-item fa-before">15-08-2020</span>
+                                            </div>
+                                            <h2 class="post-title"><a href="">Lễ tấn đàn Tỳ kheo tại Đại giới đàn Trí...</a></h2>
+                                            <p class="post-excerpt">Chiều ngày 22/7 và ngày 23/07/2020, tại giới trường chùa Long Khánh đã diễn ra lễ tấn đàn Tỳ kheo cho các giới tử Tăng...</p>
+                                            <a class="more-link button" href="">Đọc tiếp</a> 
+                                        </div>
+                                    </li>
+                                    <% (0..4).each do |article| %>
+                                    <li class="post-item tie-slider">
+                                        <a aria-label="" href="" class="post-thumb">
+                                            <img width="220" height="150" src="/img/tmp/image7-220x150.jpg" class="attachment-jannah-image-small size-jannah-image-small lazy-img tie-small-image wp-post-image lazy-done" alt="" loading="lazy">
+                                        </a>
+                                        <div class="post-details">
+                                            <div class="post-meta clearfix"><span class="date meta-item fa-before">15-08-2020</span></div>
+                                            <h2 class="post-title"><a href="">Lễ tấn đàn Tỳ kheo tại Đại giới đàn Trí...</a></h2>
+                                        </div>
+                                    </li>
+                                    <% end %>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tie-block_304" class="mag-box tie-col-sm-6 half-box has-first-big-post has-custom-color second-half-box">
+                        <div class="container-wrapper">
+                            <div class="mag-box-title the-global-title">
+                                <h3>Hoạt Động Ban Ngành</h3>
+                            </div>
+                            <div class="mag-box-container clearfix">
+                                <ul class="posts-items posts-list-container">
+                                    <li class="post-item is-trending">
+                                        <a aria-label="" href="" class="post-thumb">
+                                            <span class="trending-post fa fa-bolt trending-lg" aria-hidden="true"></span>
+                                            <span class="post-cat-wrap"><span class="post-cat tie-cat-48">Phật giáo Định Quán</span></span>
+                                            <img width="390" height="220" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYYAAADcAQMAAABOLJSDAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAACJJREFUaIHtwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAA4N8AKvgAAUFIrrEAAAAASUVORK5CYII=" class="attachment-jannah-image-large size-jannah-image-large lazy-img wp-post-image" alt="" data-src="img/tmp/garrett-parker-1-390x220.jpg" />
+                                        </a> 
+                                        <div class="post-details">
+                                            <div class="post-meta clearfix">
+                                                <span class="single-author no-avatars">
+                                                    <span class="meta-item meta-author-wrapper">
+                                                        <span class="meta-author">
+                                                            <a href="" class="author-name" title="Ashraf Reda">
+                                                                <span class="fa fa-user" aria-hidden="true"></span> Phật Giáo Định Quán
+                                                            </a>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                                <span class="date meta-item fa-before">15-08-2020</span>
+                                            </div>
+                                            <h2 class="post-title">
+                                                <a href="">Lễ tấn đàn Tỳ kheo tại Đại giới đàn Trí...</a>
+                                            </h2>
+                                            <p class="post-excerpt">Chiều ngày 22/7 và ngày 23/07/2020, tại giới trường chùa Long Khánh đã diễn ra lễ tấn đàn Tỳ kheo cho các giới tử Tăng...</p>
+                                            <a class="more-link button" href="">Đọc tiếp</a> 
+                                        </div>
+                                    </li>
+                                    <% (0..4).each do |article| %>
+                                    <li class="post-item tie-slider">
+                                        <a aria-label="" href="" class="post-thumb">
+                                            <img width="220" height="150" src="img/tmp/image7-220x150.jpg" class="attachment-jannah-image-small size-jannah-image-small lazy-img tie-small-image wp-post-image lazy-done" alt="Photo of Ice Cream Maker Free Chocolate" loading="lazy">
+                                        </a>
+                                        <div class="post-details">
+                                            <div class="post-meta clearfix">
+                                                <span class="date meta-item fa-before">15-08-2020</span>
+                                            </div>
+                                            <h2 class="post-title">
+                                                <a href="">Lễ tấn đàn Tỳ kheo tại Đại giới đàn Trí Hải - Bích Liên</a>
+                                            </h2>
+                                        </div>
+                                    </li>
+                                    <% end %>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tie-s_1441" class="mag-box scrolling-box">
+                        <div class="container-wrapper">
+                            <div class="mag-box-title the-global-title">
+                                <h3>Phật Học và Đời Sống</h3>
+                                <div class="tie-alignright"><div class="mag-box-options"><ul class="slider-arrow-nav"></ul></div></div>
+                            </div>
+                            <div class="mag-box-container clearfix">
+                                <div class="loader-overlay"><div class="spinner-circle"></div></div>
+                                <div class="scrolling-slider scrolling-box-slider">
+                                    <% (0..12).each do |article| %>
+                                    <div class="slide tie-video">
+                                        <div class="slide-img">
+                                            <a aria-label="" href="" class="post-thumb">
+                                            <img width="390" height="220" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYYAAADcAQMAAABOLJSDAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAACJJREFUaIHtwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAA4N8AKvgAAUFIrrEAAAAASUVORK5CYII="
+                                                class="attachment-jannah-image-large size-jannah-image-large lazy-img wp-post-image"
+                                                alt="" data-src="/img/tmp/7040731-cam-newton-390x220.jpg" /></a>
+                                        </div>
+                                        <div class="slide-content">
+                                            <div class="post-meta clearfix">
+                                                <span class="date meta-item fa-before">08-11-2020</span>
+                                            </div>
+                                            <h2 class="post-title"><a href="">Lễ tấn đàn Tỳ kheo tại Đại giới đàn Trí Hải - Bích Liên</a></h2>
+                                            <div class="post-meta"></div>
+                                        </div>
+                                    </div>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                                        
+                </div>-->
+                <%= stylesheet_link_tag '/css/widgets.min.css' %>
+            </div>
+        </div>
+    </div>
+</div>

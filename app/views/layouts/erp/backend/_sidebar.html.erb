@@ -1,0 +1,35 @@
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+        <div class="page-sidebar-wrapper">
+            <ul class="page-sidebar-menu page-header-fixed" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="100">
+                <li class="sidebar-toggler-wrapper hide"><div class="sidebar-toggler"><span></span></div></li>
+                <li class="nav-item <%= "active open" if ["erp/pgdq/backend/articles", "erp/pgdq/backend/categories"].include?(params[:controller]) %>">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="fa fa-rss-square"></i>
+                        <span class="title"><%= t('.articles') %></span>
+                        <% if ["erp/pgdq/backend/articles", "erp/pgdq/backend/categories"].include?(params[:controller]) %><span class="selected"></span><span class="arrow open"></span>
+                        <% else %><span class="arrow"></span><% end %>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item <%= "active open" if ["erp/pgdq/backend/articles"].include?(params[:controller]) %>">
+                            <a href="<%= erp_pgdq.backend_articles_path %>" class="nav-link ">
+                                <span class="title"><%= t('.article') %></span>
+                                <% if ["erp/pgdq/backend/articles"].include?(params[:controller]) %>
+                                <span class="selected"></span>
+                                <% end %>
+                            </a>
+                        </li>
+                        <li class="nav-item <%= "active open" if ["erp/pgdq/backend/categories"].include?(params[:controller]) %>">
+                            <a href="<%= erp_pgdq.backend_categories_path %>" class="nav-link ">
+                                <span class="title"><%= t('.article_category') %></span>
+                                <% if ["erp/pgdq/backend/categories"].include?(params[:controller]) %>
+                                <span class="selected"></span>
+                                <% end %>
+                            </a>
+                        </li>                        
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

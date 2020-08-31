@@ -1,0 +1,102 @@
+vi:
+  layouts:
+    erp:
+      backend:
+        sidebar:
+          articles: "Danh sách bài viết"
+          article: "Bài viết"
+          article_category: "Chuyên mục"
+  erp:
+    pgdq:
+      backend:
+        articles:
+          create:
+            success: "Thêm bài viết mới thành công !"
+          update:
+            success: "Cập nhật bài viết thành công !"
+          archive:
+            success: "Ẩn bài viết thành công !"
+          unarchive:
+            success: "Hiện bài viết thành công !"
+          destroy:
+            success: "Đã xóa bài viết thành công !"
+          index:
+            articles: "Danh sách bài viết"
+            create: "Thêm bài viết mới"
+            name: "Tên bài viết"
+            category: "Chuyên mục bài viết"
+          new:
+            articles: "Danh sách bài viết"
+            create: "Thêm bài viết mới"
+          edit:
+            articles: "Danh sách bài viết"
+            create: "Thêm bài viết mới"
+          list:
+            category: "Chuyên mục bài viết"
+            name: "Tên bài viết"
+            article_is_slider: "Bài viết slide"
+            edit: "Cập nhật"
+            delete: "Xóa bài viết"
+            active: "Đang hiển thị"
+            archived: "Đang bị ẩn"
+            archive: "Ẩn chuyên mục"
+            unarchive: "Hiện chuyên mục"
+            no_matching_records_found: "Danh sách hiện đang trống."
+          form:
+            name: "Tên bài viết"
+            placeholder_name: "Nhập tên bài viết..."
+            category: "Chuyên mục bài viết"
+            choose_category: "Chọn chuyên mục bài viết"
+            meta_keywords: "SEO (Meta Keywords)"
+            placeholder_meta_keywords: "Nhập meta keywords cho SEO"
+            meta_description: "SEO (Meta Description)"
+            placeholder_meta_description: "Nhập meta description cho SEO"
+            tags: "Nhãn bài viết"
+            placeholder_tags: "Nhập nhãn bài viết"
+            content: "Nội dung bài viết"
+            article_is_slider: "Bài viết slide"
+            is_slider: "Chọn hiển thị slide"
+        categories:
+          create:
+            success: "Thêm chuyên mục mới thành công!"
+          update:
+            success: "Cập nhật chuyên mục thành công!"
+          archive:
+            success: "Ẩn chuyên mục thành công!"
+          unarchive:
+            success: "Hiện chuyên mục thành công!"
+          destroy:
+            success: "Đã xóa chuyên mục thành công!"
+          index:
+            categories: "Danh sách chuyên mục"
+            create: "Thêm chuyên mục mới"
+            name: "Tên chuyên mục"
+            parent_category: "Chuyên mục cha"
+          list:
+            name: "Tên chuyên mục"
+            custom_order: "Vị trí"
+            edit: "Cập nhật"
+            delete: "Xóa chuyên mục"
+            active: "Đang hiển thị"
+            archived: "Đang bị ẩn"
+            archive: "Ẩn chuyên mục"
+            unarchive: "Hiện chuyên mục"
+            no_matching_records_found: "Danh sách hiện đang trống."
+          new:
+            categories: "Danh sách chuyên mục"
+            create: "Thêm chuyên mục mới"
+          edit:
+            categories: "Danh sách chuyên mục"
+            create: "Thêm chuyên mục mới"
+          form:
+            name: "Tên chuyên mục"
+            placeholder_name: "Nhập tên chuyên mục..."
+            parent_category: "Chuyên mục cha"
+            choose_parent_category: "Chọn chuyên mục cha"
+            meta_keywords: "SEO (Meta Keywords)"
+            placeholder_meta_keywords: "Nhập meta keywords cho SEO"
+            meta_description: "SEO (Meta Description)"
+            placeholder_meta_description: "Nhập meta description cho SEO"
+            tags: "Nhãn bài viết"
+            placeholder_tags: "Nhập nhãn bài viết"
+            content: "Mô tả chuyên mục"

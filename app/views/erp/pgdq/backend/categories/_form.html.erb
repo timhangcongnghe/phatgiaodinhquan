@@ -1,0 +1,86 @@
+<%= form_for([erp_pgdq, :backend, category], html: {multipart: true}) do |f| %>
+    <div class="row">
+        <div class="col-md-2">
+            <%= erp_form_control('image', {
+                img_src: category.image.system,
+                name: 'category[image]',
+                width: 150,
+                height: 150
+            }) %>
+        </div>
+        <div class="col-md-10">
+            <div class="portlet light bordered">
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <%= erp_form_control("text", {
+                                name: 'category[name]',
+                                value: category.get_name,                   
+                                label: t('.name'),
+                                placeholder: t('.placeholder_name'),
+                                required: true,
+                                errors: category.errors.full_messages_for(:name)
+                            }) %>
+                        </div>
+                        <div class="col-md-6">
+                            <%= erp_form_control("dataselect", {
+                                name: 'category[parent_id]',
+                                value: category.parent_id,
+                                text: category.get_parent_name,
+                                placeholder: t('.choose_parent_category'),
+                                label: t('.parent_category'),
+                                url: erp_pgdq.dataselect_backend_categories_path(format: 'json')
+                            }) %>
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <%= erp_form_control("textarea", {
+                                name: 'category[meta_keywords]',
+                                value: category.meta_keywords,                   
+                                label: t('.meta_keywords'),
+                                placeholder: t('.placeholder_meta_keywords')
+                            }) %>
+                        </div>
+                        <div class="col-md-6">
+                            <%= erp_form_control("textarea", {
+                                name: 'category[meta_description]',
+                                value: category.meta_description,                   
+                                label: t('.meta_description'),
+                                placeholder: t('.placeholder_meta_description')
+                            }) %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <%= erp_form_control("text", {
+                                name: 'category[tags]',
+                                value: category.tags,                   
+                                label: t('.tags'),
+                                placeholder: t('.placeholder_tags')
+                            }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-body">
+                    <%= erp_form_control("editor", {
+                        name: 'category[content]',
+                        value: category.content,
+                        label: t('.content')
+                    }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= erp_component('button/save', {
+        text: t('submit')
+    }) %>
+    <%= erp_component('button/cancel', {
+        text: t('cancel'),
+        href: erp_pgdq.backend_categories_path
+    }) %>
+<% end %>
