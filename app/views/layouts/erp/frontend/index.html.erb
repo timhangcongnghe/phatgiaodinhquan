@@ -4,11 +4,16 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="keywords" content="" />
-        <meta name="description" content="" />
-        <meta name="robots" content="noindex, nofollow">
+        <meta name="keywords" content="phật giáo đồng nai, phật giáo định quán, phật giáo huyện định quán, ban trị sự định quán, ban trị sự huyện định quán" />
+        <meta name="description" content="Giáo hội phật giáo Việt Nam Ban trị sự Huyện Định Quán là trang tin điện tử cập nhật liên tục tin tức Phật giáo huyện Định Quán, Phật giáo tỉnh Đồng Nai và Phật giáo Việt Nam." />
         
-        <title>Phật Giáo Định Quán - Trang Tin Điện Tử Phật Giáo Huyện Định Quán</title>
+        <% if params[:controller] == 'erp/pgdq/frontend/home' && params[:action] == 'index' %>
+        <title>Phật Giáo Định Quán | Trang Tin Điện Tử Phật Giáo Huyện Định Quán</title>
+        <% elsif params[:controller] == 'erp/pgdq/frontend/category' && params[:action] == 'index' %>
+        <title><%= @category.get_name %> | Phật Giáo Định Quán</title>
+        <% elsif params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'index' %>
+        <title><%= @article.get_name %> | Phật Giáo Định Quán</title>
+        <% end %>
         
         <meta http-equiv='x-dns-prefetch-control' content='on'>
         <link rel='dns-prefetch' href="//cdnjs.cloudflare.com/" />
@@ -17,40 +22,133 @@
         <link rel='dns-prefetch' href="//fonts.gstatic.com/" />
         <link rel='dns-prefetch' href="//s.gravatar.com/" />
         <link rel='dns-prefetch' href="//www.google-analytics.com/" />
-        
         <link rel='preload' as='image' href="/img/logo.png" type='image/png'>
         <link rel='preload' as='image' href="/img/logo@2x.png" type='image/png'>
         <link rel='preload' as='font' href="/fonts/tiefonticon/tiefonticon.woff" type='font/woff' crossorigin='anonymous' />
         <link rel='preload' as='script' href="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js">
         
-        <link rel="alternate" type="application/rss+xml" title="" href="" />
-        <link rel="alternate" type="application/rss+xml" title="" href="" />
-        <link rel="alternate" type="application/rss+xml" title="" href="" />
+        <%= yield(:metas) %>
         
-        <meta property="og:title" content="" />
-        <meta property="og:type" content="article" />
-        <meta property="og:description" content="" />
-        <meta property="og:url" content="" />
-        <meta property="og:site_name" content="Phật Giáo Định Quán" />
-        <meta property="og:image" content="" />
-        
-        <%= stylesheet_link_tag '/css/critical.css' %>
-        <%= stylesheet_link_tag '/css/inline.css' %>
-        
-        <meta name="generator" content="" />
-        <meta name="generator" content="" />
-        
-        <link rel="canonical" href="" />
-        <link rel='shortlink' href="" />
-        
-        <link rel="alternate" type="application/json+oembed" href="" />
-        <link rel="alternate" type="text/xml+oembed" href="" />
-        
+        <% if params[:controller] == 'erp/pgdq/frontend/home' && params[:action] == 'index' %>
+        <link rel="canonical" href="https://phatgiaodinhquan.org/" />
+        <% elsif params[:controller] == 'erp/pgdq/frontend/category' && params[:action] == 'index' %>
+        <link rel="canonical" href="https://phatgiaodinhquan.org<%= category_link(@category) %>" />
+        <% elsif params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'index' %>
+        <link rel="canonical" href="https://phatgiaodinhquan.org/<%= article_link(@article) %>" />
+        <% end %>
+    
         <%= favicon_link_tag '/img/favicon-150x150.png', rel: 'icon', size: '32x32' %>
         <%= favicon_link_tag '/img/favicon-200x200.png', rel: 'icon', size: '192x192' %>
         <%= favicon_link_tag '/img/favicon-200x200.png', rel: 'apple-touch-icon' %>
         <meta name="msapplication-TileImage" content="/img/favicon-300x300.png" />
+        <%= stylesheet_link_tag '/css/critical.css' %>
+        <%= stylesheet_link_tag '/css/inline.css' %>
         <noscript><style>.woocommerce-product-gallery{opacity:1!important;}</style></noscript>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Phật Giáo Định Quán",
+          "url": "https://phatgiaodinhquan.org/",
+          "logo": "https://phatgiaodinhquan.org/img/logo.png"
+        }
+        </script>
+        <% if params[:controller] == 'erp/pgdq/frontend/category' && params[:action] == 'index' %>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org/", 
+            "@type": "BreadcrumbList", 
+            "itemListElement": [{
+                "@type": "ListItem", 
+                "position": 1, 
+                "name": "Phật Giáo Định Quán | Trang Tin Điện Tử Phật Giáo Huyện Định Quán",
+                "item": "https://phatgiaodinhquan.org/"  
+            },
+            <% if @category.parent.nil? %>
+            {
+                "@type": "ListItem", 
+                "position": 2, 
+                "name": "<%= @category.get_name %>",
+                "item": "http://chualinhquang.com.vn<%= category_link(@category) %>"  
+            }]
+            <% else %>
+            {
+                "@type": "ListItem", 
+                "position": 2, 
+                "name": "<%= @category.parent.get_name %>",
+                "item": "http://chualinhquang.com.vn<%= category_link(@category.parent) %>"  
+            },
+            {
+                "@type": "ListItem", 
+                "position": 3, 
+                "name": "<%= @category.get_name %>",
+                "item": "http://chualinhquang.com.vn<%= category_link(@category) %>"  
+            }]
+            <% end %>
+        }
+        </script>
+        <% end %>
+        <% if params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'index' %>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org/", 
+            "@type": "BreadcrumbList", 
+            "itemListElement": [{
+                "@type": "ListItem", 
+                "position": 1, 
+                "name": "Phật Giáo Định Quán | Trang Tin Điện Tử Phật Giáo Huyện Định Quán",
+                "item": "https://phatgiaodinhquan.org/"  
+            },            
+            {
+                "@type": "ListItem", 
+                "position": 2, 
+                "name": "<%= @category.get_name %>",
+                "item": "http://chualinhquang.com.vn<%= category_link(@category) %>"  
+            },
+            {
+                "@type": "ListItem", 
+                "position": 3, 
+                "name": "<%= @article.get_name %>",
+                "item": "http://chualinhquang.com.vn<%= article_link(@article) %>"  
+            }]
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "phatgiaodinhquan"
+            },
+            "headline": "<%= @article.get_name %> | Phật Giáo Định Quán",
+            "image": "<%= @article.image.detail %>",
+            "datePublished": "<%= @article.created_at.strftime("%d/%m/%Y %I:%M%p") %>",
+            "dateModified": "<%= @article.updated_at.strftime("%d/%m/%Y %I:%M%p") %>",
+            "author": {
+                "@type": "Organization",
+                "name": "Phật Giáo Định Quán"
+            },
+             "publisher": {
+                "@type": "Organization",
+                "name": "Phật Giáo Định Quán",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://phatgiaodinhquan.org/img/logo.png"
+                }
+            },
+            "description": "<%= @article.meta_description %>"
+        }
+        </script>
+        <% end %>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177229462-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-177229462-1');
+        </script>
     </head>
     <body id="tie-body" class="<%= @body_class %>">
         <div class="background-overlay">
