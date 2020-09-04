@@ -1,3 +1,23 @@
+<% title @category.get_name %>
+<% content_for :metas do %>
+<meta property="og:locale" content="vi" />
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="<%= @category.get_name %> | Phật Giáo Định Quán"/>
+<% if @category.meta_description.present? %><meta property="og:description" content="<%= @category.meta_description %>"/><% else %><meta property="og:description" content="Trang tin điện tử cập nhật thông tin, hình ảnh và hoạt động của Phật giáo huyện Định Quán, tỉnh Đồng Nai."/><% end %>
+<meta property="og:url" content="https://phatgiaodinhquan.org<%= category_link(@category) %>"/>
+<meta property="og:site_name" content="Phật Giáo Định Quán" />
+<meta property="og:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
+<meta property="og:image:alt" content="<%= @category.get_name %> | Phật Giáo Định Quán"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="560"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="https://phatgiaodinhquan.org<%= category_link(@category) %>"/>
+<meta name="twitter:title" content="<%= @category.get_name %> | Phật Giáo Định Quán" />
+<% if @category.meta_description.present? %><meta name="twitter:description" content="<%= @category.meta_description %>"/><% else %><meta name="twitter:description" content="Trang tin điện tử cập nhật thông tin, hình ảnh và hoạt động của Phật giáo huyện Định Quán, tỉnh Đồng Nai."/><% end %>
+<meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
+<% end %>
+
 <%= stylesheet_link_tag '/css/style.min.css' %>
 <%= stylesheet_link_tag '/css/shortcodes.min.css' %>
 <div id="content" class="site-content container">
@@ -31,8 +51,8 @@
                                     <span class="single-author no-avatars">
                                         <span class="meta-item meta-author-wrapper">
                                             <span class="meta-author">
-                                                <a href="" class="author-name" title="">
-                                                    <span class="fa fa-user" aria-hidden="true"></span> Phật Giáo Định Quán
+                                                <a href="<%= category_link(article.category) %>" class="author-name" title="<%= article.get_category_name %>">
+                                                    <span class="fa fa-user" aria-hidden="true"></span> <%= article.get_category_name %>
                                                 </a>
                                             </span>
                                         </span>

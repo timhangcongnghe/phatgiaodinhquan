@@ -1,3 +1,23 @@
+<% title @article.get_name %>
+<% content_for :metas do %>
+<meta property="og:locale" content="vi" />
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="<%= @article.get_name %> | Phật Giáo Định Quán"/>
+<% if @article.meta_description.present? %><meta property="og:description" content="<%= @article.meta_description %>"/><% else %><meta property="og:description" content="Trang tin điện tử cập nhật thông tin, hình ảnh và hoạt động của Phật giáo huyện Định Quán, tỉnh Đồng Nai."/><% end %>
+<meta property="og:url" content="https://phatgiaodinhquan.org<%= article_link(@article) %>"/>
+<meta property="og:site_name" content="Phật Giáo Định Quán" />
+<% if @article.image.present? %><meta property="og:image" content="<%= @article.image.detail %>"/><% else %><meta property="og:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/><% end %>
+<meta property="og:image:alt" content="<%= @article.get_name %> | Phật Giáo Định Quán"/>
+<meta property="og:image:width" content="780"/>
+<meta property="og:image:height" content="470"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="https://phatgiaodinhquan.org<%= article_link(@article) %>"/>
+<meta name="twitter:title" content="<%= @article.get_name %> | Phật Giáo Định Quán" />
+<% if @article.meta_description.present? %><meta name="twitter:description" content="<%= @article.meta_description %>"/><% else %><meta name="twitter:description" content="Trang tin điện tử cập nhật thông tin, hình ảnh và hoạt động của Phật giáo huyện Định Quán, tỉnh Đồng Nai."/><% end %>
+<% if @article.image.present? %><meta name="twitter:image" content="<%= @article.image.detail %>"/><% else %><meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/><% end %>
+<% end %>
+
 <%= stylesheet_link_tag '/css/style.min.css' %>
 <%= stylesheet_link_tag '/css/single.min.css' %>
 <%= stylesheet_link_tag '/css/shortcodes.min.css' %>
@@ -12,8 +32,7 @@
                <a href=""><span class="fa fa-home" aria-hidden="true"></span> Trang Chủ</a>
                <em class="delimiter">/</em><a href="<%= category_link(@category) %>"><%= @category.get_name %></a>
                <em class="delimiter">/</em><span class="current"><%= truncate(@article.get_name, length: 70) %></span>
-            </nav>
-            <script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"BreadcrumbList","@id":"#Breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"name":"Home","@id":"https:\/\/jannah.tielabs.com\/demo\/"}},{"@type":"ListItem","position":2,"item":{"name":"Sports","@id":"https:\/\/jannah.tielabs.com\/demo\/category\/sports\/"}},{"@type":"ListItem","position":3,"item":{"name":"Football","@id":"https:\/\/jannah.tielabs.com\/demo\/category\/sports\/football\/"}}]}</script> 
+            </nav>            
             <div class="entry-header">
                <span class="post-cat-wrap">
                   <% @category.parent.children.all.each do |child| %>

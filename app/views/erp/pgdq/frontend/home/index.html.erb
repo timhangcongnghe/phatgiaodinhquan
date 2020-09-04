@@ -1,3 +1,21 @@
+<% content_for :metas do %>
+<meta property="og:locale" content="vi" />
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Phật Giáo Định Quán | Trang Tin Điện Tử Phật Giáo Huyện Định Quán"/>
+<meta property="og:description" content="Trang tin điện tử cập nhật thông tin, hình ảnh và hoạt động của Phật giáo huyện Định Quán, tỉnh Đồng Nai."/>
+<meta property="og:url" content="https://phatgiaodinhquan.org/"/>
+<meta property="og:site_name" content="Phật Giáo Định Quán" />
+<meta property="og:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
+<meta property="og:image:alt" content="Phật Giáo Định Quán | Trang Tin Điện Tử Phật Giáo Huyện Định Quán"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="560"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="https://phatgiaodinhquan.org/"/>
+<meta name="twitter:title" content="Phật Giáo Định Quán | Trang Tin Điện Tử Phật Giáo Huyện Định Quán" />
+<meta name="twitter:description" content="Trang tin điện tử cập nhật thông tin, hình ảnh và hoạt động của Phật giáo huyện Định Quán, tỉnh Đồng Nai."/>
+<meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
+<% end %>
 <%= stylesheet_link_tag '/css/style.min.css' %>
 <% if @slide_articles.count > 0 %>
 <div id="tiepost-2487-section-1114" class="section-wrapper container-full without-background">
@@ -19,15 +37,13 @@
                                                 <div class="slide-bg"></div>
                                                 <a href="<%= article_link(article) %>" class="all-over-thumb-link" aria-label="<%= article.get_name %>" title="<%= article.get_name %>"></a> 
                                                 <div class="thumb-overlay">
-                                                    <span class="post-cat-wrap">
-                                                        <a class="post-cat" href="">Phật Giáo Định Quán</a>
-                                                    </span>
+                                                    <span class="post-cat-wrap"><%= link_to article.get_category_name, category_link(article.category), title: article.get_category_name, class: 'post-cat' %></span>
                                                     <div class="thumb-content">
                                                         <div class="thumb-meta">
-                                                            <span class="trending-post fa fa-bolt " aria-hidden="true">                                                                
-                                                            </span><span class="date meta-item fa-before"><%= article.created_at.strftime("%A, %d/%m/%Y") %></span>
+                                                            <span class="trending-post fa fa-bolt " aria-hidden="true"></span>
+                                                            <span class="date meta-item fa-before"><%= article.created_at.strftime("%A, %d/%m/%Y") %></span>
                                                         </div>
-                                                        <h2 class="thumb-title text-justify"><%= link_to truncate(article.get_name, length: 70), article_link(article), title: article.get_name %></h2>
+                                                        <h2 class="thumb-title"><%= link_to truncate(article.get_name, length: 70), article_link(article), title: article.get_name %></h2>
                                                         <div class="thumb-desc text-justify"><%= truncate(article.meta_description, length: 200) %></div>
                                                     </div>
                                                 </div>
