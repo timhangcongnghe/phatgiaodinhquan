@@ -8,6 +8,10 @@ module Erp
       def article_link(article)
         erp_pgdq.article_path(article_id: article.id, article_name: article.alias)
       end
+      
+      def title(page_title)
+        content_for :title, page_title.to_s
+      end
     end
   end
 end

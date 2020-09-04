@@ -1,11 +1,12 @@
+<% title @category.get_name %>
 <% content_for :metas do %>
 <meta property="og:locale" content="vi" />
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="<%= @category.get_name %> | Phật Giáo Định Quán"/>
-<% if @category.meta_description.present? %><meta property="og:description" content="<%= @category.meta_description %>"/><% else %><meta property="og:description" content="Giáo hội phật giáo Việt Nam Ban trị sự Huyện Định Quán là trang tin điện tử cập nhật liên tục tin tức Phật giáo huyện Định Quán, Phật giáo tỉnh Đồng Nai và Phật giáo Việt Nam."/><% end %>
+<% if @category.meta_description.present? %><meta property="og:description" content="<%= @category.meta_description %>"/><% else %><meta property="og:description" content="Trang tin điện tử cập nhật thông tin, hình ảnh và hoạt động của Phật giáo huyện Định Quán, tỉnh Đồng Nai."/><% end %>
 <meta property="og:url" content="https://phatgiaodinhquan.org<%= category_link(@category) %>"/>
 <meta property="og:site_name" content="Phật Giáo Định Quán" />
-<meta property="og:image" content="https://phatgiaodinhquan.org/img/events/phat-giao-dinh-quan-share.jpg"/>
+<meta property="og:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
 <meta property="og:image:alt" content="<%= @category.get_name %> | Phật Giáo Định Quán"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="560"/>
@@ -13,8 +14,8 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:site" content="https://phatgiaodinhquan.org<%= category_link(@category) %>"/>
 <meta name="twitter:title" content="<%= @category.get_name %> | Phật Giáo Định Quán" />
-<% if @category.meta_description.present? %><meta name="twitter:description" content="<%= @category.meta_description %>"/><% else %><meta name="twitter:description" content="Giáo hội phật giáo Việt Nam Ban trị sự Huyện Định Quán là trang tin điện tử cập nhật liên tục tin tức Phật giáo huyện Định Quán, Phật giáo tỉnh Đồng Nai và Phật giáo Việt Nam."/><% end %>
-<meta name="twitter:image" content="https://phatgiaodinhquan.org/img/events/phat-giao-dinh-quan-share.jpg"/>
+<% if @category.meta_description.present? %><meta name="twitter:description" content="<%= @category.meta_description %>"/><% else %><meta name="twitter:description" content="Trang tin điện tử cập nhật thông tin, hình ảnh và hoạt động của Phật giáo huyện Định Quán, tỉnh Đồng Nai."/><% end %>
+<meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
 <% end %>
 
 <%= stylesheet_link_tag '/css/style.min.css' %>

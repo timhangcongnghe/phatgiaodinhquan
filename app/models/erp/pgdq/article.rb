@@ -17,6 +17,10 @@ module Erp::Pgdq
       self.get_active.order('created_at DESC')
     end
     
+    def self.get_slider_articles
+      self.get_articles.where(is_slider: true)
+    end
+    
     def self.filter(query, params)
       params = params.to_unsafe_hash
       and_conds = []

@@ -4,17 +4,14 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow">
         <meta name="keywords" content="phật giáo đồng nai, phật giáo định quán, phật giáo huyện định quán, ban trị sự định quán, ban trị sự huyện định quán" />
-        <meta name="description" content="Giáo hội phật giáo Việt Nam Ban trị sự Huyện Định Quán là trang tin điện tử cập nhật liên tục tin tức Phật giáo huyện Định Quán, Phật giáo tỉnh Đồng Nai và Phật giáo Việt Nam." />
-        
+        <meta name="description" content="Trang tin điện tử cập nhật thông tin, hình ảnh và hoạt động của Phật giáo huyện Định Quán, tỉnh Đồng Nai." />        
         <% if params[:controller] == 'erp/pgdq/frontend/home' && params[:action] == 'index' %>
         <title>Phật Giáo Định Quán | Trang Tin Điện Tử Phật Giáo Huyện Định Quán</title>
-        <% elsif params[:controller] == 'erp/pgdq/frontend/category' && params[:action] == 'index' %>
-        <title><%= @category.get_name %> | Phật Giáo Định Quán</title>
-        <% elsif params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'index' %>
-        <title><%= @article.get_name %> | Phật Giáo Định Quán</title>
-        <% end %>
-        
+        <% else %>
+        <title><% if content_for?(:title) %><%= yield(:title) %> | Phật Giáo Định Quán<% else %>Phật Giáo Định Quán | Trang Tin Điện Tử Phật Giáo Huyện Định Quán<% end %></title>
+        <% end %>        
         <meta http-equiv='x-dns-prefetch-control' content='on'>
         <link rel='dns-prefetch' href="//cdnjs.cloudflare.com/" />
         <link rel='dns-prefetch' href="//ajax.googleapis.com/" />
@@ -26,17 +23,10 @@
         <link rel='preload' as='image' href="/img/logo@2x.png" type='image/png'>
         <link rel='preload' as='font' href="/fonts/tiefonticon/tiefonticon.woff" type='font/woff' crossorigin='anonymous' />
         <link rel='preload' as='script' href="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js">
-        
         <%= yield(:metas) %>
-        
-        <% if params[:controller] == 'erp/pgdq/frontend/home' && params[:action] == 'index' %>
-        <link rel="canonical" href="https://phatgiaodinhquan.org/" />
-        <% elsif params[:controller] == 'erp/pgdq/frontend/category' && params[:action] == 'index' %>
-        <link rel="canonical" href="https://phatgiaodinhquan.org<%= category_link(@category) %>" />
-        <% elsif params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'index' %>
-        <link rel="canonical" href="https://phatgiaodinhquan.org/<%= article_link(@article) %>" />
-        <% end %>
-    
+        <% if params[:controller] == 'erp/pgdq/frontend/home' && params[:action] == 'index' %><link rel="canonical" href="https://phatgiaodinhquan.org/" />
+        <% elsif params[:controller] == 'erp/pgdq/frontend/category' && params[:action] == 'index' %><link rel="canonical" href="https://phatgiaodinhquan.org<%= category_link(@category) %>" />
+        <% elsif params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'index' %><link rel="canonical" href="https://phatgiaodinhquan.org/<%= article_link(@article) %>" /><% end %>
         <%= favicon_link_tag '/img/favicon-150x150.png', rel: 'icon', size: '32x32' %>
         <%= favicon_link_tag '/img/favicon-200x200.png', rel: 'icon', size: '192x192' %>
         <%= favicon_link_tag '/img/favicon-200x200.png', rel: 'apple-touch-icon' %>
@@ -141,7 +131,6 @@
         }
         </script>
         <% end %>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177229462-1"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
@@ -157,7 +146,10 @@
                     <%= render 'erp/pgdq/frontend/modules/header' %>
                     <%= yield %>
                     <%= render 'erp/pgdq/frontend/modules/footer' %>
-                    <a id="go-to-top" class="go-to-top-button" href="#go-to-tie-body"><span class="fa fa-angle-up"></span><span class="screen-reader-text">Back to top button</span></a>
+                    <a id="go-to-top" class="go-to-top-button" href="#go-to-tie-body">
+                        <span class="fa fa-angle-up"></span>
+                        <span class="screen-reader-text">Lên đầu trang</span>
+                    </a>
                 </div>
                 <aside class="side-aside normal-side tie-aside-effect dark-skin dark-widgetized-area is-fullwidth" aria-label="Secondary Sidebar">
                     <div data-height="100%" class="side-aside-wrapper has-custom-scroll">
@@ -167,20 +159,45 @@
                             <div class="mobile-social-search">
                                 <div id="mobile-social-icons" class="social-icons-widget solid-social-icons">
                                     <ul>
-                                        <li class="social-icons-item"><a class="social-link facebook-social-icon" rel="external noopener nofollow" target="_blank" href="//www.facebook.com/TieLabs/"><span class="fa fa-facebook"></span><span class="screen-reader-text">Facebook</span></a></li>
-                                        <li class="social-icons-item"><a class="social-link twitter-social-icon" rel="external noopener nofollow" target="_blank" href="//twitter.com/tielabs"><span class="fa fa-twitter"></span><span class="screen-reader-text">Twitter</span></a></li>
-                                        <li class="social-icons-item"><a class="social-link dribbble-social-icon" rel="external noopener nofollow" target="_blank" href="//dribbble.com/mo3aser"><span class="fa fa-dribbble"></span><span class="screen-reader-text">Dribbble</span></a></li>
-                                        <li class="social-icons-item"><a class="social-link soundcloud-social-icon" rel="external noopener nofollow" target="_blank" href="//soundcloud.com/"><span class="fa fa-soundcloud"></span><span class="screen-reader-text">SoundCloud</span></a></li>
-                                        <li class="social-icons-item"><a class="social-link instagram-social-icon" rel="external noopener nofollow" target="_blank" href="//www.instagram.com/tielabs/"><span class="fa fa-instagram"></span><span class="screen-reader-text">Instagram</span></a></li>
+                                        <li class="social-icons-item">
+                                            <a class="social-link facebook-social-icon" title="Facebook" rel="external noopener nofollow" target="_blank" href="">
+                                                <span class="fa fa-facebook"></span>
+                                                <span class="screen-reader-text">Facebook</span>
+                                            </a>
+                                        </li>
+                                        <li class="social-icons-item">
+                                            <a class="social-link twitter-social-icon" title="Twitter" rel="external noopener nofollow" target="_blank" href="">
+                                                <span class="fa fa-twitter"></span>
+                                                <span class="screen-reader-text">Twitter</span>
+                                            </a>
+                                        </li>
+                                        <li class="social-icons-item">
+                                            <a class="social-link dribbble-social-icon" title="Dribbble" rel="external noopener nofollow" target="_blank" href="">
+                                                <span class="fa fa-dribbble"></span>
+                                                <span class="screen-reader-text">Dribbble</span>
+                                            </a>
+                                        </li>
+                                        <li class="social-icons-item">
+                                            <a class="social-link soundcloud-social-icon" title="SoundCloud" rel="external noopener nofollow" target="_blank" href="">
+                                                <span class="fa fa-soundcloud"></span>
+                                                <span class="screen-reader-text">SoundCloud</span>
+                                            </a>
+                                        </li>
+                                        <li class="social-icons-item">
+                                            <a class="social-link instagram-social-icon" title="Instagram" rel="external noopener nofollow" target="_blank" href="">
+                                                <span class="fa fa-instagram"></span>
+                                                <span class="screen-reader-text">Instagram</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div id="mobile-search">
-                                    <form role="search" method="get" class="search-form" action="../">
+                                    <form class="search-form">
                                         <label>
-                                            <span class="screen-reader-text">Search for:</span>
-                                            <input type="search" class="search-field" placeholder="Search &hellip;" name="s" />
+                                            <span class="screen-reader-text">Tìm bài viết:</span>
+                                            <input type="search" class="search-field" placeholder="Nhập từ khóa..." name="" />
                                         </label>
-                                        <input type="submit" class="search-submit" value="Search" />
+                                        <input type="submit" class="search-submit" value="Tìm kiếm" />
                                     </form>
                                 </div>
                             </div>
@@ -190,16 +207,12 @@
             </div>
         </div>        
         <div id="is-scroller-outer"><div id="is-scroller"></div></div>
-        
         <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
         <noscript><%= stylesheet_link_tag '/css/style.css' %></noscript>
-        
         <link rel='preload' href="/css/helpers.min.css" as='style' onload='this.onload=null;this.rel="stylesheet"' />
         <noscript><%= stylesheet_link_tag '/css/helpers.min.css' %></noscript>
-        
         <link rel='preload' href="/css/dark-skin.css" as='style' onload='this.onload=null;this.rel="stylesheet"' />
         <noscript><%= stylesheet_link_tag '/css/dark-skin.css' %></noscript>
-        
         <%= javascript_include_tag '/js/js-01.js' %>
         <%= javascript_include_tag '/js/jquery-3.5.1.min.js' %>
         <%= javascript_include_tag '/js/scripts.js' %>

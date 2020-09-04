@@ -1,11 +1,12 @@
+<% title @article.get_name %>
 <% content_for :metas do %>
 <meta property="og:locale" content="vi" />
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="<%= @article.get_name %> | Phật Giáo Định Quán"/>
-<% if @article.meta_description.present? %><meta property="og:description" content="<%= @article.meta_description %>"/><% else %><meta property="og:description" content="Giáo hội phật giáo Việt Nam Ban trị sự Huyện Định Quán là trang tin điện tử cập nhật liên tục tin tức Phật giáo huyện Định Quán, Phật giáo tỉnh Đồng Nai và Phật giáo Việt Nam."/><% end %>
+<% if @article.meta_description.present? %><meta property="og:description" content="<%= @article.meta_description %>"/><% else %><meta property="og:description" content="Trang tin điện tử cập nhật thông tin, hình ảnh và hoạt động của Phật giáo huyện Định Quán, tỉnh Đồng Nai."/><% end %>
 <meta property="og:url" content="https://phatgiaodinhquan.org<%= article_link(@article) %>"/>
 <meta property="og:site_name" content="Phật Giáo Định Quán" />
-<% if @article.image.present? %><meta property="og:image" content="<%= @article.image.detail %>"/><% else %><meta property="og:image" content="https://phatgiaodinhquan.org/img/events/phat-giao-dinh-quan-share.jpg"/><% end %>
+<% if @article.image.present? %><meta property="og:image" content="<%= @article.image.detail %>"/><% else %><meta property="og:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/><% end %>
 <meta property="og:image:alt" content="<%= @article.get_name %> | Phật Giáo Định Quán"/>
 <meta property="og:image:width" content="780"/>
 <meta property="og:image:height" content="470"/>
@@ -13,8 +14,8 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:site" content="https://phatgiaodinhquan.org<%= article_link(@article) %>"/>
 <meta name="twitter:title" content="<%= @article.get_name %> | Phật Giáo Định Quán" />
-<% if @article.meta_description.present? %><meta name="twitter:description" content="<%= @article.meta_description %>"/><% else %><meta name="twitter:description" content="Giáo hội phật giáo Việt Nam Ban trị sự Huyện Định Quán là trang tin điện tử cập nhật liên tục tin tức Phật giáo huyện Định Quán, Phật giáo tỉnh Đồng Nai và Phật giáo Việt Nam."/><% end %>
-<% if @article.image.present? %><meta name="twitter:image" content="<%= @article.image.detail %>"/><% else %><meta name="twitter:image" content="https://phatgiaodinhquan.org/img/events/phat-giao-dinh-quan-share.jpg"/><% end %>
+<% if @article.meta_description.present? %><meta name="twitter:description" content="<%= @article.meta_description %>"/><% else %><meta name="twitter:description" content="Trang tin điện tử cập nhật thông tin, hình ảnh và hoạt động của Phật giáo huyện Định Quán, tỉnh Đồng Nai."/><% end %>
+<% if @article.image.present? %><meta name="twitter:image" content="<%= @article.image.detail %>"/><% else %><meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/><% end %>
 <% end %>
 
 <%= stylesheet_link_tag '/css/style.min.css' %>
