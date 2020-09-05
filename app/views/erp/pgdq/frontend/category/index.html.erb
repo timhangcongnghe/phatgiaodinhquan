@@ -3,18 +3,18 @@
 <meta property="og:locale" content="vi" />
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="<%= @category.get_name %> | Phật Giáo Định Quán"/>
-<% if @category.meta_description.present? %><meta property="og:description" content="<%= @category.meta_description %>"/><% else %><meta property="og:description" content="Trang tin điện tử cập nhật thông tin, hình ảnh và hoạt động của Phật giáo huyện Định Quán, tỉnh Đồng Nai."/><% end %>
+<% if @category.meta_description.present? %><meta property="og:description" content="<%= @category.meta_description %>"/><% else %><meta property="og:description" content="Trang tin Phật Sự Online cập nhật những thông tin, hình ảnh, hoạt động Ban ngành, hoạt động Phật Sự tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
 <meta property="og:url" content="https://phatgiaodinhquan.org<%= category_link(@category) %>"/>
 <meta property="og:site_name" content="Phật Giáo Định Quán" />
 <meta property="og:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
-<meta property="og:image:alt" content="<%= @category.get_name %> | Phật Giáo Định Quán"/>
+<meta property="og:image:alt" content="<%= @category.get_name %>"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="560"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:site" content="https://phatgiaodinhquan.org<%= category_link(@category) %>"/>
 <meta name="twitter:title" content="<%= @category.get_name %> | Phật Giáo Định Quán" />
-<% if @category.meta_description.present? %><meta name="twitter:description" content="<%= @category.meta_description %>"/><% else %><meta name="twitter:description" content="Trang tin điện tử cập nhật thông tin, hình ảnh và hoạt động của Phật giáo huyện Định Quán, tỉnh Đồng Nai."/><% end %>
+<% if @category.meta_description.present? %><meta name="twitter:description" content="<%= @category.meta_description %>"/><% else %><meta name="twitter:description" content="Trang tin Phật Sự Online cập nhật những thông tin, hình ảnh, hoạt động Ban ngành, hoạt động Phật Sự tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
 <meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
 <% end %>
 
@@ -25,11 +25,11 @@
     <div class="main-content tie-col-md-8 tie-col-xs-12" role="main">
         <header class="entry-header-outer container-wrapper">
             <nav id="breadcrumb">
-                <a href="<%= erp_pgdq.root_path %>"><span class="fa fa-home" aria-hidden="true"></span> Trang Chủ</a>
+                <a href="<%= erp_pgdq.root_path %>" title="Quay về trang chủ"><span class="fa fa-home" aria-hidden="true"></span> Trang Chủ</a>
                 <% if !@category.parent.nil? %>
-                <em class="delimiter">/</em><span class="current"><%= @category.parent.get_name %></span>
+                <em class="delimiter"><span class="fa fa-angle-right"></span></em><span class="current"><%= @category.parent.get_name %></span>
                 <% end %>
-                <em class="delimiter">/</em><span class="current"><%= @category.get_name %></span>
+                <em class="delimiter"><span class="fa fa-angle-right"></span></em><span class="current"><%= @category.get_name %></span>
             </nav>
             <script type="application/ld+json"></script>
             <h1 class="page-title"><%= @category.get_name %></h1>
@@ -70,18 +70,9 @@
                 </div>
             </div>
         </div>
-        <!--<div class="pages-nav">
-            <div class="pages-numbers pages-standard">
-                <span class="first-page first-last-pages"></span>
-                <span class="last-page first-last-pages">
-                    <a href=""><span class="fa" aria-hidden="true"></span>Trang 2</a>
-                </span>
-            </div>
-        </div>-->
+        <!-- @start_todo --><!-- @end_todo -->
     </div>
     <%= stylesheet_link_tag '/css/widgets.min.css' %>
-    <aside class="sidebar tie-col-md-4 tie-col-xs-12 normal-side is-sticky" aria-label="">
-        <%= render 'erp/pgdq/frontend/modules/sidebar' %>
-    </aside>
+    <aside class="sidebar tie-col-md-4 tie-col-xs-12 normal-side is-sticky" aria-label=""><%= render 'erp/pgdq/frontend/modules/sidebar' %></aside>
     </div>
 </div>
