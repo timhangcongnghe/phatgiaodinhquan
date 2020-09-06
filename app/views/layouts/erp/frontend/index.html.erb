@@ -113,8 +113,8 @@
         },
         "headline": "<%= @article.get_name %> | Phật Giáo Định Quán",
         "image": "<%= @article.image.detail %>",
-        <% if @article.date_public.present? %>"datePublished": "<%= @article.date_public.strftime("%d/%m/%Y %I:%M%p") %>",<% end %>
-        "dateModified": "<%= @article.updated_at.strftime("%d/%m/%Y %I:%M%p") %>",
+        <% if @article.date_public.present? %>"datePublished": "<%= @article.date_public.strftime("%d/%m/%Y") %>",<% end %>
+        "dateModified": "<%= @article.updated_at.strftime("%d/%m/%Y") %>",
         "author": {
             "@type": "Organization",
             "name": "Phật Giáo Định Quán"
