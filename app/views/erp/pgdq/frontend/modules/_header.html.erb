@@ -58,6 +58,9 @@
                 <div class="tie-col-md-4 logo-container">
                     <a href="#" id="mobile-menu-icon"><span class="nav-icon"></span><span class="screen-reader-text">Chuyên Mục</span></a> 
                     <div id="logo" class="image-logo">
+                        <% if params[:controller] == 'erp/pgdq/frontend/home' && params[:action] == 'index' %>
+                        <h1 class="h1-off">Giáo Hội Phật Giáo Việt Nam Huyện Định Quán, Tỉnh Đồng Nai</h1>
+                        <% end %>
                         <a title="Phật Giáo Định Quán" href="<%= erp_pgdq.root_path %>">
                             <img src="/img/logo.png" alt="Phật Giáo Định Quán" title="Phật Giáo Định Quán" class="logo_normal" width="300" height="49" style="max-height:49px; width: auto;">
                             <img src="/img/logo@2x.png" alt="Phật Giáo Định Quán" title="Phật Giáo Định Quán" class="logo_2x" width="300" height="49" style="max-height:49px; width: auto;">                             

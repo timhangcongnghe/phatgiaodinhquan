@@ -6,6 +6,24 @@
                     <div class="tie-col-md-3 normal-side">
                         <div class="container-wrapper widget posts-list">
                             <div class="widget-title the-global-title">
+                                <div class="the-subtitle">Tin Tức Mới<span class="widget-title-icon fa"></span></div>
+                            </div>
+                            <div class="timeline-widget">
+                                <ul class="posts-list-items">
+                                    <% Erp::Pgdq::Category.find(1).get_articles_for_categories(params).limit(3).each do |article| %>
+                                    <li><a href="<%= article_link(article) %>" title="<%= article.get_name %>">
+                                        <span class="date meta-item fa-before"><%= article.created_at.strftime("%A, %d/%m/%Y") %></span> 
+                                        <h3><%= truncate(article.get_name, length: 70) %></h3>
+                                    </a></li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="tie-col-md-3 normal-side">
+                        <div class="container-wrapper widget posts-list">
+                            <div class="widget-title the-global-title">
                                 <div class="the-subtitle">Hoạt Động Phật Sự Mới<span class="widget-title-icon fa"></span></div>
                             </div>
                             <div class="timeline-widget">
@@ -29,24 +47,6 @@
                             <div class="timeline-widget">
                                 <ul class="posts-list-items">
                                     <% Erp::Pgdq::Category.find(3).get_articles_for_categories(params).limit(3).each do |article| %>
-                                    <li><a href="<%= article_link(article) %>" title="<%= article.get_name %>">
-                                        <span class="date meta-item fa-before"><%= article.created_at.strftime("%A, %d/%m/%Y") %></span> 
-                                        <h3><%= truncate(article.get_name, length: 70) %></h3>
-                                    </a></li>
-                                    <% end %>
-                                </ul>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="tie-col-md-3 normal-side">
-                        <div class="container-wrapper widget posts-list">
-                            <div class="widget-title the-global-title">
-                                <div class="the-subtitle">Văn Bản Mới<span class="widget-title-icon fa"></span></div>
-                            </div>
-                            <div class="timeline-widget">
-                                <ul class="posts-list-items">
-                                    <% Erp::Pgdq::Category.find(4).get_articles_for_categories(params).limit(3).each do |article| %>
                                     <li><a href="<%= article_link(article) %>" title="<%= article.get_name %>">
                                         <span class="date meta-item fa-before"><%= article.created_at.strftime("%A, %d/%m/%Y") %></span> 
                                         <h3><%= truncate(article.get_name, length: 70) %></h3>
