@@ -52,12 +52,14 @@
                                         <span class="meta-item meta-author-wrapper">
                                             <span class="meta-author">
                                                 <a href="<%= category_link(article.category) %>" class="author-name" title="<%= article.get_category_name %>">
-                                                    <span class="fa fa-user" aria-hidden="true"></span> <%= article.get_category_name %>
+                                                    <span class="fa fa-folder-open" aria-hidden="true"></span> <%= article.get_category_name %>
                                                 </a>
                                             </span>
                                         </span>
                                     </span>
-                                    <span class="date meta-item fa-before"><%= article.created_at.strftime("%A, %d/%m/%Y") %></span>
+                                    <% if article.date_public.present? %>
+                                    <span class="date meta-item fa-before"><%= article.date_public.strftime("%A, %d/%m/%Y") %></span>
+                                    <% end %>
                                 </div>
                                 <h2 class="post-title text-justify"><%= link_to truncate(article.get_name, length: 70), article_link(article), title: article.get_name %></h2>
                                 <p class="post-excerpt text-justify"><%= truncate(article.meta_description, length: 200) %></p>

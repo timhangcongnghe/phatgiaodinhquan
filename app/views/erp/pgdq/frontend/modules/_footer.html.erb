@@ -12,7 +12,9 @@
                                 <ul class="posts-list-items">
                                     <% Erp::Pgdq::Category.find(1).get_articles_for_categories(params).limit(3).each do |article| %>
                                     <li><a href="<%= article_link(article) %>" title="<%= article.get_name %>">
-                                        <span class="date meta-item fa-before"><%= article.created_at.strftime("%A, %d/%m/%Y") %></span> 
+                                        <% if article.date_public.present? %>
+                                        <span class="date meta-item fa-before"><%= article.date_public.strftime("%A, %d/%m/%Y") %></span>
+                                        <% end %>
                                         <h3><%= truncate(article.get_name, length: 70) %></h3>
                                     </a></li>
                                     <% end %>
@@ -30,7 +32,9 @@
                                 <ul class="posts-list-items">
                                     <% Erp::Pgdq::Category.find(2).get_articles_for_categories(params).limit(3).each do |article| %>
                                     <li><a href="<%= article_link(article) %>" title="<%= article.get_name %>">
-                                        <span class="date meta-item fa-before"><%= article.created_at.strftime("%A, %d/%m/%Y") %></span> 
+                                        <% if article.date_public.present? %>
+                                        <span class="date meta-item fa-before"><%= article.date_public.strftime("%A, %d/%m/%Y") %></span>
+                                        <% end %>
                                         <h3><%= truncate(article.get_name, length: 70) %></h3>
                                     </a></li>
                                     <% end %>
@@ -48,7 +52,9 @@
                                 <ul class="posts-list-items">
                                     <% Erp::Pgdq::Category.find(3).get_articles_for_categories(params).limit(3).each do |article| %>
                                     <li><a href="<%= article_link(article) %>" title="<%= article.get_name %>">
-                                        <span class="date meta-item fa-before"><%= article.created_at.strftime("%A, %d/%m/%Y") %></span> 
+                                        <% if article.date_public.present? %>
+                                        <span class="date meta-item fa-before"><%= article.date_public.strftime("%A, %d/%m/%Y") %></span>
+                                        <% end %>
                                         <h3><%= truncate(article.get_name, length: 70) %></h3>
                                     </a></li>
                                     <% end %>

@@ -31,17 +31,20 @@
                                 text: article.get_category_name,
                                 placeholder: t('.choose_category'),
                                 label: t('.category'),
-                                url: erp_pgdq.dataselect_backend_categories_path(format: 'json')
+                                url: erp_pgdq.dataselect_backend_categories_path(format: 'json'),
+                                errors: article.errors.full_messages_for(:category_id)
                             }) %>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <%= erp_form_control("textarea", {
-                                name: 'article[meta_keywords]',
-                                value: article.meta_keywords,
-                                label: t('.meta_keywords'),
-                                placeholder: t('.placeholder_meta_keywords')
+                            <%= erp_form_control('date', {
+                                label: t('.date_public'),
+                                name: 'article[date_public]',
+                                value: article.date_public,
+                                placeholder: t('.choose_date_public'),
+                                required: true,
+                                errors: article.errors.full_messages_for(:date_public)
                             }) %>
                         </div>
                         <div class="col-md-6">

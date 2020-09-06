@@ -128,7 +128,7 @@ module Erp
           end
           
           def article_params
-            params.fetch(:article, {}).permit(:is_slider, :image, :name, :category_id, :meta_keywords, :meta_description, :tags, :content)
+            params.fetch(:article, {}).permit(:is_slider, :image, :name, :category_id, :date_public, :meta_description, :tags, :content)
           end
       end
     end

@@ -34,12 +34,11 @@
                <em class="delimiter"><span class="fa fa-angle-right"></span></em><span class="current"><%= truncate(@article.get_name, length: 70) %></span>
             </nav>            
             <div class="entry-header">
-               <span class="post-cat-wrap">
-                  <% @category.parent.children.all.each do |child| %>
-                  <%= link_to child.get_name, category_link(child), title: child.get_name, class: 'post-cat' %>
-                  <% end %>
-               </span> 
-               <h1 class="post-title entry-title text-justify"><%= @article.get_name %></h1>               
+               <h1 class="post-title entry-title"><%= @article.get_name %></h1>
+               <div id="single-post-meta" class="post-meta clearfix">
+                  <% if @article.date_public.present? %><span class="date meta-item tie-icon"><strong>Ngày đăng tin: </strong><%= @article.date_public.strftime("%A, %d/%m/%Y") %></span><% end %>
+                  <span class="meta-item last-updated"><strong>Cập nhật gần đây: </strong><%= @article.updated_at.strftime("%A, %d/%m/%Y") %></span>
+               </div>
             </div>
          </header>
          <div class="featured-area">

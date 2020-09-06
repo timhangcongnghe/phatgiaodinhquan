@@ -41,7 +41,9 @@
                                                     <div class="thumb-content">
                                                         <div class="thumb-meta">
                                                             <span class="trending-post fa fa-bolt " aria-hidden="true"></span>
-                                                            <span class="date meta-item fa-before"><%= article.created_at.strftime("%A, %d/%m/%Y") %></span>
+                                                            <% if article.date_public.present? %>
+                                                            <span class="date meta-item fa-before"><%= article.date_public.strftime("%A, %d/%m/%Y") %></span>
+                                                            <% end %>
                                                         </div>
                                                         <h2 class="thumb-title"><%= link_to truncate(article.get_name, length: 70), article_link(article), title: article.get_name %></h2>
                                                         <div class="thumb-desc text-justify"><%= truncate(article.meta_description, length: 200) %></div>

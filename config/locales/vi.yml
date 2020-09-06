@@ -6,6 +6,23 @@ vi:
           articles: "Danh sách bài viết"
           article: "Bài viết"
           article_category: "Chuyên mục"
+  activerecord:
+    errors:
+      models:
+        erp/pgdq/article:
+          attributes:
+            name:
+              blank: "không được để trống."
+              taken: "không được trùng lặp."
+            category_id:
+              blank: "không được để trống."
+            date_public:
+              blank: "không được để trống."
+    attributes:
+      erp/pgdq/article:
+        name: "Tiêu đề bài viết"
+        category_id: "Chuyên mục bài viết"
+        date_public: "Ngày đăng tin"
   erp:
     pgdq:
       backend:
@@ -23,7 +40,7 @@ vi:
           index:
             articles: "Danh sách bài viết"
             create: "Thêm bài viết mới"
-            name: "Tên bài viết"
+            name: "Tiêu đề bài viết"
             category: "Chuyên mục bài viết"
           new:
             articles: "Danh sách bài viết"
@@ -33,7 +50,7 @@ vi:
             create: "Thêm bài viết mới"
           list:
             category: "Chuyên mục bài viết"
-            name: "Tên bài viết"
+            name: "Tiêu đề bài viết"
             article_is_slider: "Bài viết slide"
             edit: "Cập nhật"
             delete: "Xóa bài viết"
@@ -47,6 +64,8 @@ vi:
             placeholder_name: "Nhập tên bài viết..."
             category: "Chuyên mục bài viết"
             choose_category: "Chọn chuyên mục bài viết"
+            date_public: "Ngày đăng tin"
+            choose_date_public: "Chọn ngày đăng tin"
             meta_keywords: "SEO (Meta Keywords)"
             placeholder_meta_keywords: "Nhập meta keywords cho SEO"
             meta_description: "SEO (Meta Description)"

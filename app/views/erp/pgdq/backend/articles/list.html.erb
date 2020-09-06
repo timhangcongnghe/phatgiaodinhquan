@@ -59,7 +59,7 @@
                     </td>
                 <% end %>
                 <% if get_columns(params).include?("created_at") %>
-                    <td class="text-center"><%= article.created_at.strftime("%d-%m-%Y") %></td>
+                    <td class="text-center"><% if article.date_public.present? %><%= article.date_public.strftime("%A, %d-%m-%Y") %><% end %></td>
                 <% end %>                
                 <td class="text-right">
                     <%= erp_datalist_row_actions(

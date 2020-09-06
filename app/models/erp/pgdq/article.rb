@@ -7,6 +7,7 @@ module Erp::Pgdq
     
     validates :name, :presence => true
     validates :category_id, :presence => true
+    validates :date_public, :presence => true
     validates :name, :uniqueness => true
     
     def self.get_active
