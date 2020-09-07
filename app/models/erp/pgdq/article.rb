@@ -15,7 +15,7 @@ module Erp::Pgdq
 		end
     
     def self.get_articles
-      self.get_active.order('created_at DESC')
+      self.get_active.order('date_public DESC')
     end
     
     def self.get_slider_articles

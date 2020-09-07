@@ -36,7 +36,7 @@
             <div class="entry-header">
                <h1 class="post-title entry-title"><%= @article.get_name %></h1>
                <div id="single-post-meta" class="post-meta clearfix">
-                  <% if @article.date_public.present? %><span class="date meta-item tie-icon"><strong>Ngày đăng: </strong><%= @article.date_public.strftime("%A, %d/%m/%Y") %></span><% end %>
+                  <% if @article.date_public.present? %><span class="date meta-item tie-icon"><strong>Ngày đăng: </strong><%= @article.date_public.strftime("%A, %d/%m/%Y") %></span>- <% end %>
                   <span class="meta-item last-updated"><strong>Ngày cập nhật: </strong><%= @article.updated_at.strftime("%I:%M %p %A, %d/%m/%Y") %></span>
                </div>
             </div>
