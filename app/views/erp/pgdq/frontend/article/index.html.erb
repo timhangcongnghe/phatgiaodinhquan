@@ -36,8 +36,8 @@
             <div class="entry-header">
                <h1 class="post-title entry-title"><%= @article.get_name %></h1>
                <div id="single-post-meta" class="post-meta clearfix">
-                  <% if @article.date_public.present? %><span class="date meta-item tie-icon"><strong>Ngày đăng tin: </strong><%= @article.date_public.strftime("%A, %d/%m/%Y") %></span><% end %>
-                  <span class="meta-item last-updated"><strong>Cập nhật gần đây: </strong><%= @article.updated_at.strftime("%I:%M %p %A, %d/%m/%Y") %></span>
+                  <% if @article.date_public.present? %><span class="date meta-item tie-icon"><strong>Ngày đăng: </strong><%= @article.date_public.strftime("%A, %d/%m/%Y") %></span><% end %>
+                  <span class="meta-item last-updated"><strong>Ngày cập nhật: </strong><%= @article.updated_at.strftime("%I:%M %p %A, %d/%m/%Y") %></span>
                </div>
             </div>
          </header>
@@ -54,7 +54,7 @@
          <div class="entry-content text-justify entry clearfix"><%= @article.content.html_safe %></div>
          <div class="post-footer post-footer-on-bottom">
             <div class="share-links share-centered icons-only">
-               <div class="share-title"><span class="fa fa-share-alt" aria-hidden="true"></span><span> Chia sẽ bài viết</span></div>
+               <div class="share-title"><span class="fa fa-share-alt" aria-hidden="true"></span><span> Chia sẻ bài viết</span></div>
                <a href="//www.facebook.com/sharer.php?u=<%= 'https://phatgiaodinhquan.org' + article_link(@article) %>" rel="external noopener" target="_blank" class="facebook-share-btn"><span class="fa fa-facebook"></span><span class="screen-reader-text">Facebook</span></a>
                <a href="//twitter.com/intent/tweet?text=<%= @article.get_name %>;url=<%= 'https://phatgiaodinhquan.org' + article_link(@article) %>;via=tielabs" rel="external noopener" target="_blank" class="twitter-share-btn"><span class="fa fa-twitter"></span><span class="screen-reader-text">Twitter</span></a>
                <a href="//www.linkedin.com/shareArticle?mini=true&#038;url=<%= 'https://phatgiaodinhquan.org' + article_link(@article) %>;title=<%= @article.get_name %>" rel="external noopener" target="_blank" class="linkedin-share-btn"><span class="fa fa-linkedin"></span><span class="screen-reader-text">LinkedIn</span></a>
