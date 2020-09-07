@@ -26,7 +26,7 @@
     <%= yield(:metas) %>
     <% if params[:controller] == 'erp/pgdq/frontend/home' && params[:action] == 'index' %><link rel="canonical" href="https://phatgiaodinhquan.org/" />
     <% elsif params[:controller] == 'erp/pgdq/frontend/category' && params[:action] == 'index' %><link rel="canonical" href="https://phatgiaodinhquan.org<%= category_link(@category) %>" />
-    <% elsif params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'index' %><link rel="canonical" href="https://phatgiaodinhquan.org/<%= article_link(@article) %>" /><% end %>
+    <% elsif params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'index' %><link rel="canonical" href="https://phatgiaodinhquan.org<%= article_link(@article) %>" /><% end %>
     <%= favicon_link_tag '/img/favicon-150x150.png', rel: 'icon', size: '32x32' %>
     <%= favicon_link_tag '/img/favicon-200x200.png', rel: 'icon', size: '192x192' %>
     <%= favicon_link_tag '/img/favicon-200x200.png', rel: 'apple-touch-icon' %>
