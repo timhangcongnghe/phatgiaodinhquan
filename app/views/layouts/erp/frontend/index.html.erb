@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow">
     <meta name="keywords" content="phật giáo đồng nai, phật giáo tỉnh đồng nai, phật giáo định quán, phật giáo huyện định quán, ban trị sự phật giáo, ban trị sự phật giáo huyện định quán, ban trị sự phật giáo tỉnh đồng nai, ban trị sự giáo hội phật giáo việt nam" />
-    <meta name="description" content="Trang tin Phật Sự Online cập nhật những thông tin, hình ảnh, hoạt động Ban ngành, hoạt động Phật Sự tại huyện Định Quán, tỉnh Đồng Nai." />        
+    <% if @meta_description.present? %><meta name="description" content="<%= @meta_description %>" /><% else %><meta name="description" content="Trang tin Phật Sự Online cập nhật những thông tin, hình ảnh, hoạt động Ban ngành, hoạt động Phật Sự tại huyện Định Quán, tỉnh Đồng Nai." /><% end %>
     <% if params[:controller] == 'erp/pgdq/frontend/home' && params[:action] == 'index' %>
     <title>Phật Giáo Định Quán | Trang Tin Phật Sự Online Huyện Định Quán</title>
     <% else %>
