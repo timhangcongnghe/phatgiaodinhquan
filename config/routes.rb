@@ -1,6 +1,8 @@
 Erp::Pgdq::Engine.routes.draw do
   
   root to: "frontend/home#index"
+  get "/gioi-thieu-phat-giao-huyen-dinh-quan" => "frontend/info#about", as: :about
+  get "/gioi-thieu-thanh-vien-ban-tri-su" => "frontend/info#member", as: :member
   get "/:category_name-cid:category_id" => "frontend/category#index", as: :category
   get "/:article_name-aid:article_id" => "frontend/article#index", as: :article
   

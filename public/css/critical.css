@@ -276,7 +276,7 @@ a {
 }
 
 a:hover {
-	color: #ff9900;
+	color: #ffcc00;
 }
 
 img,
@@ -455,8 +455,8 @@ body.tie-no-js .weather-icon {
 .container {
 	margin-right: auto;
 	margin-left: auto;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding-left: 9px;
+	padding-right: 9px;
 }
 
 .container:after {
@@ -889,8 +889,8 @@ body.tie-no-js .weather-icon {
 }
 
 #logo {
-	margin-top: 25px;
-	margin-bottom: 25px;
+	margin-top: 18px;
+	margin-bottom: 18px;
 	display: block;
 	float: left;
 }
@@ -1783,7 +1783,7 @@ header:not(.top-nav-boxed) .has-breaking .breaking-news-nav {
 		transition: 0.15s;
 	}
 	.main-menu .menu>li>a {
-		padding: 0 14px;
+		padding: 0 5px;
 		font-size: 13px;
 		font-weight: 600;
 	}
@@ -1889,10 +1889,10 @@ header:not(.top-nav-boxed) .has-breaking .breaking-news-nav {
 	}
 	.main-nav-dark .main-menu .menu ul li:hover>a,
 	.main-nav-dark .main-menu .menu ul li.current-menu-item:not(.mega-link-column)>a {
-		color: #ff9900;
+		color: #ffcc00;
 	}
 	.main-nav-dark .main-menu .menu-sub-content {
-		background: #1f2024;
+		background: #990000;
 		color: #ffffff;
 	}
 	.main-nav-dark .main-menu .menu ul a,
@@ -1904,7 +1904,7 @@ header:not(.top-nav-boxed) .has-breaking .breaking-news-nav {
 		background: rgba(0, 0, 0, 0.08);
 	}
 	.main-nav-dark.main-nav-boxed .main-nav .main-menu-wrapper {
-		background-color: #1f2024;
+		background-color: #990000;
 	}
 	.main-nav-dark .cats-vertical,
 	.main-nav-dark ul.cats-horizontal li a {

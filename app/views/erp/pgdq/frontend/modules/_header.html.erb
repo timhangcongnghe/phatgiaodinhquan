@@ -56,7 +56,7 @@
         <div class="tie-row logo-row">
             <div class="logo-wrapper">
                 <div class="tie-col-md-4 logo-container">
-                    <a href="#" id="mobile-menu-icon"><span class="nav-icon"></span><span class="screen-reader-text">Chuyên Mục</span></a> 
+                    <a href="javascript:void(0)" title="Danh Mục Bài Viết" id="mobile-menu-icon"><span class="nav-icon"></span><span class="screen-reader-text">Danh Mục Bài Viết</span></a> 
                     <div id="logo" class="image-logo">
                         <% if params[:controller] == 'erp/pgdq/frontend/home' && params[:action] == 'index' %>
                         <h1 class="h1-off">Giáo Hội Phật Giáo Việt Nam Huyện Định Quán, Tỉnh Đồng Nai</h1>
@@ -81,6 +81,17 @@
                                 <ul id="menu-main-menu" class="menu" role="menubar">
                                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home">
                                         <%= link_to 'Trang Chủ', erp_pgdq.root_path, title: 'Phật Giáo Định Quán' %>
+                                    </li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
+                                        <%= link_to 'Giới Thiệu', 'javascript:void(0);', title: 'Giới Thiệu' %>
+                                        <ul class="sub-menu menu-sub-content">
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                <%= link_to 'Phật Giáo Huyện Định Quán', about_link, title: 'Phật Giáo Huyện Định Quán' %>
+                                            </li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                <%= link_to 'Thành Viên Ban Trị Sự', member_link, title: 'Thành Viên Ban Trị Sự' %>
+                                            </li>
+                                        </ul>
                                     </li>
                                     <% Erp::Pgdq::Category.get_main_menus.each do |cat_parent| %>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">

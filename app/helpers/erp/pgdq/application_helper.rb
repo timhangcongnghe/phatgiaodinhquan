@@ -1,6 +1,14 @@
 module Erp
   module Pgdq
     module ApplicationHelper
+      def about_link
+        erp_pgdq.about_path
+      end
+      
+      def member_link
+        erp_pgdq.member_path
+      end
+      
       def category_link(category)
         erp_pgdq.category_path(category_id: category.id, category_name: category.alias)
       end
