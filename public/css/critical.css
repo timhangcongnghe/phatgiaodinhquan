@@ -1882,7 +1882,7 @@ header:not(.top-nav-boxed) .has-breaking .breaking-news-nav {
 		color: #ffffff;
 	}
 	.main-nav-dark .main-nav.fixed-nav {
-		background-color: rgba(31, 32, 36, 0.95);
+		background-color: #990000;
 	}
 	.main-nav-dark .main-menu .menu>li a {
 		color: #ffffff;

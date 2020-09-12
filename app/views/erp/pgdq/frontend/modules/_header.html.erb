@@ -8,7 +8,7 @@
                     <div class="breaking controls-is-active">
                         <span class="breaking-title"><span class="fa fa-bolt" aria-hidden="true"></span><span class="breaking-title-text">Tin mới nhất</span> </span> 
                         <ul id="breaking-news-in-header" class="breaking-news" data-type="reveal" data-arrows="true">
-                            <% Erp::Pgdq::Article.all.limit(5).each do |article| %>
+                            <% Erp::Pgdq::Article.get_articles.limit(5).each do |article| %>
                             <li class="news-item"><%= link_to truncate(article.get_name, length: 70), category_link(article), title: article.get_name %></li>
                             <% end %>
                         </ul>
