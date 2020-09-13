@@ -2,7 +2,7 @@
     <nav id="top-nav" class="has-date-breaking-components top-nav header-nav has-breaking-news" aria-label="Secondary Navigation">
         <div class="container">
             <div class="topbar-wrapper">
-                <div class="topbar-today-date fa-before">&nbsp;<%= Time.now.strftime("%A, %d/%m/%Y") %></div>
+                <div class="topbar-today-date fa-before">&nbsp;<%= Time.now.strftime("%I:%M %p %A, %d/%m/%Y") %></div>
                 <% if Erp::Pgdq::Article.count > 0 %>
                 <div class="tie-alignleft">
                     <div class="breaking controls-is-active">
@@ -42,7 +42,7 @@
                             </a>
                         </li>
                         <li class="social-icons-item">
-                            <a class="social-link facebook-social-icon" title="Facebook" rel="external noopener nofollow" target="_blank" href="/">
+                            <a class="social-link facebook-social-icon" title="Facebook" rel="external noopener nofollow" target="_blank" href="//www.facebook.com/phatgiaodinhquan">
                                 <span class="fa fa-facebook"></span>
                                 <span class="screen-reader-text">Facebook</span>
                             </a>
@@ -109,9 +109,9 @@
                             </div>
                         </div>
                         <ul class="components">
-                            <li class="search-bar menu-item custom-menu-link" aria-label="Tìm bài viết">
+                            <li class="search-bar menu-item custom-menu-link" aria-label="Tìm kiếm bài viết">
                                 <form>
-                                    <input type="text" title="Nhập từ khóa..." placeholder="Nhập từ khóa..." />
+                                    <input type="text" title="Tìm kiếm bài viết" placeholder="Nhập từ khóa tìm kiếm..." />
                                     <button type="submit">
                                         <span class="fa fa-search" aria-hidden="true"></span>
                                         <span class="screen-reader-text">Tìm kiếm</span>
