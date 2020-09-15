@@ -100,6 +100,10 @@ module Erp::Pgdq
       category.present? ? category.get_name : ''
     end
 		
+		def get_full_category_name
+      category.present? ? category.get_full_name : ''
+    end
+		
 		after_save :update_cache_search
 		after_save :create_alias
 		

@@ -9,6 +9,8 @@
     <% if @meta_description.present? %><meta name="description" content="<%= @meta_description %>" /><% else %><meta name="description" content="Trang tin Phật Sự Online cập nhật những thông tin, hình ảnh, hoạt động Ban ngành, hoạt động Phật Sự tại huyện Định Quán, tỉnh Đồng Nai." /><% end %>
     <% if params[:controller] == 'erp/pgdq/frontend/home' && params[:action] == 'index' %>
     <title>Phật Giáo Định Quán | Trang Tin Phật Sự Online Huyện Định Quán</title>
+    <% elsif params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'index'  %>
+    <title><% if content_for?(:title) %><%= yield(:title) %><% else %>Phật Giáo Định Quán | Trang Tin Phật Sự Online Huyện Định Quán<% end %></title>    
     <% else %>
     <title><% if content_for?(:title) %><%= yield(:title) %> | Phật Giáo Định Quán<% else %>Phật Giáo Định Quán | Trang Tin Phật Sự Online Huyện Định Quán<% end %></title>
     <% end %>        

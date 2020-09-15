@@ -2,7 +2,7 @@
 <% content_for :metas do %>
 <meta property="og:locale" content="vi" />
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="<%= @article.get_name %> | Phật Giáo Định Quán"/>
+<meta property="og:title" content="<%= @article.get_name %>"/>
 <% if @article.meta_description.present? %><meta property="og:description" content="<%= @article.meta_description %>"/><% else %><meta property="og:description" content="Trang tin Phật Sự Online cập nhật những thông tin, hình ảnh, hoạt động Ban ngành, hoạt động Phật Sự tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
 <meta property="og:url" content="https://phatgiaodinhquan.org<%= article_link(@article) %>"/>
 <meta property="og:site_name" content="Phật Giáo Định Quán" />
@@ -18,7 +18,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:site" content="https://phatgiaodinhquan.org<%= article_link(@article) %>"/>
-<meta name="twitter:title" content="<%= @article.get_name %> | Phật Giáo Định Quán" />
+<meta name="twitter:title" content="<%= @article.get_name %>" />
 <% if @article.meta_description.present? %><meta name="twitter:description" content="<%= @article.meta_description %>"/><% else %><meta name="twitter:description" content="Trang tin Phật Sự Online cập nhật những thông tin, hình ảnh, hoạt động Ban ngành, hoạt động Phật Sự tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
 <% if @article.image.present? %><meta name="twitter:image" content="<%= @article.image.detail %>"/><% else %><meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/><% end %>
 <% end %>

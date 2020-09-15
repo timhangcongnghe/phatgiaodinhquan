@@ -6,7 +6,7 @@
                 <th class="text-left" width='40%'><%= t('.name') %></th>
             <% end %>
             <% if get_columns(params).include?("category") %>
-                <th class="text-center"><%= t('.category') %></th>
+                <th class="text-center" width='25%'><%= t('.category') %></th>
             <% end %>
             <% if get_columns(params).include?("status") %>
                 <th class="text-center"><%= t('status') %></th>
@@ -28,10 +28,12 @@
                     <td class="text-left">
                         <%= link_to article.get_name, erp_pgdq.edit_backend_article_path(article), class: 'title', title: article.get_name %>
                         <% if article.alias.present? %><br><strong>alias: </strong><em><%= article.alias %></em><% end %>
+                        <% if article.get_name.length > 70 %><br><strong class="txt-color-red">Tiêu đều: <em>Giới hạn <%= article.get_name.length %>/70 ký tự)</em></strong><% end %>
+                        <% if article.meta_description.length > 160 %><br><strong class="txt-color-red">Mô tả: <em>Giới hạn <%= article.meta_description.length %>/160 ký tự</em></strong><% end %>
                     </td>
                 <% end %>
                 <% if get_columns(params).include?("name") %>
-                    <td class="text-center"><%= article.get_category_name %></td>
+                    <td class="text-center"><%= article.get_full_category_name %></td>
                 <% end %>
                 <% if get_columns(params).include?("status") %>
                     <td class="text-center">
