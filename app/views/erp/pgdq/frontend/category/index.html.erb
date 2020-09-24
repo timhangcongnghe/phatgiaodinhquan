@@ -16,6 +16,7 @@
 <meta name="twitter:title" content="<%= @category.get_name %> | Phật Giáo Định Quán" />
 <% if @category.meta_description.present? %><meta name="twitter:description" content="<%= @category.meta_description %>"/><% else %><meta name="twitter:description" content="Trang tin Phật Sự Online cập nhật những thông tin, hình ảnh, hoạt động Ban ngành, hoạt động Phật Sự tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
 <meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
+<meta name="twitter:image:alt" content="<%= @category.get_name %>"/>
 <% end %>
 
 <%= stylesheet_link_tag '/css/style.min.css' %>
