@@ -2,11 +2,11 @@
     <nav id="top-nav" class="has-date-breaking-components top-nav header-nav has-breaking-news" aria-label="Secondary Navigation">
         <div class="container">
             <div class="topbar-wrapper">
-                <div class="topbar-today-date fa-before">&nbsp;<%= Time.now.strftime("%I:%M %p %A, %d/%m/%Y") %></div>
+                <div class="topbar-today-date fa-before">&nbsp;<%= Time.now.strftime("%A, %d/%m/%Y") %></div>
                 <% if Erp::Pgdq::Article.count > 0 %>
                 <div class="tie-alignleft">
                     <div class="breaking controls-is-active">
-                        <span class="breaking-title"><span class="fa fa-bolt" aria-hidden="true"></span><span class="breaking-title-text">Tin mới nhất</span> </span> 
+                        <span class="breaking-title"><span class="fa fa-bolt" aria-hidden="true"></span><span class="breaking-title-text">Tin mới nhất</span> </span>
                         <ul id="breaking-news-in-header" class="breaking-news" data-type="reveal" data-arrows="true">
                             <% Erp::Pgdq::Article.get_articles.limit(5).each do |article| %>
                             <li class="news-item"><%= link_to truncate(article.get_name, length: 70), article_link(article), title: article.get_name %></li>
@@ -18,25 +18,25 @@
                 <div class="tie-alignright">
                     <ul class="components">
                         <li class="social-icons-item">
-                            <a class="social-link instagram-social-icon" title="Instagram" rel="external noopener nofollow" target="_blank" href="">
+                            <a class="social-link instagram-social-icon" title="Instagram" rel="external noopener nofollow" target="" href="javascript:void(0)">
                                 <span class="fa fa-instagram"></span>
                                 <span class="screen-reader-text">Instagram</span>
                             </a>
                         </li>
                         <li class="social-icons-item">
-                            <a class="social-link soundcloud-social-icon" title="SoundCloud" rel="external noopener nofollow" target="_blank" href="">
+                            <a class="social-link soundcloud-social-icon" title="SoundCloud" rel="external noopener nofollow" target="" href="javascript:void(0)">
                                 <span class="fa fa-soundcloud"></span>
                                 <span class="screen-reader-text">SoundCloud</span>
                             </a>
                         </li>
                         <li class="social-icons-item">
-                            <a class="social-link dribbble-social-icon" title="Dribbble" rel="external noopener nofollow" target="_blank" href="">
+                            <a class="social-link dribbble-social-icon" title="Dribbble" rel="external noopener nofollow" target="" href="javascript:void(0)">
                                 <span class="fa fa-dribbble"></span>
                                 <span class="screen-reader-text">Dribbble</span>
                             </a>
                         </li>
                         <li class="social-icons-item">
-                            <a class="social-link twitter-social-icon" title="Twitter" rel="external noopener nofollow" target="_blank" href="">
+                            <a class="social-link twitter-social-icon" title="Twitter" rel="external noopener nofollow" target="" href="javascript:void(0)">
                                 <span class="fa fa-twitter"></span>
                                 <span class="screen-reader-text">Twitter</span>
                             </a>
@@ -56,14 +56,14 @@
         <div class="tie-row logo-row">
             <div class="logo-wrapper">
                 <div class="tie-col-md-4 logo-container">
-                    <a href="javascript:void(0)" title="Danh Mục Bài Viết" id="mobile-menu-icon"><span class="nav-icon"></span><span class="screen-reader-text">Danh Mục Bài Viết</span></a> 
+                    <a href="javascript:void(0)" title="Danh Mục Bài Viết" id="mobile-menu-icon"><span class="nav-icon"></span><span class="screen-reader-text">Danh Mục Bài Viết</span></a>
                     <div id="logo" class="image-logo">
                         <% if params[:controller] == 'erp/pgdq/frontend/home' && params[:action] == 'index' %>
                         <h1 class="h1-off">Giáo Hội Phật Giáo Việt Nam Huyện Định Quán, Tỉnh Đồng Nai</h1>
                         <% end %>
                         <a title="Phật Giáo Định Quán" href="<%= erp_pgdq.root_path %>">
                             <img src="/img/logo.png" alt="Phật Giáo Định Quán" title="Phật Giáo Định Quán" class="logo_normal" width="300" height="49" style="max-height:49px; width: auto;">
-                            <img src="/img/logo@2x.png" alt="Phật Giáo Định Quán" title="Phật Giáo Định Quán" class="logo_2x" width="300" height="49" style="max-height:49px; width: auto;">                             
+                            <img src="/img/logo@2x.png" alt="Phật Giáo Định Quán" title="Phật Giáo Định Quán" class="logo_2x" width="300" height="49" style="max-height:49px; width: auto;">
                         </a>
                     </div>
                 </div>
@@ -104,14 +104,14 @@
                                             <% end %>
                                         </ul>
                                     </li>
-                                    <% end %>                                    
+                                    <% end %>
                                 </ul>
                             </div>
                         </div>
                         <ul class="components">
                             <li class="search-bar menu-item custom-menu-link" aria-label="Tìm kiếm bài viết">
                                 <form>
-                                    <input type="text" title="Tìm kiếm bài viết" placeholder="Nhập từ khóa tìm kiếm..." />
+                                    <input type="text" title="Tìm kiếm bài viết" placeholder="Tìm kiếm tại đây..." />
                                     <button type="submit">
                                         <span class="fa fa-search" aria-hidden="true"></span>
                                         <span class="screen-reader-text">Tìm kiếm</span>
