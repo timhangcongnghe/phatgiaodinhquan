@@ -2,7 +2,8 @@ module Erp
   module Pgdq
     module Backend
       class CategoriesController < Erp::Backend::BackendController
-        before_action :set_category, only: [:archive, :unarchive, :move_up, :move_down, :show, :edit, :update, :destroy]
+        before_action :set_category, only: [:move_up, :move_down, :edit, :update, :destroy]
+
         def list
           @categories = Category.search(params).paginate(:page => params[:page], :per_page => 20)
           render layout: nil
@@ -24,11 +25,7 @@ module Erp
           
           if @category.save
             if request.xhr?
-              render json: {
-                status: 'success',
-                text: @category.name,
-                value: @category.id
-              }
+              render json: {status: 'success', text: @category.name, value: @category.id}
             else
               redirect_to erp_pgdq.edit_backend_category_path(@category), notice: t('.success')
             end
@@ -44,11 +41,7 @@ module Erp
         def update
           if @category.update(category_params)
             if request.xhr?
-              render json: {
-                status: 'success',
-                text: @category.name,
-                value: @category.id
-              }
+              render json: {status: 'success', text: @category.name, value: @category.id}
             else
               redirect_to erp_pgdq.edit_backend_category_path(@category), notice: t('.success')
             end
@@ -58,67 +51,30 @@ module Erp
         end
     
         def destroy
-          @category.destroy          
+          @category.destroy
           respond_to do |format|
-            format.html { redirect_to erp_pgdq.backend_categories_path, notice: t('.success') }
-            format.json {
-              render json: {
-                'message': t('.success'),
-                'type': 'success'
-              }
-            }
+            format.html {redirect_to erp_pgdq.backend_categories_path, notice: t('.success')}
+            format.json {render json: {'message': t('.success'), 'type': 'success'}}
           end
         end
         
         def dataselect
           respond_to do |format|
-            format.json {
-              render json: Category.dataselect(params[:keyword])
-            }
+            format.json {render json: Category.dataselect(params[:keyword])}
           end
         end
-        
-        def archive
-          @category.archive
-          respond_to do |format|
-          format.json {
-            render json: {
-            'message': t('.success'),
-            'type': 'success'
-            }
-          }
-          end
-        end
-        
-        def unarchive
-          @category.unarchive
-          respond_to do |format|
-          format.json {
-            render json: {
-            'message': t('.success'),
-            'type': 'success'
-            }
-          }
-          end
-        end
-        
+
         def move_up
           @category.move_up
           respond_to do |format|
-          format.json {
-            render json: {
-            }
-          }
+            format.json {render json: {}}
           end
         end
 
         def move_down
           @category.move_down
           respond_to do |format|
-          format.json {
-            render json: {
-            }
-          }
+            format.json {render json: {}}
           end
         end
         

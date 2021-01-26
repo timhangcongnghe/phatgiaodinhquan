@@ -28,20 +28,17 @@ vi:
       backend:
         articles:
           create:
-            success: "Thêm bài viết mới thành công !"
+            success: "Thêm bài viết mới thành công."
           update:
-            success: "Cập nhật bài viết thành công !"
-          archive:
-            success: "Ẩn bài viết thành công !"
-          unarchive:
-            success: "Hiện bài viết thành công !"
+            success: "Cập nhật bài viết thành công."
           destroy:
-            success: "Đã xóa bài viết thành công !"
+            success: "Đã xóa bài viết thành công."
           index:
             articles: "Danh sách bài viết"
+            category: "Chuyên mục bài viết"
             create: "Thêm bài viết mới"
             name: "Tiêu đề bài viết"
-            category: "Chuyên mục bài viết"
+            is_slider: "Hiển thị slide"
           new:
             articles: "Danh sách bài viết"
             create: "Thêm bài viết mới"
@@ -54,10 +51,6 @@ vi:
             article_is_slider: "Bài viết slide"
             edit: "Cập nhật"
             delete: "Xóa bài viết"
-            active: "Đang hiển thị"
-            archived: "Đang bị ẩn"
-            archive: "Ẩn chuyên mục"
-            unarchive: "Hiện chuyên mục"
             no_matching_records_found: "Danh sách hiện đang trống."
           form:
             name: "Tên bài viết"
@@ -77,15 +70,11 @@ vi:
             is_slider: "Chọn hiển thị slide"
         categories:
           create:
-            success: "Thêm chuyên mục mới thành công!"
+            success: "Thêm chuyên mục mới thành công."
           update:
-            success: "Cập nhật chuyên mục thành công!"
-          archive:
-            success: "Ẩn chuyên mục thành công!"
-          unarchive:
-            success: "Hiện chuyên mục thành công!"
+            success: "Cập nhật chuyên mục thành công."
           destroy:
-            success: "Đã xóa chuyên mục thành công!"
+            success: "Đã xóa chuyên mục thành công."
           index:
             categories: "Danh sách chuyên mục"
             create: "Thêm chuyên mục mới"
@@ -96,10 +85,6 @@ vi:
             custom_order: "Vị trí"
             edit: "Cập nhật"
             delete: "Xóa chuyên mục"
-            active: "Đang hiển thị"
-            archived: "Đang bị ẩn"
-            archive: "Ẩn chuyên mục"
-            unarchive: "Hiện chuyên mục"
             no_matching_records_found: "Danh sách hiện đang trống."
           new:
             categories: "Danh sách chuyên mục"

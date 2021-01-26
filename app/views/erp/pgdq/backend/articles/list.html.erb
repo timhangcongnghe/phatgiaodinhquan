@@ -28,8 +28,6 @@
                     <td class="text-left">
                         <%= link_to article.get_name, erp_pgdq.edit_backend_article_path(article), class: 'title', title: article.get_name %>
                         <% if article.alias.present? %><br><strong>alias: </strong><em><%= article.alias %></em><% end %>
-                        <% if article.get_name.length > 70 %><br><strong class="txt-color-red">Tiêu đều: <em>Giới hạn <%= article.get_name.length %>/70 ký tự)</em></strong><% end %>
-                        <% if article.meta_description.length > 160 %><br><strong class="txt-color-red">Mô tả: <em>Giới hạn <%= article.meta_description.length %>/160 ký tự</em></strong><% end %>
                     </td>
                 <% end %>
                 <% if get_columns(params).include?("name") %>
@@ -37,69 +35,46 @@
                 <% end %>
                 <% if get_columns(params).include?("status") %>
                     <td class="text-center">
-                        <% if article.archived == true %>
-                            <%= erp_component('label/danger', {
-                                text: t('.archived')
-                            }) %>
-                        <% else %>
-                            <%= erp_component('label/success', {
-                                text: t('.active')
-                            }) %>
-                        <% end %>
                         <% if article.is_slider == true %>
-                            <br><%= erp_component('label/primary', {
-                                text: t('.article_is_slider')
-                            }) %>
+                            <br>
+                            <span class="label bg-primary">
+                                <%= t('.article_is_slider') %>
+                            </span>
                         <% end %>
                     </td>
                 <% end %>
                 <% if get_columns(params).include?("creator") %>
-                    <td class="text-center">
-                        <%= erp_component('avatar', {
-                            user: article.creator
-                        }) %>
-                    </td>
+                    <td class="text-center"><%= erp_component('avatar', { user: article.creator }) %></td>
                 <% end %>
                 <% if get_columns(params).include?("created_at") %>
-                    <td class="text-center"><% if article.date_public.present? %><%= article.date_public.strftime("%A, %d-%m-%Y") %><% end %></td>
+                    <td class="text-center">
+                        <% if article.date_public.present? %>
+                            <%= article.date_public.strftime("%d-%m-%Y") %>
+                        <% end %>
+                    </td>
                 <% end %>                
                 <td class="text-right">
-                    <%= erp_datalist_row_actions(
-                        [
-                            {
-                                text: '<i class="fa fa-edit"></i> '+t('.edit'),
-                                href: erp_pgdq.edit_backend_article_path(article)
-                            },
-                            {
-                                text: '<i class="fa fa-remove"></i> '+t('.archive'),
-                                url: erp_pgdq.archive_backend_articles_path(id: article.id),
-                                data_method: 'PUT',
-                                hide: article.archived,
-                                class: 'ajax-link'
-                            },
-                            {
-                                text: '<i class="fa fa-check"></i> '+t('.unarchive'),
-                                url: erp_pgdq.unarchive_backend_articles_path(id: article.id),
-                                data_method: 'PUT',
-                                hide: !article.archived,
-                                class: 'ajax-link'
-                            },
-                            {
-                                divider: true
-                            },
-                            {
-                                text: '<i class="fa fa-trash"></i> '+t('.delete'),
-                                url: erp_pgdq.backend_article_path(article),
-                                data_method: 'DELETE',
-                                class: 'ajax-link',
-                                data_confirm: t('delete_confirm')
-                            }
-                        ]
-                    ) %>
+                    <div class="btn-group">
+                        <a class="btn btn-default btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <i class="fa fa-cog"></i><%= t('core.options') %><i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li>
+                                <%= link_to '<i class="fa fa-edit"></i>'.html_safe + t('.edit'), 
+                                    erp_pgdq.edit_backend_article_path(article) %>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <%= link_to '<i class="fa fa-trash"></i>'.html_safe + t('.delete'), 
+                                    erp_pgdq.backend_article_path(article), method: 'DELETE', data: {confirm: t('delete_confirm')}, class: 'ajax-link' %>
+                            </li>
+                        </ul>
+                    </div>
                 </td>
             </tr>
         <% end %>
     </tbody>
 </table>
+
 <% if @articles.empty? %><div class="datalist-empty-line"><%= t('.no_matching_records_found') %></div><% end %>
 <%= erp_datalist_pagination(@articles) %>
