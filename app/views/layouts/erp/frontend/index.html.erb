@@ -1,228 +1,428 @@
-<!DOCTYPE html> 
-<html lang="vi-VN">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow">
-    <meta name="keywords" content="phật giáo đồng nai, phật giáo tỉnh đồng nai, phật giáo định quán, phật giáo huyện định quán, ban trị sự phật giáo, ban trị sự phật giáo huyện định quán, ban trị sự phật giáo tỉnh đồng nai, ban trị sự giáo hội phật giáo việt nam" />
-    <% if @meta_description.present? %><meta name="description" content="<%= @meta_description %>" /><% else %><meta name="description" content="Trang tin Phật Sự Online cập nhật những thông tin, hình ảnh, hoạt động Ban ngành, hoạt động Phật Sự tại huyện Định Quán, tỉnh Đồng Nai." /><% end %>
-    <% if params[:controller] == 'erp/pgdq/frontend/home' && params[:action] == 'index' %>
-    <title>Phật Giáo Định Quán | Trang Tin Phật Sự Online Huyện Định Quán</title>
-    <% elsif params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'index'  %>
-    <title><% if content_for?(:title) %><%= yield(:title) %><% else %>Phật Giáo Định Quán | Trang Tin Phật Sự Online Huyện Định Quán<% end %></title>    
-    <% else %>
-    <title><% if content_for?(:title) %><%= yield(:title) %> | Phật Giáo Định Quán<% else %>Phật Giáo Định Quán | Trang Tin Phật Sự Online Huyện Định Quán<% end %></title>
-    <% end %>        
-    <meta http-equiv='x-dns-prefetch-control' content='on'>
-    <link rel='dns-prefetch' href="//cdnjs.cloudflare.com/" />
-    <link rel='dns-prefetch' href="//ajax.googleapis.com/" />
-    <link rel='dns-prefetch' href="//fonts.googleapis.com/" />
-    <link rel='dns-prefetch' href="//fonts.gstatic.com/" />
-    <link rel='dns-prefetch' href="//s.gravatar.com/" />
-    <link rel='dns-prefetch' href="//www.google-analytics.com/" />
-    <link rel='preload' as='image' href="/img/logo.png" type='image/png'>
-    <link rel='preload' as='image' href="/img/logo@2x.png" type='image/png'>
-    <link rel='preload' as='font' href="/fonts/tiefonticon/tiefonticon.woff" type='font/woff' crossorigin='anonymous' />
-    <link rel='preload' as='script' href="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js">
-    <%= yield(:metas) %>
-    <% if params[:controller] == 'erp/pgdq/frontend/home' && params[:action] == 'index' %><link rel="canonical" href="https://phatgiaodinhquan.org/" />
-    <% elsif params[:controller] == 'erp/pgdq/frontend/category' && params[:action] == 'index' %><link rel="canonical" href="https://phatgiaodinhquan.org<%= category_link(@category) %>" />
-    <% elsif params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'index' %><link rel="canonical" href="https://phatgiaodinhquan.org<%= article_link(@article) %>" /><% end %>
-    <%= favicon_link_tag '/img/favicon-150x150.png', rel: 'icon', size: '32x32' %>
-    <%= favicon_link_tag '/img/favicon-200x200.png', rel: 'icon', size: '192x192' %>
-    <%= favicon_link_tag '/img/favicon-200x200.png', rel: 'apple-touch-icon' %>
-    <meta name="msapplication-TileImage" content="/img/favicon-300x300.png" />
-    <%= stylesheet_link_tag '/css/critical.css' %>
-    <%= stylesheet_link_tag '/css/inline.css' %>
-    <noscript><style>.woocommerce-product-gallery{opacity:1!important;}</style></noscript>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Phật Giáo Định Quán",
-      "url": "https://phatgiaodinhquan.org/",
-      "logo": "https://phatgiaodinhquan.org/img/logo.png"
-    }
-    </script>
-    <% if params[:controller] == 'erp/pgdq/frontend/category' && params[:action] == 'index' %>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org/", 
-        "@type": "BreadcrumbList", 
-        "itemListElement": [{
-            "@type": "ListItem", 
-            "position": 1, 
-            "name": "Phật Giáo Định Quán",
-            "item": "https://phatgiaodinhquan.org/"  
-        },
-        <% if @category.parent.nil? %>
-        {
-            "@type": "ListItem", 
-            "position": 2, 
-            "name": "<%= @category.get_name %>",
-            "item": "http://chualinhquang.com.vn<%= category_link(@category) %>"  
-        }]
+<!DOCTYPE html>
+<html lang="vi-VN" class="" data-skin="light" prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="profile" href="http://gmpg.org/xfn/11" />
+        <% if params[:controller] == 'erp/pgdq/frontend/home' && params[:action] == 'index' %>
+            <title>GHPGVN Huyện Định Quán &#8211; Trang Tin Phật Sự Online</title>
         <% else %>
-        {
-            "@type": "ListItem", 
-            "position": 2, 
-            "name": "<%= @category.parent.get_name %>",
-            "item": "http://chualinhquang.com.vn<%= category_link(@category.parent) %>"  
-        },
-        {
-            "@type": "ListItem", 
-            "position": 3, 
-            "name": "<%= @category.get_name %>",
-            "item": "http://chualinhquang.com.vn<%= category_link(@category) %>"  
-        }]
+            <title><% if content_for?(:title) %><%= yield(:title) %> &#8211; GHPGVN Huyện Định Quán<% else %>GHPGVN Huyện Định Quán &#8211; Trang Tin Phật Sự Online<% end %></title>
         <% end %>
-    }
-    </script>
-    <% end %>
-    <% if params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'index' %>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org/", 
-        "@type": "BreadcrumbList", 
-        "itemListElement": [{
-            "@type": "ListItem", 
-            "position": 1, 
-            "name": "Phật Giáo Định Quán",
-            "item": "https://phatgiaodinhquan.org/"  
-        },            
-        {
-            "@type": "ListItem", 
-            "position": 2, 
-            "name": "<%= @category.get_name %>",
-            "item": "http://chualinhquang.com.vn<%= category_link(@category) %>"  
-        },
-        {
-            "@type": "ListItem", 
-            "position": 3, 
-            "name": "<%= @article.get_name %>",
-            "item": "http://chualinhquang.com.vn<%= article_link(@article) %>"  
-        }]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "phatgiaodinhquan"
-        },
-        "headline": "<%= @article.get_name %> | Phật Giáo Định Quán",
-        "image": "<%= @article.image.detail %>",
-        <% if @article.date_public.present? %>"datePublished": "<%= @article.date_public.strftime("%d/%m/%Y") %>",<% end %>
-        "dateModified": "<%= @article.updated_at.strftime("%d/%m/%Y") %>",
-        "author": {
-            "@type": "Organization",
-            "name": "Phật Giáo Định Quán"
-        },
-         "publisher": {
-            "@type": "Organization",
-            "name": "Phật Giáo Định Quán",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://phatgiaodinhquan.org/img/logo.png"
+        <meta http-equiv='x-dns-prefetch-control' content='on'>
+        <link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+        <link rel='dns-prefetch' href='//ajax.googleapis.com' />
+        <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+        <link rel='dns-prefetch' href='//fonts.gstatic.com' />
+        <link rel='dns-prefetch' href='//s.gravatar.com' />
+        <link rel='dns-prefetch' href='//www.google-analytics.com' />
+        <link rel='preload' as='image' href='/img/logo.png' type='image/png'>
+        <link rel='preload' as='image' href='/img/logo-lite.png' type='image/png'>
+        <link rel='preload' as='font' href='/fonts/tielabs-fonticon/tielabs-fonticon.woff' type='font/woff' crossorigin='anonymous' />
+        <link rel='preload' as='font' href='/fonts/fontawesome/fa-solid-900.woff2' type='font/woff2' crossorigin='anonymous' />
+        <link rel='preload' as='font' href='/fonts/fontawesome/fa-brands-400.woff2' type='font/woff2' crossorigin='anonymous' />
+        <link rel='preload' as='font' href='/fonts/fontawesome/fa-regular-400.woff2' type='font/woff2' crossorigin='anonymous' />
+        <link rel='preload' as='script' href='//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'>
+        <%= favicon_link_tag '/img/favicon-150x150.png', rel: 'icon', size: '32x32' %>
+        <%= favicon_link_tag '/img/favicon-200x200.png', rel: 'icon', size: '192x192' %>
+        <%= favicon_link_tag '/img/favicon-200x200.png', rel: 'apple-touch-icon' %>
+        <meta name='robots' content='index,follow' />
+        <meta name="keywords" content="phật giáo đồng nai, phật giáo tỉnh đồng nai, phật giáo định quán, phật giáo huyện định quán, ban trị sự phật giáo, ban trị sự phật giáo huyện định quán, ban trị sự phật giáo tỉnh đồng nai, ban trị sự giáo hội phật giáo việt nam" />
+        <% if @meta_description.present? %><meta name="description" content="<%= @meta_description %>" /><% else %><meta name="description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai." /><% end %>
+        <link rel='dns-prefetch' href='//s.w.org' />
+        <!-- <link rel="alternate" type="application/rss+xml" title="Phật Giáo Định Quán &raquo; Feed" href="phatgiaodinhquan.org/feed" />
+        <link rel="alternate" type="application/rss+xml" title="Phật Giáo Định Quán &raquo; Comments Feed" href="phatgiaodinhquan.org/comments/feed" /> -->
+        <%= yield(:metas) %>
+        <script type="text/javascript">window._wpemojiSettings={baseUrl:"https://s.w.org/images/core/emoji/13.0.1/72x72/",ext:".png",svgUrl:"https://s.w.org/images/core/emoji/13.0.1/svg/",svgExt:".svg",source:{concatemoji:"/js/emoji-release.min.js"}},function(e,t,a){function r(e,t){var a=String.fromCharCode;l.clearRect(0,0,g.width,g.height),l.fillText(a.apply(this,e),0,0);var r=g.toDataURL();return l.clearRect(0,0,g.width,g.height),l.fillText(a.apply(this,t),0,0),r===g.toDataURL()}function n(e){if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",e){case"flag":return!r([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&!r([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!r([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!r([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function o(e){var a=t.createElement("script");a.src=e,a.defer=a.type="text/javascript",t.getElementsByTagName("head")[0].appendChild(a)}var i,s,p,c,g=t.createElement("canvas"),l=g.getContext&&g.getContext("2d");for(c=Array("flag","emoji"),a.supports={everything:!0,everythingExceptFlag:!0},p=0;p<c.length;p++)a.supports[c[p]]=n(c[p]),a.supports.everything=a.supports.everything&&a.supports[c[p]],"flag"!==c[p]&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[c[p]]);a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.DOMReady=!1,a.readyCallback=function(){a.DOMReady=!0},a.supports.everything||(s=function(){a.readyCallback()},t.addEventListener?(t.addEventListener("DOMContentLoaded",s,!1),e.addEventListener("load",s,!1)):(e.attachEvent("onload",s),t.attachEvent("onreadystatechange",function(){"complete"===t.readyState&&a.readyCallback()})),(i=a.source||{}).concatemoji?o(i.concatemoji):i.wpemoji&&i.twemoji&&(o(i.twemoji),o(i.wpemoji)))}(window,document,window._wpemojiSettings);</script>
+        
+        <style type="text/css">img.emoji,img.wp-smiley{display:inline!important;border:none!important;box-shadow:none!important;height:1em!important;width:1em!important;margin:0 .07em!important;vertical-align:-.1em!important;background:0 0!important;padding:0!important}</style>
+        <%= stylesheet_link_tag '/css/style.css', id: 'taqyeem-buttons-style-css' %>
+        <%= stylesheet_link_tag '/css/base.min.css', id: 'tie-css-base-css' %>
+        <%= stylesheet_link_tag '/css/style.min.css', id: 'tie-css-styles-css' %>
+        <%= stylesheet_link_tag '/css/widgets.min.css', id: 'tie-css-widgets-css' %>
+        <%= stylesheet_link_tag '/css/helpers.min.css', id: 'tie-css-helpers-css' %>
+        <%= stylesheet_link_tag '/css/fontawesome.css', id: 'tie-fontawesome5-css' %>
+        <%= stylesheet_link_tag '/css/skin.css', id: 'tie-css-ilightbox-css' %>
+        <%= stylesheet_link_tag '/css/shortcodes.min.css', id: 'tie-css-shortcodes-css' %>
+        <% if (params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'detail') || (params[:controller] == 'erp/pgdq/frontend/info') %>
+            <%= stylesheet_link_tag '/css/single.min.css', id: 'tie-css-single-css' %>
+            <%= stylesheet_link_tag '/css/print.css', id: 'tie-css-print-css' %>
+        <% end %>
+        <%= stylesheet_link_tag '/css/taqyeem.min.css', id: 'taqyeem-styles-css' %>
+        
+        <style id='taqyeem-styles-inline-css' type='text/css'>#main-nav .main-menu > ul > li > a{text-transform: uppercase;}.tie-cat-2,.tie-cat-item-2 > span{background-color:#e67e22 !important;color:#FFFFFF !important;}.tie-cat-2:after{border-top-color:#e67e22 !important;}.tie-cat-2:hover{background-color:#c86004 !important;}.tie-cat-2:hover:after{border-top-color:#c86004 !important;}.tie-cat-9,.tie-cat-item-9 > span{background-color:#2ecc71 !important;color:#FFFFFF !important;}.tie-cat-9:after{border-top-color:#2ecc71 !important;}.tie-cat-9:hover{background-color:#10ae53 !important;}.tie-cat-9:hover:after{border-top-color:#10ae53 !important;}.tie-cat-13,.tie-cat-item-13 > span{background-color:#9b59b6 !important;color:#FFFFFF !important;}.tie-cat-13:after{border-top-color:#9b59b6 !important;}.tie-cat-13:hover{background-color:#7d3b98 !important;}.tie-cat-13:hover:after{border-top-color:#7d3b98 !important;}.tie-cat-14,.tie-cat-item-14 > span{background-color:#34495e !important;color:#FFFFFF !important;}.tie-cat-14:after{border-top-color:#34495e !important;}.tie-cat-14:hover{background-color:#162b40 !important;}.tie-cat-14:hover:after{border-top-color:#162b40 !important;}.tie-cat-17,.tie-cat-item-17 > span{background-color:#795548 !important;color:#FFFFFF !important;}.tie-cat-17:after{border-top-color:#795548 !important;}.tie-cat-17:hover{background-color:#5b372a !important;}.tie-cat-17:hover:after{border-top-color:#5b372a !important;}.tie-cat-18,.tie-cat-item-18 > span{background-color:#4CAF50 !important;color:#FFFFFF !important;}.tie-cat-18:after{border-top-color:#4CAF50 !important;}.tie-cat-18:hover{background-color:#2e9132 !important;}.tie-cat-18:hover:after{border-top-color:#2e9132 !important;}@media (max-width: 991px){.side-aside.dark-skin{background: #2f88d6;background: -webkit-linear-gradient(135deg,#5933a2,#2f88d6 );background: -moz-linear-gradient(135deg,#5933a2,#2f88d6 );background: -o-linear-gradient(135deg,#5933a2,#2f88d6 );background: linear-gradient(135deg,#2f88d6,#5933a2 );}}#tie-block_3151 .mag-box-filter-links a.active,#tie-block_3151 .mag-box-filter-links .flexMenu-viewMore:hover > a,#tie-block_3151 .stars-rating-active,#tie-block_3151 .tabs.tabs .active > a,#tie-block_3151 .spinner-circle:after,#tie-block_3151 .video-play-icon,#tie-block_3151 .pages-nav li a:hover,#tie-block_3151 .show-more-button:hover,#tie-block_3151 .entry a,#tie-block_3151.woocommerce ins{color: #f5756c;}#tie-block_3151 a:hover,#tie-block_3151 .entry a:hover{color: #d7574e;}#tie-block_3151 .spinner > div,#tie-block_3151 .tie-slick-dots li.slick-active button,#tie-block_3151 li.current span,#tie-block_3151 .tie-slick-dots li.slick-active button,#tie-block_3151 .tie-slick-dots li button:hover{background-color: #f5756c;}#tie-block_3151 .digital-rating-static,#tie-block_3151 .mag-box-filter-links a:hover,#tie-block_3151 .slider-arrow-nav a:not(.pagination-disabled):hover,#tie-block_3151 .playlist-title,#tie-block_3151 .breaking-title:before,#tie-block_3151 .breaking-news-nav li:hover,#tie-block_3151 .post-cat,#tie-block_3151 .tie-slider-nav li > span:hover,#tie-block_3151 .button{background-color: #f5756c;color: #FFFFFF;}#tie-block_3151 a.post-cat:hover,#tie-block_3151 .button:hover{background-color: #d7574e;color: #FFFFFF;}#tie-block_3151 .entry a.button{ color: #FFFFFF;}#tie-block_3151 .circle_bar{ stroke: #f5756c;}#tie-block_3151 .slider-arrow-nav a:not(.pagination-disabled):hover,#tie-block_3151 li.current span,#tie-block_3151 .breaking-news-nav li:hover{border-color: #f5756c;}#tie-block_3151 .mag-box-title h3 a,#tie-block_3151 .block-more-button{color: #f5756c;}#tie-block_3151 .mag-box-title h3 a:hover,#tie-block_3151 .block-more-button:hover{color: #d7574e;}#tie-block_3151 .mag-box-title{color: #f5756c;}#tie-block_3151 .mag-box-title:before {border-top-color: #f5756c;}#tie-block_3151 .mag-box-title:after{background-color: #f5756c;}#tie-block_1160 .mag-box-filter-links a.active,#tie-block_1160 .mag-box-filter-links .flexMenu-viewMore:hover > a,#tie-block_1160 .stars-rating-active,#tie-block_1160 .tabs.tabs .active > a,#tie-block_1160 .spinner-circle:after,#tie-block_1160 .video-play-icon,#tie-block_1160 .pages-nav li a:hover,#tie-block_1160 .show-more-button:hover,#tie-block_1160 .entry a,#tie-block_1160.woocommerce ins{color: #990000;}#tie-block_1160 a:hover,#tie-block_1160 .entry a:hover{color: #990000;}#tie-block_1160 .spinner > div,#tie-block_1160 .tie-slick-dots li.slick-active button,#tie-block_1160 li.current span,#tie-block_1160 .tie-slick-dots li.slick-active button,#tie-block_1160 .tie-slick-dots li button:hover{background-color: #990000;}#tie-block_1160 .digital-rating-static,#tie-block_1160 .mag-box-filter-links a:hover,#tie-block_1160 .slider-arrow-nav a:not(.pagination-disabled):hover,#tie-block_1160 .playlist-title,#tie-block_1160 .breaking-title:before,#tie-block_1160 .breaking-news-nav li:hover,#tie-block_1160 .post-cat,#tie-block_1160 .tie-slider-nav li > span:hover,#tie-block_1160 .button{background-color: #990000;color: #FFFFFF;}#tie-block_1160 a.post-cat:hover,#tie-block_1160 .button:hover{background-color: #008b32;color: #FFFFFF;}#tie-block_1160 .entry a.button{ color: #FFFFFF;}#tie-block_1160 .circle_bar{ stroke: #990000;}#tie-block_1160 .slider-arrow-nav a:not(.pagination-disabled):hover,#tie-block_1160 li.current span,#tie-block_1160 .breaking-news-nav li:hover{border-color: #990000;}#tie-block_1160 .mag-box-title h3 a,#tie-block_1160 .block-more-button{color: #990000;}#tie-block_1160 .mag-box-title h3 a:hover,#tie-block_1160 .block-more-button:hover{color: #008b32;}#tie-block_1160 .mag-box-title{color:#990000;}#tie-block_1160 .mag-box-title:before {border-top-color: #990000;}#tie-block_1160 .mag-box-title:after{background-color: #990000;}#tie-block_1810 .mag-box-filter-links a.active,#tie-block_1810 .mag-box-filter-links .flexMenu-viewMore:hover > a,#tie-block_1810 .stars-rating-active,#tie-block_1810 .tabs.tabs .active > a,#tie-block_1810 .spinner-circle:after,#tie-block_1810 .video-play-icon,#tie-block_1810 .pages-nav li a:hover,#tie-block_1810 .show-more-button:hover,#tie-block_1810 .entry a,#tie-block_1810.woocommerce ins{color: #9a6f65;}#tie-block_1810 a:hover,#tie-block_1810 .entry a:hover{color: #7c5147;}#tie-block_1810 .spinner > div,#tie-block_1810 .tie-slick-dots li.slick-active button,#tie-block_1810 li.current span,#tie-block_1810 .tie-slick-dots li.slick-active button,#tie-block_1810 .tie-slick-dots li button:hover{background-color: #9a6f65;}#tie-block_1810 .digital-rating-static,#tie-block_1810 .mag-box-filter-links a:hover,#tie-block_1810 .slider-arrow-nav a:not(.pagination-disabled):hover,#tie-block_1810 .playlist-title,#tie-block_1810 .breaking-title:before,#tie-block_1810 .breaking-news-nav li:hover,#tie-block_1810 .post-cat,#tie-block_1810 .tie-slider-nav li > span:hover,#tie-block_1810 .button{background-color: #9a6f65;color: #FFFFFF;}#tie-block_1810 a.post-cat:hover,#tie-block_1810 .button:hover{background-color: #7c5147;color: #FFFFFF;}#tie-block_1810 .entry a.button{ color: #FFFFFF;}#tie-block_1810 .circle_bar{ stroke: #9a6f65;}#tie-block_1810 .slider-arrow-nav a:not(.pagination-disabled):hover,#tie-block_1810 li.current span,#tie-block_1810 .breaking-news-nav li:hover{border-color: #9a6f65;}#tie-block_1810 .mag-box-title h3 a,#tie-block_1810 .block-more-button{color: #9a6f65;}#tie-block_1810 .mag-box-title h3 a:hover,#tie-block_1810 .block-more-button:hover{color: #7c5147;}#tie-block_1810 .mag-box-title{color: #9a6f65;}#tie-block_1810 .mag-box-title:before {border-top-color: #9a6f65;}#tie-block_1810 .mag-box-title:after{background-color: #9a6f65;}#tie-block_304 .mag-box-filter-links a.active,#tie-block_304 .mag-box-filter-links .flexMenu-viewMore:hover > a,#tie-block_304 .stars-rating-active,#tie-block_304 .tabs.tabs .active > a,#tie-block_304 .spinner-circle:after,#tie-block_304 .video-play-icon,#tie-block_304 .pages-nav li a:hover,#tie-block_304 .show-more-button:hover,#tie-block_304 .entry a,#tie-block_304.woocommerce ins{color: #00afd8;}#tie-block_304 a:hover,#tie-block_304 .entry a:hover{color: #0091ba;}#tie-block_304 .spinner > div,#tie-block_304 .tie-slick-dots li.slick-active button,#tie-block_304 li.current span,#tie-block_304 .tie-slick-dots li.slick-active button,#tie-block_304 .tie-slick-dots li button:hover{background-color: #00afd8;}#tie-block_304 .digital-rating-static,#tie-block_304 .mag-box-filter-links a:hover,#tie-block_304 .slider-arrow-nav a:not(.pagination-disabled):hover,#tie-block_304 .playlist-title,#tie-block_304 .breaking-title:before,#tie-block_304 .breaking-news-nav li:hover,#tie-block_304 .post-cat,#tie-block_304 .tie-slider-nav li > span:hover,#tie-block_304 .button{background-color: #00afd8;color: #FFFFFF;}#tie-block_304 a.post-cat:hover,#tie-block_304 .button:hover{background-color: #0091ba;color: #FFFFFF;}#tie-block_304 .entry a.button{ color: #FFFFFF;}#tie-block_304 .circle_bar{ stroke: #00afd8;}#tie-block_304 .slider-arrow-nav a:not(.pagination-disabled):hover,#tie-block_304 li.current span,#tie-block_304 .breaking-news-nav li:hover{border-color: #00afd8;}#tie-block_304 .mag-box-title h3 a,#tie-block_304 .block-more-button{color: #00afd8;}#tie-block_304 .mag-box-title h3 a:hover,#tie-block_304 .block-more-button:hover{color: #0091ba;}#tie-block_304 .mag-box-title{color: #00afd8;}#tie-block_304 .mag-box-title:before {border-top-color: #00afd8;}#tie-block_304 .mag-box-title:after{background-color: #00afd8;}#tie-block_611 .mag-box-filter-links a.active,#tie-block_611 .mag-box-filter-links .flexMenu-viewMore:hover > a,#tie-block_611 .stars-rating-active,#tie-block_611 .tabs.tabs .active > a,#tie-block_611 .spinner-circle:after,#tie-block_611 .video-play-icon,#tie-block_611 .pages-nav li a:hover,#tie-block_611 .show-more-button:hover,#tie-block_611 .entry a,#tie-block_611.woocommerce ins{color: #e255f8;}#tie-block_611 a:hover,#tie-block_611 .entry a:hover{color: #c437da;}#tie-block_611 .spinner > div,#tie-block_611 .tie-slick-dots li.slick-active button,#tie-block_611 li.current span,#tie-block_611 .tie-slick-dots li.slick-active button,#tie-block_611 .tie-slick-dots li button:hover{background-color: #e255f8;}#tie-block_611 .digital-rating-static,#tie-block_611 .mag-box-filter-links a:hover,#tie-block_611 .slider-arrow-nav a:not(.pagination-disabled):hover,#tie-block_611 .playlist-title,#tie-block_611 .breaking-title:before,#tie-block_611 .breaking-news-nav li:hover,#tie-block_611 .post-cat,#tie-block_611 .tie-slider-nav li > span:hover,#tie-block_611 .button{background-color: #e255f8;color: #FFFFFF;}#tie-block_611 a.post-cat:hover,#tie-block_611 .button:hover{background-color: #c437da;color: #FFFFFF;}#tie-block_611 .entry a.button{ color: #FFFFFF;}#tie-block_611 .circle_bar{ stroke: #e255f8;}#tie-block_611 .slider-arrow-nav a:not(.pagination-disabled):hover,#tie-block_611 li.current span,#tie-block_611 .breaking-news-nav li:hover{border-color: #e255f8;}#tie-block_611 .mag-box-title h3 a,#tie-block_611 .block-more-button{color: #e255f8;}#tie-block_611 .mag-box-title h3 a:hover,#tie-block_611 .block-more-button:hover{color: #c437da;}#tie-block_611 .mag-box-title{color: #e255f8;}#tie-block_611 .mag-box-title:before {border-top-color: #e255f8;}#tie-block_611 .mag-box-title:after{background-color: #e255f8;}#tie-block_1837 .mag-box-filter-links a.active,#tie-block_1837 .mag-box-filter-links .flexMenu-viewMore:hover > a,#tie-block_1837 .stars-rating-active,#tie-block_1837 .tabs.tabs .active > a,#tie-block_1837 .spinner-circle:after,#tie-block_1837 .video-play-icon,#tie-block_1837 .pages-nav li a:hover,#tie-block_1837 .show-more-button:hover,#tie-block_1837 .entry a,#tie-block_1837.woocommerce ins{color: #8a8acb;}#tie-block_1837 a:hover,#tie-block_1837 .entry a:hover{color: #6c6cad;}#tie-block_1837 .spinner > div,#tie-block_1837 .tie-slick-dots li.slick-active button,#tie-block_1837 li.current span,#tie-block_1837 .tie-slick-dots li.slick-active button,#tie-block_1837 .tie-slick-dots li button:hover{background-color: #8a8acb;}#tie-block_1837 .digital-rating-static,#tie-block_1837 .mag-box-filter-links a:hover,#tie-block_1837 .slider-arrow-nav a:not(.pagination-disabled):hover,#tie-block_1837 .playlist-title,#tie-block_1837 .breaking-title:before,#tie-block_1837 .breaking-news-nav li:hover,#tie-block_1837 .post-cat,#tie-block_1837 .tie-slider-nav li > span:hover,#tie-block_1837 .button{background-color: #8a8acb;color: #FFFFFF;}#tie-block_1837 a.post-cat:hover,#tie-block_1837 .button:hover{background-color: #6c6cad;color: #FFFFFF;}#tie-block_1837 .entry a.button{ color: #FFFFFF;}#tie-block_1837 .circle_bar{ stroke: #8a8acb;}#tie-block_1837 .slider-arrow-nav a:not(.pagination-disabled):hover,#tie-block_1837 li.current span,#tie-block_1837 .breaking-news-nav li:hover{border-color: #8a8acb;}#tie-block_1837 .mag-box-title h3 a,#tie-block_1837 .block-more-button{color: #8a8acb;}#tie-block_1837 .mag-box-title h3 a:hover,#tie-block_1837 .block-more-button:hover{color: #6c6cad;}#tie-block_1837 .mag-box-title{color: #8a8acb;}#tie-block_1837 .mag-box-title:before {border-top-color: #8a8acb;}#tie-block_1837 .mag-box-title:after{background-color: #8a8acb;}#tie-s_1441 .mag-box-filter-links a.active,#tie-s_1441 .mag-box-filter-links .flexMenu-viewMore:hover > a,#tie-s_1441 .stars-rating-active,#tie-s_1441 .tabs.tabs .active > a,#tie-s_1441 .spinner-circle:after,#tie-s_1441 .video-play-icon,#tie-s_1441 .pages-nav li a:hover,#tie-s_1441 .show-more-button:hover,#tie-s_1441 .entry a,#tie-s_1441.woocommerce ins{color: #dd3333;}#tie-s_1441 a:hover,#tie-s_1441 .entry a:hover{color: #bf1515;}#tie-s_1441 .spinner > div,#tie-s_1441 .tie-slick-dots li.slick-active button,#tie-s_1441 li.current span,#tie-s_1441 .tie-slick-dots li.slick-active button,#tie-s_1441 .tie-slick-dots li button:hover{background-color: #dd3333;}#tie-s_1441 .digital-rating-static,#tie-s_1441 .mag-box-filter-links a:hover,#tie-s_1441 .slider-arrow-nav a:not(.pagination-disabled):hover,#tie-s_1441 .playlist-title,#tie-s_1441 .breaking-title:before,#tie-s_1441 .breaking-news-nav li:hover,#tie-s_1441 .post-cat,#tie-s_1441 .tie-slider-nav li > span:hover,#tie-s_1441 .button{background-color: #dd3333;color: #FFFFFF;}#tie-s_1441 a.post-cat:hover,#tie-s_1441 .button:hover{background-color: #bf1515;color: #FFFFFF;}#tie-s_1441 .entry a.button{ color: #FFFFFF;}#tie-s_1441 .circle_bar{ stroke: #dd3333;}#tie-s_1441 .slider-arrow-nav a:not(.pagination-disabled):hover,#tie-s_1441 li.current span,#tie-s_1441 .breaking-news-nav li:hover{border-color: #dd3333;}#tie-s_1441 .mag-box-title h3 a,#tie-s_1441 .block-more-button{color: #dd3333;}#tie-s_1441 .mag-box-title h3 a:hover,#tie-s_1441 .block-more-button:hover{color: #bf1515;}#tie-s_1441 .mag-box-title{color: #dd3333;}#tie-s_1441 .mag-box-title:before {border-top-color: #dd3333;}#tie-s_1441 .mag-box-title:after{background-color: #dd3333;}
+        </style>
+        <%= javascript_include_tag '/js/jquery.min.js', id: 'jquery-core-js' %>
+        <%= javascript_include_tag '/js/jquery-migrate.min.js', id: 'jquery-migrate-js' %>
+        <link rel="https://api.w.org/" href="phatgiaodinhquan.org/json" />
+        <!-- <link rel="alternate" type="application/json" href="" />
+        <link rel="EditURI" type="application/rsd+xml" title="RSD" href="" />
+        <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="" /> -->
+        <meta name="generator" content="Ruby on Rails" />
+        <% if params[:controller] == 'erp/pgdq/frontend/home' && params[:action] == 'index' %><link rel="canonical" href="https://phatgiaodinhquan.org/" />
+        <% elsif params[:controller] == 'erp/pgdq/frontend/info' && params[:action] == 'about' %><link rel="canonical" href="https://phatgiaodinhquan.org<%= about_link %>" />
+        <% elsif params[:controller] == 'erp/pgdq/frontend/info' && params[:action] == 'member' %><link rel="canonical" href="https://phatgiaodinhquan.org<%= member_link %>" />
+        <% elsif params[:controller] == 'erp/pgdq/frontend/info' && params[:action] == 'pagoda' %><link rel="canonical" href="https://phatgiaodinhquan.org<%= pagoda_link %>" />
+        <% elsif params[:controller] == 'erp/pgdq/frontend/category' && params[:action] == 'listing' %><link rel="canonical" href="https://phatgiaodinhquan.org<%= category_listing_link(@category) %>" />
+        <% elsif params[:controller] == 'erp/pgdq/frontend/category' && params[:action] == 'detail' %><link rel="canonical" href="https://phatgiaodinhquan.org<%= category_detail_link(@category) %>" />
+        <% elsif params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'detail' %><link rel="canonical" href="https://phatgiaodinhquan.org<%= article_detail_link(@article) %>" /><% end %>
+        <!-- <link rel='shortlink' href='https://phatgiaodinhquan.org/' /> -->
+        <!-- <link rel="alternate" type="application/json+oembed" href="" />
+        <link rel="alternate" type="text/xml+oembed" href="" /> -->
+        <script type='text/javascript'>/* <![CDATA[ */var taqyeem = {"ajaxurl":"/admin-ajax.php.html" , "your_rating":"Your Rating:"}; /* ]]> */</script>
+        <meta name="description" content="" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="theme-color" content="#0088ff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "GHPGVN Huyện Định Quán",
+              "url": "https://phatgiaodinhquan.org/",
+              "logo": "https://phatgiaodinhquan.org/img/logo.png"
             }
-        },
-        "description": "<%= @article.meta_description %>"
-    }
-    </script>
-    <% end %>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177229462-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-177229462-1');
-    </script>
-</head>
-<body id="tie-body" class="<%= @body_class %>">
-    <div class="background-overlay">
-        <div id="tie-container" class="site tie-container">
-            <div id="tie-wrapper">
-                <%= render 'erp/pgdq/frontend/modules/header' %>
-                <%= yield %>
-                <%= render 'erp/pgdq/frontend/modules/footer' %>
-                <a id="go-to-top" class="go-to-top-button" href="#go-to-tie-body">
-                    <span class="fa fa-angle-up"></span>
-                    <span class="screen-reader-text">Lên đầu trang</span>
-                </a>
-            </div>
-            <aside class="side-aside normal-side tie-aside-effect dark-skin dark-widgetized-area is-fullwidth" aria-label="Secondary Sidebar">
-                <div data-height="100%" class="side-aside-wrapper has-custom-scroll">
-                    <a href="#" class="close-side-aside remove big-btn light-btn"><span class="screen-reader-text">Đóng</span></a> 
-                    <div id="mobile-container">
-                        <div id="mobile-menu"></div>
-                        <div class="mobile-social-search">
+        </script>
+        <% if params[:controller] == 'erp/pgdq/frontend/info' && params[:action] == 'about' %>
+            <script type="application/ld+json">
+                {
+                    "@context": "https://schema.org/", 
+                    "@type": "BreadcrumbList", 
+                    "itemListElement": [{
+                        "@type": "ListItem", 
+                        "position": 1, 
+                        "name": "GHPGVN Huyện Định Quán",
+                        "item": "https://phatgiaodinhquan.org/"  
+                    },
+                    {
+                        "@type": "ListItem", 
+                        "position": 2, 
+                        "name": "Giới Thiệu GHPGVN Huyện Định Quán",
+                        "item": "https://phatgiaodinhquan.org<%= about_link %>"  
+                    }]
+                }
+            </script>
+        <% end %>
+        <% if params[:controller] == 'erp/pgdq/frontend/info' && params[:action] == 'member' %>
+            <script type="application/ld+json">
+                {
+                    "@context": "https://schema.org/", 
+                    "@type": "BreadcrumbList", 
+                    "itemListElement": [{
+                        "@type": "ListItem", 
+                        "position": 1, 
+                        "name": "GHPGVN Huyện Định Quán",
+                        "item": "https://phatgiaodinhquan.org/"  
+                    },
+                    {
+                        "@type": "ListItem", 
+                        "position": 2, 
+                        "name": "Thành Viên Ban Trị Sự",
+                        "item": "https://phatgiaodinhquan.org<%= member_link %>"  
+                    }]
+                }
+            </script>
+        <% end %>
+        <% if params[:controller] == 'erp/pgdq/frontend/info' && params[:action] == 'member' %>
+            <script type="application/ld+json">
+                {
+                    "@context": "https://schema.org/", 
+                    "@type": "BreadcrumbList", 
+                    "itemListElement": [{
+                        "@type": "ListItem", 
+                        "position": 1, 
+                        "name": "GHPGVN Huyện Định Quán",
+                        "item": "https://phatgiaodinhquan.org/"  
+                    },
+                    {
+                        "@type": "ListItem", 
+                        "position": 2, 
+                        "name": "Danh Sách Tự Viện",
+                        "item": "https://phatgiaodinhquan.org<%= pagoda_link %>"  
+                    }]
+                }
+            </script>
+        <% end %>
+        <% if params[:controller] == 'erp/pgdq/frontend/category' && params[:action] == 'listing' %>
+            <script type="application/ld+json">
+            {
+                "@context": "https://schema.org/", 
+                "@type": "BreadcrumbList", 
+                "itemListElement": [{
+                    "@type": "ListItem", 
+                    "position": 1, 
+                    "name": "GHPGVN Huyện Định Quán",
+                    "item": "https://phatgiaodinhquan.org/"  
+                },
+                <% if @category.parent.nil? %>
+                {
+                    "@type": "ListItem", 
+                    "position": 2, 
+                    "name": "<%= @category.get_name %>",
+                    "item": "https://phatgiaodinhquan.org<%= category_listing_link(@category) %>"  
+                }]
+                <% else %>
+                {
+                    "@type": "ListItem", 
+                    "position": 2, 
+                    "name": "<%= @category.parent.get_name %>",
+                    <% if @category.parent.use_show_list? %>
+                    "item": "https://phatgiaodinhquan.org<%= category_listing_link(@category.parent) %>"
+                    <% else %>
+                    "item": "https://phatgiaodinhquan.org<%= category_detail_link(@category.parent) %>"
+                    <% end %>
+                },
+                {
+                    "@type": "ListItem", 
+                    "position": 3, 
+                    "name": "<%= @category.get_name %>",
+                    "item": "http://phatgiaodinhquan.org<%= category_listing_link(@category) %>"  
+                }]
+                <% end %>
+            }
+            </script>
+        <% end %>
+        <% if params[:controller] == 'erp/pgdq/frontend/category' && params[:action] == 'detail' %>
+            <script type="application/ld+json">
+            {
+                "@context": "https://schema.org/", 
+                "@type": "BreadcrumbList", 
+                "itemListElement": [{
+                    "@type": "ListItem", 
+                    "position": 1, 
+                    "name": "GHPGVN Huyện Định Quán",
+                    "item": "https://phatgiaodinhquan.org/"  
+                },
+                <% if @category.parent.nil? %>
+                {
+                    "@type": "ListItem", 
+                    "position": 2, 
+                    "name": "<%= @category.get_name %>",
+                    "item": "https://phatgiaodinhquan.org<%= category_detail_link(@category) %>"  
+                }]
+                <% else %>
+                {
+                    "@type": "ListItem", 
+                    "position": 2, 
+                    "name": "<%= @category.parent.get_name %>",
+                    <% if @category.parent.use_show_list? %>
+                    "item": "https://phatgiaodinhquan.org<%= category_listing_link(@category.parent) %>"
+                    <% else %>
+                    "item": "https://phatgiaodinhquan.org<%= category_detail_link(@category.parent) %>"
+                    <% end %>
+                },
+                {
+                    "@type": "ListItem", 
+                    "position": 3, 
+                    "name": "<%= @category.get_name %>",
+                    "item": "http://phatgiaodinhquan.org<%= category_detail_link(@category) %>"  
+                }]
+                <% end %>
+            }
+            </script>
+        <% end %>
+        <% if params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'detail' %>
+            <script type="application/ld+json">
+            {
+                "@context": "https://schema.org/", 
+                "@type": "BreadcrumbList", 
+                "itemListElement": [{
+                    "@type": "ListItem", 
+                    "position": 1, 
+                    "name": "GHPGVN Huyện Định Quán",
+                    "item": "https://phatgiaodinhquan.org/"  
+                },
+                <% if @category.parent.nil? %>
+                    {
+                        "@type": "ListItem", 
+                        "position": 2, 
+                        "name": "<%= @category.get_name %>",
+                        <% if @category.use_show_list? %>
+                            "item": "https://phatgiaodinhquan.org<%= category_listing_link(@category) %>"
+                        <% else %>
+                            "item": "https://phatgiaodinhquan.org<%= category_detail_link(@category) %>"
+                        <% end %>
+                    },
+                    {
+                        "@type": "ListItem", 
+                        "position": 3, 
+                        "name": "<%= @article.get_name %>",
+                        "item": "https://phatgiaodinhquan.org<%= article_detail_link(@article) %>"  
+                    }]
+                <% else %>
+                    {
+                        "@type": "ListItem", 
+                        "position": 2, 
+                        "name": "<%= @category.parent.get_name %>",
+                        <% if @category.parent.use_show_list? %>
+                            "item": "https://phatgiaodinhquan.org<%= category_listing_link(@category.parent) %>"
+                        <% else %>
+                            "item": "https://phatgiaodinhquan.org<%= category_detail_link(@category.parent) %>"
+                        <% end %>
+                    },
+                    {
+                        "@type": "ListItem", 
+                        "position": 3, 
+                        "name": "<%= @category.get_name %>",
+                        <% if @category.use_show_list? %>
+                            "item": "https://phatgiaodinhquan.org<%= category_listing_link(@category) %>"
+                        <% else %>
+                            "item": "https://phatgiaodinhquan.org<%= category_detail_link(@category) %>"
+                        <% end %>
+                    },
+                    {
+                        "@type": "ListItem", 
+                        "position": 4, 
+                        "name": "<%= @article.get_name %>",
+                        "item": "https://phatgiaodinhquan.org<%= article_detail_link(@article) %>"  
+                    }]
+                <% end %>
+            }
+            </script>
+            <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "phatgiaodinhquan"
+                },
+                "headline": "<%= @article.get_name %> &#8211; GHPGVN Huyện Định Quán",
+                "image": "<%= @article.image.listing_1024x576 %>",
+                <% if @article.date_public.present? %>"datePublished": "<%= @article.date_public.strftime("%d-%m-%Y") %>",<% end %>
+                "dateModified": "<%= @article.updated_at.strftime("%d-%m-%Y") %>",
+                "author": {
+                    "@type": "Organization",
+                    "name": "GHPGVN Huyện Định Quán"
+                },
+                 "publisher": {
+                    "@type": "Organization",
+                    "name": "GHPGVN Huyện Định Quán",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://phatgiaodinhquan.org/img/logo.png"
+                    }
+                },
+                "description": "<%= @article.meta_description %>"
+            }
+            </script>
+        <% end %>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177229462-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-177229462-1');
+        </script>
+    </head>
+    <body id="tie-body" class="<%= @body_class if @body_class.present? %>">
+        <div class="background-overlay">
+            <div id="tie-container" class="site tie-container">
+                <div id="tie-wrapper">
+                    <%= render 'layouts/erp/frontend/header' %>
+                    <%= yield %>
+                    <%= render 'layouts/erp/frontend/footer' %>
+                    <a id="go-to-top" class="go-to-top-button" title="Lên đầu trang" href="#go-to-tie-body"><span class="tie-icon-angle-up"></span><span class="screen-reader-text">Lên đầu trang</span></a>
+                </div>
+                <aside class=" side-aside normal-side dark-skin dark-widgetized-area slide-sidebar-desktop is-fullwidth appear-from-left" aria-label="Secondary Sidebar" style="visibility:hidden;">
+                    <div data-height="100%" class="side-aside-wrapper has-custom-scroll">
+                        <a href="javascript:void(0)" class="close-side-aside remove big-btn light-btn">
+                            <span class="screen-reader-text">Đóng</span>
+                        </a>
+                        <div id="mobile-container">
+                            <div id="mobile-search">
+                                <form role="search" method="get" class="search-form" action="">
+                                    <label>
+                                    <span class="screen-reader-text">Tìm kiếm:</span>
+                                    <input type="search" class="search-field" placeholder="Nhập từ khóa tìm kiếm..." value="" name="" />
+                                    </label>
+                                    <input type="submit" class="search-submit" value="Tìm kiếm" />
+                                </form>
+                            </div>
+                            <div id="mobile-menu" class="hide-menu-icons"></div>
                             <div id="mobile-social-icons" class="social-icons-widget solid-social-icons">
                                 <ul>
                                     <li class="social-icons-item">
-                                        <a class="social-link facebook-social-icon" title="Facebook" rel="external noopener nofollow" target="_blank" href="">
-                                            <span class="fa fa-facebook"></span>
+                                        <a class="social-link facebook-social-icon" rel="external noopener nofollow" target="_blank" href="">
+                                            <span class="tie-social-icon tie-icon-facebook"></span>
                                             <span class="screen-reader-text">Facebook</span>
                                         </a>
                                     </li>
                                     <li class="social-icons-item">
-                                        <a class="social-link twitter-social-icon" title="Twitter" rel="external noopener nofollow" target="_blank" href="">
-                                            <span class="fa fa-twitter"></span>
+                                        <a class="social-link twitter-social-icon" rel="external noopener nofollow" target="_blank" href="">
+                                            <span class="tie-social-icon tie-icon-twitter"></span>
                                             <span class="screen-reader-text">Twitter</span>
                                         </a>
                                     </li>
                                     <li class="social-icons-item">
-                                        <a class="social-link dribbble-social-icon" title="Dribbble" rel="external noopener nofollow" target="_blank" href="">
-                                            <span class="fa fa-dribbble"></span>
-                                            <span class="screen-reader-text">Dribbble</span>
+                                        <a class="social-link youtube-social-icon" rel="external noopener nofollow" target="_blank" href="">
+                                            <span class="tie-social-icon tie-icon-youtube"></span>
+                                            <span class="screen-reader-text">YouTube</span>
                                         </a>
                                     </li>
                                     <li class="social-icons-item">
-                                        <a class="social-link soundcloud-social-icon" title="SoundCloud" rel="external noopener nofollow" target="_blank" href="">
-                                            <span class="fa fa-soundcloud"></span>
-                                            <span class="screen-reader-text">SoundCloud</span>
-                                        </a>
-                                    </li>
-                                    <li class="social-icons-item">
-                                        <a class="social-link instagram-social-icon" title="Instagram" rel="external noopener nofollow" target="_blank" href="">
-                                            <span class="fa fa-instagram"></span>
+                                        <a class="social-link instagram-social-icon" rel="external noopener nofollow" target="_blank" href="">
+                                            <span class="tie-social-icon tie-icon-instagram"></span>
                                             <span class="screen-reader-text">Instagram</span>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
-                            <div id="mobile-search">
-                                <form class="search-form">
-                                    <label>
-                                        <span class="screen-reader-text">Tìm bài viết:</span>
-                                        <input type="search" class="search-field" placeholder="Nhập từ khóa..." name="" />
-                                    </label>
-                                    <input type="submit" class="search-submit" value="Tìm kiếm" />
-                                </form>
-                            </div>
                         </div>
-                    </div>                        
-                </div>
-             </aside>
+                    </div>
+                </aside>
+            </div>
         </div>
-    </div>        
-    <div id="is-scroller-outer"><div id="is-scroller"></div></div>
-    <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><%= stylesheet_link_tag '/css/style.css' %></noscript>
-    <link rel='preload' href="/css/helpers.min.css" as='style' onload='this.onload=null;this.rel="stylesheet"' />
-    <noscript><%= stylesheet_link_tag '/css/helpers.min.css' %></noscript>
-    <link rel='preload' href="/css/dark-skin.css" as='style' onload='this.onload=null;this.rel="stylesheet"' />
-    <noscript><%= stylesheet_link_tag '/css/dark-skin.css' %></noscript>
-    <%= javascript_include_tag '/js/js-custom.js' %>
-    <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' %>
-    <%= javascript_include_tag '/js/scripts.js' %>
-    <%= javascript_include_tag '/js/scripts.min.js' %>
-    <%= javascript_include_tag '/js/lightbox.js' %>
-    <%= javascript_include_tag '/js/desktop.min.js' %>
-    <%= javascript_include_tag '/js/live-search.js' %>
-    <%= javascript_include_tag '/js/br-news.js' %>
-    <%= javascript_include_tag '/js/sliders.min.js' %>
-</body>
+        <div id="is-scroller-outer"><div id="is-scroller"></div></div>
+        <div id="tie-popup-search-mobile" class="tie-popup tie-popup-search-wrap" style="display:none;">
+            <a href="#" class="tie-btn-close remove big-btn light-btn">
+                <span class="screen-reader-text">Đóng</span>
+            </a>
+            <div class="popup-search-wrap-inner">
+                <div class="live-search-parent pop-up-live-search" data-skin="live-search-popup" aria-label="Search">
+                    <form method="get" class="tie-popup-search-form" action="">
+                        <input class="tie-popup-search-input " inputmode="search" type="text" name="" title="Nhập từ khóa tìm kiếm..." autocomplete="off" placeholder="Nhập từ khóa tìm kiếm..." />
+                        <button class="tie-popup-search-submit" type="submit">
+                            <span class="tie-icon-search tie-search-icon" aria-hidden="true"></span>
+                            <span class="screen-reader-text">Tìm kiếm</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <script type='text/javascript' id='tie-scripts-js-extra'>var tie={is_rtl:"",ajaxurl:"/js/admin-ajax.php.html",is_taqyeem_active:"1",is_sticky_video:"",mobile_menu_top:"",mobile_menu_active:"area_1",mobile_menu_parent:"",lightbox_all:"true",lightbox_gallery:"true",lightbox_skin:"dark",lightbox_thumb:"horizontal",lightbox_arrows:"true",is_singular:"1",autoload_posts:"",reading_indicator:"true",lazyload:"",select_share:"true",select_share_twitter:"true",select_share_facebook:"true",select_share_linkedin:"true",select_share_email:"",facebook_app_id:"5303202981",twitter_username:"",responsive_tables:"true",ad_blocker_detector:"",sticky_behavior:"upwards",sticky_desktop:"true",sticky_mobile:"true",sticky_mobile_behavior:"default",ajax_loader:'<div class="loader-overlay">\n\t\t\t\t<div class="spinner">\n\t\t\t\t\t<div class="bounce1"></div>\n\t\t\t\t\t<div class="bounce2"></div>\n\t\t\t\t\t<div class="bounce3"> </div>\n\t\t\t\t</div>\n\t\t\t</div>',type_to_search:"1",lang_no_results:"Nothing Found",sticky_share_mobile:"true",sticky_share_post:""};</script>
+        <%= javascript_include_tag '/js/scripts.min.js', id: 'tie-scripts-js' %>
+        <%= javascript_include_tag '/js/lightbox.js', id: 'tie-js-ilightbox-js' %>
+        <%= javascript_include_tag '/js/sliders.min.js', id: 'tie-js-sliders-js' %>
+        <%= javascript_include_tag '/js/shortcodes.js', id: 'tie-js-shortcodes-js' %>
+        <%= javascript_include_tag '/js/desktop.min.js', id: 'tie-js-desktop-js' %>
+        <%= javascript_include_tag '/js/live-search.js', id: 'tie-js-livesearch-js' %>
+        
+        <% if (params[:controller] == 'erp/pgdq/frontend/category' && params[:action] == 'listing') || (params[:controller] == 'erp/pgdq/frontend/category' && params[:action] == 'detail') %>
+            <%= javascript_include_tag '/js/wp-embed.min.js?ver=5.6', id: 'wp-embed-js' %>
+        <% end %>
+        
+        <% if (params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'detail') || (params[:controller] == 'erp/pgdq/frontend/info') %>
+            <%= javascript_include_tag '/js/single.min.js', id: 'tie-js-single-js' %>
+            <%= javascript_include_tag '/js/comment-reply.min.js', id: 'comment-reply-js' %>
+            <%= javascript_include_tag '/js/wp-embed.min.js', id: 'wp-embed-js' %>
+        <% end %>
+        
+        <%= javascript_include_tag '/js/br-news.js', id: 'tie-js-breaking-js' %>
+        
+        <% if params[:controller] == 'erp/pgdq/frontend/category' && params[:action] == 'listing' %>
+          <%= javascript_include_tag '/js/imagesloaded.min.js', id: 'imagesloaded-js' %>
+          <%= javascript_include_tag '/js/masonry.min.js', id: 'masonry-js' %>
+          <%= javascript_include_tag '/js/jquery.masonry.min.js', id: 'jquery-masonry-js' %>
+        <% end %>
+        
+        <% if (params[:controller] == 'erp/pgdq/frontend/article' && params[:action] == 'detail') || (params[:controller] == 'erp/pgdq/frontend/info') %>
+          <%= javascript_include_tag '/js/imagesloaded.min.js', id: 'imagesloaded-js' %>
+          <%= javascript_include_tag '/js/parallax.js', id: 'tie-js-parallax-js' %>
+        <% end %>
+        
+        <script>WebFontConfig={google:{families:["Roboto::latin","Roboto:600,regular:latin","Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,800,800italic,900,900italic:latin","Roboto::latin&display=swap"]}},function(){var t=document.createElement("script");t.src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js",t.type="text/javascript",t.defer="true";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(t,a)}();</script>
+        <script type='text/javascript'>!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);</script>
+        <script type='text/javascript'>var c=document.body.className;c=c.replace(/tie-no-js/,"tie-js"),document.body.className=c;</script>
+    </body>
 </html>

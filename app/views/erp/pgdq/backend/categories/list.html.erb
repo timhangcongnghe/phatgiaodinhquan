@@ -2,8 +2,11 @@
     <thead>
         <tr>
             <th width='1%'><%= erp_datalist_check_all %></th>
+            <% if get_columns(params).include?("image") %>
+                <th class="text-left" width='15%'><%= t('image') %></th>
+            <% end %>
             <% if get_columns(params).include?("name") %>
-                <th class="text-left" width='40%'><%= t('.name') %></th>
+                <th class="text-center" width='40%'><%= t('.name') %></th>
             <% end %>
             <% if get_columns(params).include?("creator") %>
                 <th class="text-center"><%= t('creator') %></th>
@@ -21,6 +24,11 @@
         <% @categories.each do |category| %>
             <tr class="odd gradeX">
                 <td><%= erp_datalist_check_row(id: category.id) %></td>
+                <% if get_columns(params).include?("image") %>
+                    <td class="text-left">
+                        <% if !category.image.nil? %><img class="image-datalist" src="<%= category.image.system %>"><% end %>
+                    </td>
+                <% end %>
                 <% if get_columns(params).include?("name") %>
                     <td class="text-left">
                         <%= link_to category.get_full_name, erp_pgdq.edit_backend_category_path(category), class: 'title', title: category.get_full_name %>
@@ -29,9 +37,31 @@
                 <% end %>
                 <% if get_columns(params).include?("creator") %>
                     <td class="text-center">
-                        <%= erp_component('avatar', {
-                            user: category.creator
-                        }) %>
+                        <% if !category.creator.nil? %>
+                            <div class="userpic">
+                                <div class="list-userpic">
+                                    <% if category.creator.avatar.present? %><%= image_tag category.creator.avatar.system, class: "img-circle",
+                                                                                 alt: category.creator.email,
+                                                                                 title: category.creator.name + " (" + category.creator.email + ")" %>
+                                    <% else %><%= image_tag "/backend/img/placeholder.jpg", class: "img-circle",
+                                                  alt: category.creator.email,
+                                                  title: category.creator.name + " (" + category.creator.email + ")" %>
+                                    <% end %>
+                                </div>
+                                <div class="list-usertitle">
+                                    <div class="list-usertitle-name" title="<%= category.creator.name + " (" + category.creator.email + ")" %>">
+                                        <%= user_short_name(category.creator.name) %>
+                                    </div>
+                                </div>
+                            </div>
+                        <% else %>
+                            <div class="userpic">
+                                <div class="list-userpic"><img class="img-circle" src="/backend/img/placeholder.jpg"></div>
+                                <div class="list-usertitle">
+                                    <div class="list-usertitle-name"><%= t("no_creator") %></div>
+                                </div>
+                            </div>
+                        <% end %>
                     </td>
                 <% end %>
                 <% if get_columns(params).include?("created_at") %>
@@ -40,23 +70,15 @@
                 <td class="text-center text-semibold">
                     <%= category.custom_order %>
                     <% if params[:sort_by] == 'erp_pgdq_categories.custom_order' %>
-                        <a data-method="PUT"
-                            href="<%=
-                                params[:sort_direction] == 'asc' ?
-                                erp_pgdq.move_up_backend_categories_path(id: category) :
-                                erp_pgdq.move_down_backend_categories_path(id: category)
-                            %>"
-                            class="ajax-link">
-                            <i class="fa fa-caret-square-o-up icon-big"></i>
+                        <a data-method="PUT" 
+                           href="<%= params[:sort_direction] == 'asc' ? erp_pgdq.move_up_backend_categories_path(id: category) : erp_pgdq.move_down_backend_categories_path(id: category) %>"
+                           class="ajax-link">
+                           <i class="fa fa-caret-square-o-up icon-big"></i>
                         </a>
                         <a data-method="PUT"
-                            href="<%=
-                                params[:sort_direction] == 'asc' ?
-                                erp_pgdq.move_down_backend_categories_path(id: category) :
-                                erp_pgdq.move_up_backend_categories_path(id: category)
-                            %>"
-                            class="ajax-link">
-                            <i class="fa fa-caret-square-o-down icon-big"></i>
+                           href="<%= params[:sort_direction] == 'asc' ? erp_pgdq.move_down_backend_categories_path(id: category) : erp_pgdq.move_up_backend_categories_path(id: category) %>"
+                           class="ajax-link">
+                           <i class="fa fa-caret-square-o-down icon-big"></i>
                         </a>
                     <% end %>
                 </td>
@@ -66,15 +88,11 @@
                             <i class="fa fa-cog"></i><%= t('core.options') %><i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu pull-right">
-                            <li>
-                                <%= link_to '<i class="fa fa-edit"></i>'.html_safe + t('.edit'), 
-                                    erp_pgdq.edit_backend_category_path(category) %>
-                            </li>
+                            <li><%= link_to '<i class="fa fa-edit"></i>'.html_safe + t('.edit'), 
+                                    erp_pgdq.edit_backend_category_path(category) %></li>
                             <li class="divider"></li>
-                            <li>
-                                <%= link_to '<i class="fa fa-trash"></i>'.html_safe + t('.delete'), 
-                                    erp_pgdq.backend_category_path(category), method: 'DELETE', data: {confirm: t('delete_confirm')}, class: 'ajax-link' %>
-                            </li>
+                            <li><%= link_to '<i class="fa fa-trash"></i>'.html_safe + t('.delete'), 
+                                    erp_pgdq.backend_category_path(category), method: 'DELETE', data: {confirm: t('delete_confirm')}, class: 'ajax-link' %></li>
                         </ul>
                     </div>
                 </td>

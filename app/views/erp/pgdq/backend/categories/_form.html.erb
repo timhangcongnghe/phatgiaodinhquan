@@ -52,12 +52,32 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <%= erp_form_control("text", {
                                 name: 'category[tags]',
                                 value: category.tags,                   
                                 label: t('.tags'),
                                 placeholder: t('.placeholder_tags')
+                            }) %>
+                        </div>
+                        <div class="col-md-3">
+                            <%= erp_form_control('checkbox', {
+                                name: 'category[use_diff_menu]',
+                                id: 'category_use_diff_menu',
+                                value: category.use_diff_menu,
+                                not_selected_value: 'false',
+                                label: t('.category_use_diff_menu'),
+                                options: [{value: 'true', text: t('.use_diff_menu')}]
+                            }) %>
+                        </div>
+                        <div class="col-md-3">
+                            <%= erp_form_control('checkbox', {
+                                name: 'category[use_show_list]',
+                                id: 'category_use_show_list',
+                                value: category.use_show_list,
+                                not_selected_value: 'false',
+                                label: t('.category_use_show_list'),
+                                options: [{value: 'true', text: t('.use_show_list')}]
                             }) %>
                         </div>
                     </div>

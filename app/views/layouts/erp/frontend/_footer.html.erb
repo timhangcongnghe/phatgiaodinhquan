@@ -1,0 +1,188 @@
+<footer id="footer" class="site-footer dark-skin dark-widgetized-area">
+    <div id="footer-widgets-container">
+        <div class="container">
+            <div class="footer-widget-area ">
+                <div class="tie-row">
+                    <div class="tie-col-md-3 normal-side">
+                        <div id="posts-list-widget-1" class="container-wrapper widget posts-list">
+                            <div class="widget-title the-global-title">
+                                <div class="the-subtitle">Giới Thiệu<span class="widget-title-icon tie-icon"></span></div>
+                            </div>
+                            <div class="widget-posts-list-container timeline-widget" >
+                                <ul class="posts-list-items widget-posts-wrapper">
+                                    <li class="widget-single-post-item">
+                                        <a href="<%= about_link %>" title="GHPGVN Huyện Định Quán">
+                                            <span class="date meta-item tie-icon"></span>							
+                                            <h3>GHPGVN Huyện Định Quán</h3>
+                                        </a>
+                                    </li>
+                                    <li class="widget-single-post-item">
+                                        <a href="<%= member_link %>" title="Thành Viên Ban Trị Sự">
+                                            <span class="date meta-item tie-icon"></span>							
+                                            <h3>Thành Viên Ban Trị Sự</h3>
+                                        </a>
+                                    </li>
+                                    <li class="widget-single-post-item">
+                                        <a href="<%= pagoda_link %>" title="Danh Sách Tự Viện">
+                                            <span class="date meta-item tie-icon"></span>							
+                                            <h3>Danh Sách Tự Viện</h3>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>				
+                    </div>
+                    <div class="tie-col-md-3 normal-side">
+                        <div id="posts-list-widget-1" class="container-wrapper widget posts-list">
+                            <div class="widget-title the-global-title">
+                                <div class="the-subtitle">Hoạt Động Ban Trị Sự<span class="widget-title-icon tie-icon"></span></div>
+                            </div>
+                            <div class="widget-posts-list-container timeline-widget" >
+                                <ul class="posts-list-items widget-posts-wrapper">
+                                    <% Erp::Pgdq::Category.find(2).get_articles_for_categories(params).limit(3).each do |article| %>
+                                        <li class="widget-single-post-item">
+                                            <a href="<%= article_detail_link(article) %>" title="<%= article.get_name %>">
+                                                <span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span>							
+                                                <h3><%= truncate(article.get_name, length: 68) %></h3>
+                                            </a>
+                                        </li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>				
+                    </div>
+                    <div class="tie-col-md-3 normal-side">
+                        <div id="posts-list-widget-1" class="container-wrapper widget posts-list">
+                            <div class="widget-title the-global-title">
+                                <div class="the-subtitle">Hoạt Động Các Ban Ngành<span class="widget-title-icon tie-icon"></span></div>
+                            </div>
+                            <div class="widget-posts-list-container timeline-widget" >
+                                <ul class="posts-list-items widget-posts-wrapper">
+                                    <% Erp::Pgdq::Category.find(3).get_articles_for_categories(params).limit(3).each do |article| %>
+                                        <li class="widget-single-post-item">
+                                            <a href="<%= article_detail_link(article) %>" title="<%= article.get_name %>">
+                                                <span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span>							
+                                                <h3><%= truncate(article.get_name, length: 68) %></h3>
+                                            </a>
+                                        </li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>				
+                    </div>
+                    <div class="tie-col-md-3 normal-side">
+                        <div id="posts-list-widget-1" class="container-wrapper widget posts-list">
+                            <div class="widget-title the-global-title">
+                                <div class="the-subtitle">Tin Tự Viện<span class="widget-title-icon tie-icon"></span></div>
+                            </div>
+                            <div class="widget-posts-list-container timeline-widget" >
+                                <ul class="posts-list-items widget-posts-wrapper">
+                                    <% Erp::Pgdq::Category.find(6).get_articles_for_categories(params).limit(3).each do |article| %>
+                                        <li class="widget-single-post-item">
+                                            <a href="<%= article_detail_link(article) %>" title="<%= article.get_name %>">
+                                                <span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span>							
+                                                <h3><%= truncate(article.get_name, length: 68) %></h3>
+                                            </a>
+                                        </li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>				
+                    </div>
+                </div>
+            </div>
+            <div class="footer-widget-area ">
+                <div class="tie-row">
+                    <div class="tie-col-sm-4 normal-side">
+                        <div id="author-bio-widget-1" class="container-wrapper widget aboutme-widget">
+                            <div class="about-author about-content-wrapper">
+                                <img alt="GHPGVN Huyện Định Quán" title="GHPGVN Huyện Định Quán" src="/img/logo-lite.png" style="margin-top:15px;margin-bottom:0px;" class="about-author-img" width="280" height="47">
+                                <div class="aboutme-widget-content"></div>
+                                <a href="//www.dmca.com/Protection/Status.aspx?ID=420dbb19-37d6-44f1-8d79-ead2b6592831" title="DMCA.com Protection Status" class="dmca-badge">
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAKCAYAAADVTVykAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB9JREFUeNpi/P//P8NAAiaGAQajDhh1wKgDRh0AEGAAQTcDEcKDrpMAAAAASUVORK5CYII=" 
+                                         data-src="https://images.dmca.com/Badges/dmca-badge-w200-5x1-03.png?ID=420dbb19-37d6-44f1-8d79-ead2b6592831" 
+                                         alt="DMCA.com Protection Status" title="DMCA.com Protection Status" class="lazy-img" />
+                                </a>
+                                <%= javascript_include_tag '//images.dmca.com/Badges/DMCABadgeHelper.min.js' %>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="tie-col-sm-8 normal-side text-right">
+                        <div id="author-bio-widget-2" class="container-wrapper widget aboutme-widget">
+                            <div class="about-author about-content-wrapper">
+                                <div class="aboutme-widget-content">
+                                    <h4>BAN TRỊ SỰ GHPGVN HUYỆN ĐỊNH QUÁN</h4>
+                                    <strong>Văn phòng đại diện: </strong>Chùa Pháp Quang
+                                    <br><strong>Địa chỉ: </strong>Xã Phú Ngọc, Huyện Định Quán, Tỉnh Đồng Nai
+                                    <br><strong>Email: </strong><%= mail_to 'phatgiaodinhquan.org@gmail.com', 'phatgiaodinhquan.org@gmail.com', title: 'Phật Giáo Định Quán' %>
+                                    <!-- <br><strong>Điện thoại: </strong>
+                                    <br><strong>Chịu trách nhiệm nội dung: </strong> -->
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class=" normal-side"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="site-info" class="site-info site-info-layout-2">
+        <div class="container">
+            <div class="tie-row">
+                <div class="tie-col-md-12">
+                    <div class="copyright-text copyright-text-first">&copy; Copyright 2021. All Rights Reserved &nbsp;|&nbsp; <a href="" target="_blank" rel="nofollow noopener">GHPGVN Huyện Định Quán</a></div>
+                    <div class="footer-menu">
+                        <ul id="menu-tielabs-secondry-menu" class="menu">
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home tie-current-menu">
+                                <%= link_to 'Trang Chủ', root_link, title: 'Trang Chủ' %>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <%= link_to 'Giới Thiệu', about_link, title: 'Giới Thiệu' %>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <%= link_to 'Danh Sách Tự Viện', pagoda_link, title: 'Danh Sách Tự Viện' %>
+                            </li>
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                                <%= link_to 'Danh Sách Ban Trị Sự', member_link, title: 'Danh Sách Ban Trị Sự' %>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="social-icons">
+                        <li class="social-icons-item">
+                            <a class="social-link facebook-social-icon" rel="external noopener nofollow" target="_blank" href="" title="FaceBook">
+                                <span class="tie-social-icon tie-icon-facebook"></span>
+                                <span class="screen-reader-text">FaceBook</span>
+                            </a>
+                        </li>
+                        <li class="social-icons-item">
+                            <a class="social-link twitter-social-icon" rel="external noopener nofollow" target="_blank" href="" title="Twitter">
+                                <span class="tie-social-icon tie-icon-twitter"></span>
+                                <span class="screen-reader-text">Twitter</span>
+                            </a>
+                        </li>
+                        <li class="social-icons-item">
+                            <a class="social-link youtube-social-icon" rel="external noopener nofollow" target="_blank" href="" title="YouTube">
+                                <span class="tie-social-icon tie-icon-youtube"></span>
+                                <span class="screen-reader-text">YouTube</span>
+                            </a>
+                        </li>
+                        <li class="social-icons-item">
+                            <a class="social-link soundcloud-social-icon" rel="external noopener nofollow" target="_blank" href="" title="SoundCloud">
+                                <span class="tie-social-icon tie-icon-soundcloud"></span>
+                                <span class="screen-reader-text">SoundCloud</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

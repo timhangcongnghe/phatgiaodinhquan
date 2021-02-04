@@ -1,0 +1,158 @@
+<aside class="sidebar tie-col-md-4 tie-col-xs-12 normal-side is-sticky" aria-label="Primary Sidebar">
+    <div class="theiaStickySidebar">
+        <div id="social-statistics-2" class="container-wrapper widget social-statistics-widget">
+            <div class="widget-title the-global-title">
+                <div class="the-subtitle">Theo Dõi Trên MXH<span class="widget-title-icon tie-icon"></span></div>
+            </div>
+            <ul class="solid-social-icons two-cols transparent-icons Arqam-Lite">
+                <li class="social-icons-item">
+                    <a class="facebook-social-icon" href="" rel="nofollow noopener" target="_blank" title="FaceBook">
+                        <span class="counter-icon tie-icon-facebook"></span>
+                        <span class="followers">
+                            <span class="followers-num">FaceBook</span>
+                            <span class="followers-name">Theo dõi trang</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="social-icons-item">
+                    <a class="twitter-social-icon" href="" rel="nofollow noopener" target="_blank" title="Twitter">
+                        <span class="counter-icon tie-icon-twitter"></span>
+                        <span class="followers">
+                            <span class="followers-num">Twitter</span>
+                            <span class="followers-name">Theo dõi trang</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="social-icons-item">
+                    <a class="youtube-social-icon" href="" rel="nofollow noopener" target="_blank" title="YouTube">
+                        <span class="counter-icon tie-icon-youtube"></span>
+                        <span class="followers">
+                            <span class="followers-num">YouTube</span>
+                            <span class="followers-name">Theo dõi trang</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="social-icons-item">
+                    <a class="soundcloud-social-icon" href="" rel="nofollow noopener" target="_blank" title="Soundcloud">
+                        <span class="counter-icon tie-icon-soundcloud"></span>
+                        <span class="followers">
+                            <span class="followers-num">Soundcloud</span>
+                            <span class="followers-name">Theo dõi trang</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="social-icons-item">
+                    <a class="instagram-social-icon" href="" rel="nofollow noopener" target="_blank" title="Instagram">
+                        <span class="counter-icon tie-icon-instagram"></span>
+                        <span class="followers">
+                            <span class="followers-num">Instagram</span>
+                            <span class="followers-name">Theo dõi trang</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="social-icons-item">
+                    <a class="dribbble-social-icon" href="" rel="nofollow noopener" target="_blank" title="Dribbble">
+                        <span class="counter-icon tie-icon-dribbble"></span>
+                        <span class="followers">
+                            <span class="followers-num">Dribbble</span>
+                            <span class="followers-name">Theo dõi trang</span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div id="posts-list-widget-6" class="container-wrapper widget posts-list">
+            <div class="widget-title the-global-title">
+                <div class="the-subtitle">Bài Viết Mới Đăng Tải<span class="widget-title-icon tie-icon"></span></div>
+            </div>
+            <div class="widget-posts-list-container posts-list-counter" >
+                <ul class="posts-list-items widget-posts-wrapper">
+                    <% Erp::Pgdq::Article.get_sidebar_newest_articles.each do |article| %>
+                        <li class="widget-single-post-item widget-post-list tie-video">
+                            <div class="post-widget-thumbnail">
+                                <a aria-label="<%= article.get_name %>" href="<%= article_detail_link(article) %>" title="<%= article.get_name %>" class="post-thumb">
+                                    <img width="220" height="150" src="<%= article.image.sidebar %>" class="attachment-jannah-image-small size-jannah-image-small tie-small-image wp-post-image" alt="<%= article.get_name %>" title="<%= article.get_name %>" loading="lazy" />
+                                </a>		
+                            </div>
+                            <div class="post-widget-body ">
+                                <%= link_to truncate(article.get_name, length: 58), article_detail_link(article), title: article.get_name, class: 'post-title the-subtitle' %>
+                                <div class="post-meta">
+                                    <span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span>		
+                                </div>
+                            </div>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div id="posts-list-widget-6" class="container-wrapper widget posts-list">
+            <div class="widget-title the-global-title">
+                <div class="the-subtitle">Bài Viết Mới Cập Nhật<span class="widget-title-icon tie-icon"></span></div>
+            </div>
+            <div class="widget-posts-list-container posts-list-counter" >
+                <ul class="posts-list-items widget-posts-wrapper">
+                    <% Erp::Pgdq::Article.get_sidebar_new_update_articles.each do |article| %>
+                        <li class="widget-single-post-item widget-post-list tie-video">
+                            <div class="post-widget-thumbnail">
+                                <a aria-label="<%= article.get_name %>" href="<%= article_detail_link(article) %>" title="<%= article.get_name %>" class="post-thumb">
+                                    <img width="220" height="150" src="<%= article.image.sidebar %>" class="attachment-jannah-image-small size-jannah-image-small tie-small-image wp-post-image" alt="<%= article.get_name %>" title="<%= article.get_name %>" loading="lazy" />
+                                </a>		
+                            </div>
+                            <div class="post-widget-body ">
+                                <%= link_to truncate(article.get_name, length: 58), article_detail_link(article), title: article.get_name, class: 'post-title the-subtitle' %>
+                                <div class="post-meta">
+                                    <span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span>		
+                                </div>
+                            </div>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div id="tie-widget-categories-1" class="container-wrapper widget widget_categories tie-widget-categories">
+            <div class="widget-title the-global-title">
+                <div class="the-subtitle">Chuyên Mục Bài Viết<span class="widget-title-icon tie-icon"></span></div>
+            </div>
+            <ul>
+                <% Erp::Pgdq::Category.get_main_categories.each do |category_parent| %>
+                    <% if category_parent.use_diff_menu? %>
+                        <% category_parent.children.get_active.each do |category_child| %>
+                            <li class="cat-item cat-counter tie-cat-item-2">
+                                <% if category_child.use_show_list? %>
+                                    <%= link_to category_child.get_name, category_listing_link(category_child), title: category_child.get_name %> <span><%= category_child.get_articles_for_categories(params).count %></span>
+                                <% else %>
+                                    <%= link_to category_child.get_name, category_detail_link(category_child), title: category_child.get_name %> <span><%= category_child.get_articles_for_categories(params).count %></span>
+                                <% end %>
+                            </li>
+                        <% end %>
+                    <% else %>
+                        <li class="cat-item cat-counter tie-cat-item-2">
+                            <% if category_parent.use_show_list? %>
+                                <%= link_to category_parent.get_name, category_listing_link(category_parent), title: category_parent.get_name %> <span><%= category_parent.get_articles_for_categories(params).count %></span>
+                            <% else %>
+                                <%= link_to category_parent.get_name, category_detail_link(category_parent), title: category_parent.get_name %> <span><%= category_parent.get_articles_for_categories(params).count %></span>
+                            <% end %>
+                        </li>
+                    <% end %>
+                <% end %>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div id="tie-widget-categories-1" class="container-wrapper widget widget_categories tie-widget-categories">
+            <div class="widget-title the-global-title">
+                <div class="the-subtitle">Tác Giả Bài Viết<span class="widget-title-icon tie-icon"></span></div>
+            </div>
+            <ul>
+                <% Erp::Pgdq::Author.get_active.each do |author| %>  
+                    <li class="cat-item cat-counter tie-cat-item-2">
+                        <%= link_to author.get_short_name, 'javascript:void(0)', title: author.get_short_name %> <span><%= author.get_article_count %></span>
+                    </li>
+                <% end %>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</aside>

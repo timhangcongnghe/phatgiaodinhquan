@@ -1,15 +1,13 @@
 <% content_for :title do %><%= t('.create') %><% end %>
-<% content_for :page_title do %>    
-    <a href="<%= erp_pgdq.backend_categories_path %>">
-        <i class="fa fa-rss"></i>  <%= t('.categories') %>
-    </a> / <%= t('.create') %>
-<% end %>
-<% content_for :page_toolbar do %>
-    <div class="btn-group"><div class="clearfix"></div></div>
-<% end %>
+<% content_for :page_title do %>
+    <a href="<%= erp_pgdq.backend_categories_path %>"><i class="fa fa-rss"></i> <%= t('.categories') %></a> / 
+    <%= t('.create') %><% end %>
+<% content_for :page_toolbar do %><div class="btn-group"><div class="clearfix"></div></div><% end %>
 <div class="row">
     <div class="col-md-12">
-        <% if @category.errors.any? %><%= erp_form_control("form_error_message") %><% end %>
+        <% if @category.errors.any? %>
+            <%= erp_form_control("form_error_message") %>
+        <% end %>
         <%= render 'form', category: @category %>
     </div>
 </div>

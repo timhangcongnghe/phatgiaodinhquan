@@ -18,6 +18,18 @@ module Erp
         process resize_to_fill: [390, 220]
       end
       
+      version :listing_300x169 do
+        process resize_to_fill: [300, 169]
+      end
+      
+      version :listing_768x432 do
+        process resize_to_fill: [768, 432]
+      end
+      
+      version :listing_1024x576 do
+        process resize_to_fill: [1024, 576]
+      end
+      
       version :sidebar do
         process resize_to_fill: [220, 150]
       end

@@ -1,0 +1,113 @@
+<% title 'Danh Sách Tự Viện' %>
+<% content_for :metas do %>
+<meta property="og:locale" content="vi-VN" />
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Danh Sách Tự Viện &#8211; GHPGVN Huyện Định Quán"/>
+<% if @meta_description.present? %><meta property="og:description" content="<%= @meta_description %>"/><% else %><meta property="og:description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
+<meta property="og:url" content="https://phatgiaodinhquan.org<%= pagoda_link %>"/>
+<meta property="og:site_name" content="Danh Sách Tự Viện" />
+<meta property="og:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
+<meta property="og:image:alt" content="GHPGVN Huyện Định Quán"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="560"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="https://phatgiaodinhquan.org<%= pagoda_link %>"/>
+<meta name="twitter:title" content="Danh Sách Tự Viện &#8211; GHPGVN Huyện Định Quán" />
+<% if @meta_description.present? %><meta name="twitter:description" content="<%= @meta_description %>"/><% else %><meta name="twitter:description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
+<meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
+<meta name="twitter:image:alt" content="GHPGVN Huyện Định Quán"/>
+<% end %>
+
+<div class="container fullwidth-entry-title-wrapper">
+    <div style="background-image:url(/img/gioi-thieu-ghpgvn-huyen-dinh-quan-01.jpg)" class="fullwidth-entry-title single-big-img container-wrapper tie-parallax">
+        <div class="thumb-overlay"></div>
+        <header class="entry-header-outer">
+            <nav id="breadcrumb">
+                <%= link_to '<span class="tie-icon-home" aria-hidden="true"></span> Trang Chủ'.html_safe, root_link, title: 'Trang Chủ' %>
+                <em class="delimiter"><span class="fa fa-angle-right"></em><span class="current">Danh Sách Tự Viện</span>
+            </nav>
+            <div class="entry-header">
+                <h1 class="post-title entry-title">Danh Sách Tự Viện</h1>
+                <div id="single-post-meta" class="post-meta clearfix">
+                    <span class="author-meta single-author with-avatars">
+                        <span class="meta-item meta-author-wrapper meta-author-1">
+                            <span class="meta-author-avatar">
+                                <a href="javascript:void(0)" title="GHPGVN Huyện Định Quán">
+                                    <img alt='GHPGVN Huyện Định Quán' title="GHPGVN Huyện Định Quán" src='/img/author-140x140-lite.png' srcset='/img/author-280x280-lite.png 2x' class='avatar avatar-140 photo' height='140' width='140' loading='lazy'/>
+                                </a>
+                            </span>
+                            <span class="meta-author">
+                                <%= link_to 'GHPGVN Huyện Định Quán', 'javascript:void(0)', title: 'GHPGVN Huyện Định Quán', class: 'author-name tie-icon' %>
+                            </span>
+                            <a href="mailto:phatgiaodinhquan.org@gmail.com" class="author-email-link" target="_blank" rel="nofollow noopener" title="Gửi email">
+                                <span class="tie-icon-envelope" aria-hidden="true"></span>
+                                <span class="screen-reader-text">Gửi email</span>
+                            </a>
+                        </span>
+                    </span>
+                    <span class="date meta-item tie-icon"><strong>Ngày đăng: </strong>03-04-2016</span>
+                    <span class="date meta-item tie-icon"><strong>Ngày cập nhật: </strong>12-09-2020</span>
+                </div>
+            </div>
+            <a id="go-to-content" href="#go-to-content"><span class="tie-icon-angle-down"></span></a>
+        </header>
+    </div>
+</div>
+<div id="content" class="site-content container">
+    <div id="main-content-row" class="tie-row main-content-row">
+        <div class="main-content tie-col-md-8 tie-col-xs-12" role="main">
+            <article id="the-post" class="container-wrapper post-content tie-video">
+                <div class="entry-content entry clearfix text-justify">
+                  <h2 class="text-center">Danh Sách Tự Viện GHPGVN Huyện Định Quán</h2>
+                  <p>Nội dung bài viết đang được cập nhật...</p>
+                  <p style="text-align: right;"><em><strong>Tin, ảnh: </strong>GHPGVN Huyện Định Quán</p>
+                  <div class="post-bottom-meta post-bottom-tags post-tags-modern">
+                        <div class="post-bottom-meta-title"><span class="tie-icon-tags" aria-hidden="true"></span> Nhãn bài viết</div>
+                        <span class="tagcloud">
+                            <%= link_to 'phat giao dong nai', 'javascript:void(0)', title: 'phat giao dong nai', rel: 'tag' %>
+                            <%= link_to 'phat giao dinh quan', 'javascript:void(0)', title: 'phat giao dinh quan', rel: 'tag' %>
+                            <%= link_to 'ban tri su phat giao', 'javascript:void(0)', title: 'ban tri su phat giao', rel: 'tag' %>
+                            <%= link_to 'ban tri su dinh quan', 'javascript:void(0)', title: 'ban tri su dinh quan', rel: 'tag' %>
+                            <%= link_to 'phat giao dinh quan', 'javascript:void(0)', title: 'phat giao dinh quan', rel: 'tag' %>
+                            <%= link_to 'phat su online', 'javascript:void(0)', title: 'phat su online', rel: 'tag' %>
+                            <%= link_to 'tin tuc phat su', 'javascript:void(0)', title: 'tin tuc phat su', rel: 'tag' %>
+                            <%= link_to 'phat tu dinh quan', 'javascript:void(0)', title: 'phat tu dinh quan', rel: 'tag' %>
+                            <%= link_to 'tin tuc phat giao dinh quan', 'javascript:void(0)', title: 'tin tuc phat giao dinh quan', rel: 'tag' %>
+                            <%= link_to 'phat su', 'javascript:void(0)', title: 'phat su', rel: 'tag' %>
+                            <%= link_to 'gdpt dinh quan', 'javascript:void(0)', title: 'gdpt dinh quan', rel: 'tag' %>
+                            <%= link_to 'phap am phat giao', 'javascript:void(0)', title: 'phap am phat giao', rel: 'tag' %>
+                        </span>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div id="share-buttons-bottom" class="share-buttons share-buttons-bottom">
+                    <div class="share-links  icons-text">
+                        <div class="share-title">
+                            <span class="tie-icon-share" aria-hidden="true"></span>
+                            <span> Chia sẻ</span>
+                        </div>
+                        <a href="//www.facebook.com/sharer.php?u=//phatgiaodinhquan.org<%= about_link %>" rel="external noopener nofollow" title="Facebook" target="_blank" class="facebook-share-btn  large-share-button" data-raw="//www.facebook.com/sharer.php?u=//phatgiaodinhquan.org<%= about_link %>">
+                            <span class="share-btn-icon tie-icon-facebook"></span>
+                            <span class="social-text">Facebook</span>
+                        </a>
+                        <a href="//twitter.com/intent/tweet?text=Giới Thiệu GHPGVN Huyện Định Quán;url=//phatgiaodinhquan.org<%= about_link %>" rel="external noopener nofollow" title="Twitter" target="_blank" class="twitter-share-btn  large-share-button" data-raw="//twitter.com/intent/tweet?text=Giới Thiệu GHPGVN Huyện Định Quán;url=//phatgiaodinhquan.org<%= about_link %>">
+                            <span class="share-btn-icon tie-icon-twitter"></span>
+                            <span class="social-text">Twitter</span>
+                        </a>
+                        <a href="//web.skype.com/share?url=//phatgiaodinhquan.org<%= about_link %>;text=Giới Thiệu GHPGVN Huyện Định Quán" rel="external noopener nofollow" title="Skype" target="_blank" class="skype-share-btn  large-share-button" data-raw="//web.skype.com/share?url=//phatgiaodinhquan.org<%= about_link %>&text=Giới Thiệu GHPGVN Huyện Định Quán">
+                            <span class="share-btn-icon tie-icon-skype"></span>
+                            <span class="social-text">Skype</span>
+                        </a>
+                        <a href="//www.facebook.com/dialog/send?app_id=5303202981&display=popup&link=//phatgiaodinhquan.org<%= about_link %>&redirect_uri=//phatgiaodinhquan.org<%= about_link %>" rel="external noopener nofollow" title="Messenger" target="_blank" class="messenger-desktop-share-btn messenger-share-btn  large-share-button" data-raw="//www.facebook.com/dialog/send?app_id=5303202981&display=popup&link=//phatgiaodinhquan.org<%= about_link %>&redirect_uri=//phatgiaodinhquan.org<%= about_link %>">
+                            <span class="share-btn-icon tie-icon-messenger"></span>
+                            <span class="social-text">Messenger</span>
+                        </a>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        <%= render 'layouts/erp/frontend/sidebar' %>
+    </div>
+</div>

@@ -1,64 +1,121 @@
-<% title 'Sơ Lược Phật Giáo Định Quán' %>
+<% title 'Giới Thiệu' %>
 <% content_for :metas do %>
-<meta property="og:locale" content="vi" />
+<meta property="og:locale" content="vi-VN" />
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="Sơ Lược Phật Giáo Định Quán | Phật Giáo Định Quán"/>
-<meta property="og:description" content="Do có lịch sử lâu dài và địa hình, cũng như sự đa dạng của các tộc người vì vậy Phật giáo tại huyện Định Quán cũng rất đa dạng và phong phú."/>
+<meta property="og:title" content="Giới Thiệu &#8211; GHPGVN Huyện Định Quán"/>
+<% if @meta_description.present? %><meta property="og:description" content="<%= @meta_description %>"/><% else %><meta property="og:description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
 <meta property="og:url" content="https://phatgiaodinhquan.org<%= about_link %>"/>
-<meta property="og:site_name" content="Phật Giáo Định Quán" />
+<meta property="og:site_name" content="Giới Thiệu GHPGVN Huyện Định Quán" />
 <meta property="og:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
-<meta property="og:image:alt" content="Sơ Lược Phật Giáo Định Quán"/>
+<meta property="og:image:alt" content="GHPGVN Huyện Định Quán"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="560"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:site" content="https://phatgiaodinhquan.org<%= about_link %>"/>
-<meta name="twitter:title" content="Sơ Lược Phật Giáo Định Quán | Phật Giáo Định Quán" />
-<meta name="twitter:description" content="Do có lịch sử lâu dài và địa hình, cũng như sự đa dạng của các tộc người vì vậy Phật giáo tại huyện Định Quán cũng rất đa dạng và phong phú."/>
+<meta name="twitter:title" content="Giới Thiệu &#8211; GHPGVN Huyện Định Quán" />
+<% if @meta_description.present? %><meta name="twitter:description" content="<%= @meta_description %>"/><% else %><meta name="twitter:description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
 <meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
-<meta name="twitter:image:alt" content="Sơ Lược Phật Giáo Định Quán"/>
+<meta name="twitter:image:alt" content="GHPGVN Huyện Định Quán"/>
 <% end %>
 
-<%= stylesheet_link_tag '/css/style.min.css' %>
-<%= stylesheet_link_tag '/css/single.min.css' %>
-<%= stylesheet_link_tag '/css/shortcodes.min.css' %>
-<%= stylesheet_link_tag '/css/taqyeem.min.css' %>
-<%= stylesheet_link_tag '/css/taqyeem-buttons-style.css' %>
-<div id="content" class="site-content container">
-<div class="tie-row main-content-row">
-   <div class="main-content tie-col-md-8 tie-col-xs-12" role="main">
-      <article id="the-post" class="container-wrapper post-content tie-standard">
-         <header class="entry-header-outer">
+<div class="container fullwidth-entry-title-wrapper">
+    <div style="background-image:url(/img/gioi-thieu-ghpgvn-huyen-dinh-quan-01.jpg)" class="fullwidth-entry-title single-big-img container-wrapper tie-parallax">
+        <div class="thumb-overlay"></div>
+        <header class="entry-header-outer">
             <nav id="breadcrumb">
-               <a href="<%= erp_pgdq.root_path %>" title="Quay về trang chủ"><span class="fa fa-home" aria-hidden="true"></span> Trang Chủ</a>               
-               <em class="delimiter"><span class="fa fa-angle-right"></span></em><span class="current">Sơ Lược Phật Giáo Định Quán</span>
-            </nav>            
+                <%= link_to '<span class="tie-icon-home" aria-hidden="true"></span> Trang Chủ'.html_safe, root_link, title: 'Trang Chủ' %>
+                <em class="delimiter"><span class="fa fa-angle-right"></em><span class="current">GHPGVN Huyện Định Quán</span>
+            </nav>
             <div class="entry-header">
-               <h1 class="post-title entry-title">Sơ Lược Phật Giáo Định Quán</h1>
-               <div id="single-post-meta" class="post-meta clearfix">
-                  <span class="date meta-item tie-icon"><strong>Ngày đăng: </strong>Thursday, 10/09/2020</span>
-                  <span class="meta-item last-updated"><strong>Ngày cập nhật: </strong>08:35 AM Thursday, 24/09/2020</span>
-               </div>
+                <h1 class="post-title entry-title">Giới Thiệu GHPGVN Huyện Định Quán</h1>
+                <div id="single-post-meta" class="post-meta clearfix">
+                    <span class="author-meta single-author with-avatars">
+                        <span class="meta-item meta-author-wrapper meta-author-1">
+                            <span class="meta-author-avatar">
+                                <a href="javascript:void(0)" title="GHPGVN Huyện Định Quán">
+                                    <img alt='GHPGVN Huyện Định Quán' title="GHPGVN Huyện Định Quán" src='/img/author-140x140-lite.png' srcset='/img/author-280x280-lite.png 2x' class='avatar avatar-140 photo' height='140' width='140' loading='lazy'/>
+                                </a>
+                            </span>
+                            <span class="meta-author">
+                                <%= link_to 'GHPGVN Huyện Định Quán', 'javascript:void(0)', title: 'GHPGVN Huyện Định Quán', class: 'author-name tie-icon' %>
+                            </span>
+                            <a href="mailto:phatgiaodinhquan.org@gmail.com" class="author-email-link" target="_blank" rel="nofollow noopener" title="Gửi email">
+                                <span class="tie-icon-envelope" aria-hidden="true"></span>
+                                <span class="screen-reader-text">Gửi email</span>
+                            </a>
+                        </span>
+                    </span>
+                    <span class="date meta-item tie-icon"><strong>Ngày đăng: </strong>03-04-2016</span>
+                    <span class="date meta-item tie-icon"><strong>Ngày cập nhật: </strong>12-09-2020</span>
+                </div>
             </div>
-         </header>
-         <div class="entry-content text-justify entry clearfix">
-            <h2 class="text-center">Phật Giáo Huyện Định Quán, Tỉnh Đồng Nai</h2>
-            <p><strong><em>Định Quán là một huyện miền núi nằm dọc theo tuyến Quốc lộ 20, cách xa TP. Hồ Chí Minh khoảng 110 km, là một huyện trong 11 huyện thị thành của tỉnh Đồng Nai. Diện tích tự nhiên của huyện là 966.5 km² với dân số 194.143 người (theo số liệu điều tra dân số năm 2009). Gồm nhiều dân tộc sinh sống như: Kinh, Thái, Hoa, Tày, Khmer, Chơ Ro, Chăm, Ê Đê, Sán Dìu, Châu Mạ, Thái,... nhưng chủ yếu vẫn là dân tộc Kinh.</em></strong></p>
-            <p>Định Quán gồm 1 thị trấn (thị trấn Định Quán) và 13 xã (Thanh Sơn, Phú Tân, Phú Vinh, Ngọc Định, La Ngà, Phú Lợi, Phú Hoà, Gia Canh, Phú Ngọc, Túc Trưng, Phú Cường, Phú Túc, Suối Nho).</p>
-            <p style="text-align: center;"><img title="Sơ Lược Phật Giáo Định Quán" src="/img/content/so-luoc-phat-giao-huyen-dinh-quan-01.jpg" alt="Sơ Lược Phật Giáo Định Quán" width="90%" height="auto"></p>
-            <p>Do có lịch sử lâu dài và địa hình, cũng như sự đa dạng của các tộc người vì vậy Phật giáo tại huyện Định Quán cũng rất đa dạng và phong phú. Tổng số Tự viện, Thiền viện, Tu viện, Tịnh xá, Tịnh thất,... được hợp pháp sinh hoạt là khoảng 38 cơ sở trong đó số lượng Tăng ni khoảng trên 100 vị và đặc biệt là có đầy đủ cơ cấu hoàn hảo. Đó là trên thì có những bậc Chứng minh niên cao, lạp trưởng, lãnh đạo giáo hội Huyện thị có những vị Thượng tọa, Đại đức nhiệt huyết năng nổ, dưới thì có thế hệ Tăng trẻ để sau này kế thừa hoằng pháp lợi sanh. Đó là một điều rất mừng cho Phật giáo huyện Định Quán. Các cơ sở thờ tự trãi đều trên toàn Huyện, hầu như xã nào cũng có Chùa, Tịnh xá hay Thiền viện. Phật giáo huyện Định Quán cũng đầy đủ các hệ phái Bắc tông, Nam tông, Thiền tông, Khất sĩ,... tất cả các Tự viện đều hòa hợp cùng nhau tu tập, đều sinh hoạt theo hiến chương của Giáo hội và Pháp luật của Nhà nước.</p>
-            <p>Bên cạnh việc tu học, Tăng Ni trong Huyện cũng tham gia vào các vị trí trong chính quyền để đóng góp ý kiến cho việc xây dựng đất nước ngày một phát triển và phồn vinh. Điển hình Thượng tọa Thích Đồng Ngạn (trưởng BTS Phật Giáo Huyện ứng cử) hiện là thành viên của Ủy ban Mặt trận Tổ quốc Huyện, quý Tăng Ni trong Huyện cũng tham gia vào HĐND, Ủy ban MTTQ, Hội Chữ Thập Đỏ,... trong huyện và các xã.</p>
-            <p>Được hình thành và phát triển lâu dài vì vậy các Tự viện và Tăng Ni Phật tử sinh hoạt ổn định. Cơ cấu Giáo hội Huyện đầy đủ các thành viên bao gồm các vị Chứng minh và thành viên BTS. Phật giáo Huyện gồm 15 vị, các phân ban được hình thành và hoạt động đồng bộ, nhịp nhàng. Các Tự viện tổ chức tu tập thường xuyên bao gồm các Lễ cầu an, Lễ cầu siêu vào ngày 15 và 30 hằng tháng, đồng thời nhiều Chùa cũng tổ chức khóa tu Bát quan Trai và khóa tu một ngày.</p>
-            <p>Với đặc thù địa lý của huyện là khu vực miền núi và nhiều người dân tộc nên <strong>Phật Giáo Huyện Định Quán</strong> cũng rất chú trọng trong công tác Từ thiện, xây dựng nhà Tình Nghĩa, Tình Thương, phát quà đồng bào nghèo, giếng nước nghĩa tình, nuôi trẻ mồ côi, người già neo đơn, phát cơm từ thiện tại bệnh viện, phát cơm cho học sinh ở các trường học vì hoàn cảnh các em đi học xa xôi phải ở lại trường buổi trưa để học.</p>
-            <p>Mỗi năm công tác từ thiện của các Chùa trong Huyện ngày càng tăng mạnh. Theo thống kê năm 2014, công tác từ thiện của các Chùa trong Huyện là trên 7 tỷ đồng. Điển hình 2 tự viện có công tác từ thiện nổi trội trong Huyện là chùa Bửu Sơn xã Ngọc Định, do Thượng tọa Thích Minh Dũng trụ trì là nơi nuôi dạy các trẻ mồ côi và người già neo đơn. Chùa Pháp Hoa xã La Ngà do Ni trưởng Thích Nữ Như Thiền là trụ trì, là nơi nuôi dưỡng trẻ mồ côi và trường mầm non cho các trẻ.</p>
-            <p style="text-align: center;"><img title="Sơ Lược Phật Giáo Định Quán" src="/img/content/so-luoc-phat-giao-huyen-dinh-quan-02.jpg" alt="Sơ Lược Phật Giáo Định Quán" width="90%" height="auto"></p>
-            <p><strong><em>Nói đến Định Quán thì ai cũng biết đến biểu tượng Đá Ba Chồng, với những nét đẹp lạ lùng của tạo hóa, thiên nhiên, nơi đây gắn liền với văn hóa óc eo, với vẽ đẹp kỳ thú của quần thể khu đá Ba Chồng. Chính vì vậy Bộ Văn hóa Thông tin đã xếp hạng Đá Ba Chồng vào Di tích Danh Thắng cấp Quốc gia. Gắn liền với biểu tượng đó là ngôi chùa Thiên Chơn có tượng Phật Thích Ca ngồi trên tòa sen cao hơn 20m nằm trên hòn đá Bạch Tượng, tạo nên một nét đẹp đặc thù mà khi một ai đến Định Quán cũng không thể quên. Nơi đây trở thành nơi du lịch Tâm linh lý tưởng để mọi người gần gũi hơn với thiên nhiên và sự hùng vĩ của đất con người Việt.</em></strong></p>
-         </div>
-      </article>
-   </div>
-   <%= stylesheet_link_tag '/css/widgets.min.css' %>
-   <aside class="sidebar tie-col-md-4 tie-col-xs-12 normal-side is-sticky" aria-label="">
-      <%= render 'erp/pgdq/frontend/modules/sidebar' %>
-   </aside>
+            <a id="go-to-content" href="#go-to-content"><span class="tie-icon-angle-down"></span></a>
+        </header>
+    </div>
 </div>
+<div id="content" class="site-content container">
+    <div id="main-content-row" class="tie-row main-content-row">
+        <div class="main-content tie-col-md-8 tie-col-xs-12" role="main">
+            <article id="the-post" class="container-wrapper post-content tie-video">
+                <div class="entry-content entry clearfix text-justify">
+                  <h2 class="text-center">GHPGVN Huyện Định Quán, Tỉnh Đồng Nai</h2>
+                  <p><strong><em>Định Quán là một huyện miền núi nằm dọc theo tuyến Quốc lộ 20, cách xa TP. Hồ Chí Minh khoảng 110 km, là một huyện trong 11 huyện thị thành của tỉnh Đồng Nai. Diện tích tự nhiên của huyện là 966.5 km² với dân số 194.143 người (theo số liệu điều tra dân số năm 2009). Gồm nhiều dân tộc sinh sống như: Kinh, Thái, Hoa, Tày, Khmer, Chơ Ro, Chăm, Ê Đê, Sán Dìu, Châu Mạ, Thái,... nhưng chủ yếu vẫn là dân tộc Kinh.</em></strong></p>
+                  <p>Định Quán gồm 1 thị trấn (thị trấn Định Quán) và 13 xã (Thanh Sơn, Phú Tân, Phú Vinh, Ngọc Định, La Ngà, Phú Lợi, Phú Hoà, Gia Canh, Phú Ngọc, Túc Trưng, Phú Cường, Phú Túc, Suối Nho).</p>
+                  <p>Do có lịch sử lâu dài và địa hình, cũng như sự đa dạng của các tộc người vì vậy Phật giáo tại huyện Định Quán cũng rất đa dạng và phong phú. Tổng số Tự viện, Thiền viện, Tu viện, Tịnh xá, Tịnh thất,... được hợp pháp sinh hoạt là khoảng 38 cơ sở trong đó số lượng Tăng ni khoảng trên 100 vị và đặc biệt là có đầy đủ cơ cấu hoàn hảo. Đó là trên thì có những bậc Chứng minh niên cao, lạp trưởng, lãnh đạo giáo hội Huyện thị có những vị Thượng tọa, Đại đức nhiệt huyết năng nổ, dưới thì có thế hệ Tăng trẻ để sau này kế thừa hoằng pháp lợi sanh. Đó là một điều rất mừng cho Phật giáo huyện Định Quán. Các cơ sở thờ tự trãi đều trên toàn Huyện, hầu như xã nào cũng có Chùa, Tịnh xá hay Thiền viện. Phật giáo huyện Định Quán cũng đầy đủ các hệ phái Bắc tông, Nam tông, Thiền tông, Khất sĩ,... tất cả các Tự viện đều hòa hợp cùng nhau tu tập, đều sinh hoạt theo hiến chương của Giáo hội và Pháp luật của Nhà nước.</p>
+                  <p>Bên cạnh việc tu học, Tăng Ni trong Huyện cũng tham gia vào các vị trí trong chính quyền để đóng góp ý kiến cho việc xây dựng đất nước ngày một phát triển và phồn vinh. Điển hình Thượng tọa Thích Đồng Ngạn (trưởng BTS Phật Giáo Huyện ứng cử) hiện là thành viên của Ủy ban Mặt trận Tổ quốc Huyện, quý Tăng Ni trong Huyện cũng tham gia vào HĐND, Ủy ban MTTQ, Hội Chữ Thập Đỏ,... trong huyện và các xã.</p>
+                  <p>Được hình thành và phát triển lâu dài vì vậy các Tự viện và Tăng Ni Phật tử sinh hoạt ổn định. Cơ cấu Giáo hội Huyện đầy đủ các thành viên bao gồm các vị Chứng minh và thành viên BTS. Phật giáo Huyện gồm 15 vị, các phân ban được hình thành và hoạt động đồng bộ, nhịp nhàng. Các Tự viện tổ chức tu tập thường xuyên bao gồm các Lễ cầu an, Lễ cầu siêu vào ngày 15 và 30 hằng tháng, đồng thời nhiều Chùa cũng tổ chức khóa tu Bát quan Trai và khóa tu một ngày.</p>
+                  <p>Với đặc thù địa lý của huyện là khu vực miền núi và nhiều người dân tộc nên <strong>Phật Giáo Huyện Định Quán</strong> cũng rất chú trọng trong công tác Từ thiện, xây dựng nhà Tình Nghĩa, Tình Thương, phát quà đồng bào nghèo, giếng nước nghĩa tình, nuôi trẻ mồ côi, người già neo đơn, phát cơm từ thiện tại bệnh viện, phát cơm cho học sinh ở các trường học vì hoàn cảnh các em đi học xa xôi phải ở lại trường buổi trưa để học.</p>
+                  <p>Mỗi năm công tác từ thiện của các Chùa trong Huyện ngày càng tăng mạnh. Theo thống kê năm 2014, công tác từ thiện của các Chùa trong Huyện là trên 7 tỷ đồng. Điển hình 2 tự viện có công tác từ thiện nổi trội trong Huyện là chùa Bửu Sơn xã Ngọc Định, do Thượng tọa Thích Minh Dũng trụ trì là nơi nuôi dạy các trẻ mồ côi và người già neo đơn. Chùa Pháp Hoa xã La Ngà do Ni trưởng Thích Nữ Như Thiền là trụ trì, là nơi nuôi dưỡng trẻ mồ côi và trường mầm non cho các trẻ.</p>
+                  <p style="text-align: center;"><img title="GHPGVN Huyện Định Quán" src="/img/gioi-thieu-ghpgvn-huyen-dinh-quan-02.jpg" alt="GHPGVN Huyện Định Quán" width="90%" height="auto"></p>
+                  <p><strong><em>Nói đến Định Quán thì ai cũng biết đến biểu tượng Đá Ba Chồng, với những nét đẹp lạ lùng của tạo hóa, thiên nhiên, nơi đây gắn liền với văn hóa óc eo, với vẽ đẹp kỳ thú của quần thể khu đá Ba Chồng. Chính vì vậy Bộ Văn hóa Thông tin đã xếp hạng Đá Ba Chồng vào Di tích Danh Thắng cấp Quốc gia. Gắn liền với biểu tượng đó là ngôi chùa Thiên Chơn có tượng Phật Thích Ca ngồi trên tòa sen cao hơn 20m nằm trên hòn đá Bạch Tượng, tạo nên một nét đẹp đặc thù mà khi một ai đến Định Quán cũng không thể quên. Nơi đây trở thành nơi du lịch Tâm linh lý tưởng để mọi người gần gũi hơn với thiên nhiên và sự hùng vĩ của đất con người Việt.</em></strong></p>
+                  <p style="text-align: right;"><em><strong>Tin, ảnh: </strong>GHPGVN Huyện Định Quán</p>
+                  <div class="post-bottom-meta post-bottom-tags post-tags-modern">
+                        <div class="post-bottom-meta-title"><span class="tie-icon-tags" aria-hidden="true"></span> Nhãn bài viết</div>
+                        <span class="tagcloud">
+                            <%= link_to 'phat giao dong nai', 'javascript:void(0)', title: 'phat giao dong nai', rel: 'tag' %>
+                            <%= link_to 'phat giao dinh quan', 'javascript:void(0)', title: 'phat giao dinh quan', rel: 'tag' %>
+                            <%= link_to 'ban tri su phat giao', 'javascript:void(0)', title: 'ban tri su phat giao', rel: 'tag' %>
+                            <%= link_to 'ban tri su dinh quan', 'javascript:void(0)', title: 'ban tri su dinh quan', rel: 'tag' %>
+                            <%= link_to 'phat giao dinh quan', 'javascript:void(0)', title: 'phat giao dinh quan', rel: 'tag' %>
+                            <%= link_to 'phat su online', 'javascript:void(0)', title: 'phat su online', rel: 'tag' %>
+                            <%= link_to 'tin tuc phat su', 'javascript:void(0)', title: 'tin tuc phat su', rel: 'tag' %>
+                            <%= link_to 'phat tu dinh quan', 'javascript:void(0)', title: 'phat tu dinh quan', rel: 'tag' %>
+                            <%= link_to 'tin tuc phat giao dinh quan', 'javascript:void(0)', title: 'tin tuc phat giao dinh quan', rel: 'tag' %>
+                            <%= link_to 'phat su', 'javascript:void(0)', title: 'phat su', rel: 'tag' %>
+                            <%= link_to 'gdpt dinh quan', 'javascript:void(0)', title: 'gdpt dinh quan', rel: 'tag' %>
+                            <%= link_to 'phap am phat giao', 'javascript:void(0)', title: 'phap am phat giao', rel: 'tag' %>
+                        </span>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div id="share-buttons-bottom" class="share-buttons share-buttons-bottom">
+                    <div class="share-links  icons-text">
+                        <div class="share-title">
+                            <span class="tie-icon-share" aria-hidden="true"></span>
+                            <span>Chia sẻ</span>
+                        </div>
+                        <a href="//www.facebook.com/sharer.php?u=//phatgiaodinhquan.org<%= about_link %>" rel="external noopener nofollow" title="Facebook" target="_blank" class="facebook-share-btn  large-share-button" data-raw="//www.facebook.com/sharer.php?u=//phatgiaodinhquan.org<%= about_link %>">
+                            <span class="share-btn-icon tie-icon-facebook"></span>
+                            <span class="social-text">Facebook</span>
+                        </a>
+                        <a href="//twitter.com/intent/tweet?text=Giới Thiệu GHPGVN Huyện Định Quán;url=//phatgiaodinhquan.org<%= about_link %>" rel="external noopener nofollow" title="Twitter" target="_blank" class="twitter-share-btn  large-share-button" data-raw="//twitter.com/intent/tweet?text=Giới Thiệu GHPGVN Huyện Định Quán;url=//phatgiaodinhquan.org<%= about_link %>">
+                            <span class="share-btn-icon tie-icon-twitter"></span>
+                            <span class="social-text">Twitter</span>
+                        </a>
+                        <a href="//web.skype.com/share?url=//phatgiaodinhquan.org<%= about_link %>;text=Giới Thiệu GHPGVN Huyện Định Quán" rel="external noopener nofollow" title="Skype" target="_blank" class="skype-share-btn  large-share-button" data-raw="//web.skype.com/share?url=//phatgiaodinhquan.org<%= about_link %>&text=Giới Thiệu GHPGVN Huyện Định Quán">
+                            <span class="share-btn-icon tie-icon-skype"></span>
+                            <span class="social-text">Skype</span>
+                        </a>
+                        <a href="//www.facebook.com/dialog/send?app_id=5303202981&display=popup&link=//phatgiaodinhquan.org<%= about_link %>&redirect_uri=//phatgiaodinhquan.org<%= about_link %>" rel="external noopener nofollow" title="Messenger" target="_blank" class="messenger-desktop-share-btn messenger-share-btn  large-share-button" data-raw="//www.facebook.com/dialog/send?app_id=5303202981&display=popup&link=//phatgiaodinhquan.org<%= about_link %>&redirect_uri=//phatgiaodinhquan.org<%= about_link %>">
+                            <span class="share-btn-icon tie-icon-messenger"></span>
+                            <span class="social-text">Messenger</span>
+                        </a>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        <%= render 'layouts/erp/frontend/sidebar' %>
+    </div>
 </div>

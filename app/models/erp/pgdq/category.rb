@@ -15,7 +15,7 @@ module Erp::Pgdq
 			self.where(archived: false).order("custom_order ASC")
 		end
     
-    def self.get_main_menus
+    def self.get_main_categories
 			self.get_active.where(parent_id: nil)
 		end
     
@@ -79,7 +79,7 @@ module Erp::Pgdq
         keyword = keyword.strip.downcase
         query = query.where('LOWER(name) LIKE ?', "%#{keyword}%")
       end
-      query = query.limit(20).map{|category| {value: category.id, text: category.get_full_name} }
+      query = query.limit(10).map{|category| {value: category.id, text: category.get_full_name}}
     end
     
     def archive
@@ -127,7 +127,6 @@ module Erp::Pgdq
     
     def get_articles_for_categories(params)
 			records = Erp::Pgdq::Article.get_articles.where(category_id: self.get_self_and_children_ids)
-			
 			return records
 		end
     

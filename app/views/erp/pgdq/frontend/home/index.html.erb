@@ -1,75 +1,416 @@
 <% content_for :metas do %>
-<meta property="og:locale" content="vi" />
+<meta property="og:locale" content="vi-VN" />
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="Phật Giáo Định Quán | Trang Tin Phật Sự Online Huyện Định Quán"/>
-<meta property="og:description" content="Trang tin Phật Sự Online cập nhật những thông tin, hình ảnh, hoạt động Ban ngành, hoạt động Phật Sự tại huyện Định Quán, tỉnh Đồng Nai."/>
+<meta property="og:title" content="GHPGVN Huyện Định Quán &#8211; Trang Tin Phật Sự Online"/>
+<% if @meta_description.present? %><meta property="og:description" content="<%= @meta_description %>"/><% else %><meta property="og:description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
 <meta property="og:url" content="https://phatgiaodinhquan.org/"/>
-<meta property="og:site_name" content="Phật Giáo Định Quán" />
+<meta property="og:site_name" content="GHPGVN Huyện Định Quán" />
 <meta property="og:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
-<meta property="og:image:alt" content="Phật Giáo Định Quán"/>
+<meta property="og:image:alt" content="GHPGVN Huyện Định Quán"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="560"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:site" content="https://phatgiaodinhquan.org/"/>
-<meta name="twitter:title" content="Phật Giáo Định Quán | Trang Tin Phật Sự Online Huyện Định Quán" />
-<meta name="twitter:description" content="Trang tin Phật Sự Online cập nhật những thông tin, hình ảnh, hoạt động Ban ngành, hoạt động Phật Sự tại huyện Định Quán, tỉnh Đồng Nai."/>
+<meta name="twitter:title" content="GHPGVN Huyện Định Quán &#8211; Trang Tin Phật Sự Online" />
+<% if @meta_description.present? %><meta name="twitter:description" content="<%= @meta_description %>"/><% else %><meta name="twitter:description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
 <meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
-<meta name="twitter:image:alt" content="Phật Giáo Định Quán"/>
+<meta name="twitter:image:alt" content="GHPGVN Huyện Định Quán"/>
 <% end %>
-<%= stylesheet_link_tag '/css/style.min.css' %>
-<% if @slide_articles.count > 0 %>
-<div id="tiepost-2487-section-1114" class="section-wrapper container-full without-background">
-    <div class="section-item is-first-section full-width">
+
+<div class="section-wrapper container-full without-background">
+    <div class="section-item is-first-section full-width" style="" >
         <div class="container">
             <div class="tie-row main-content-row">
                 <div class="main-content tie-col-md-12">
-                    <section id="tie-block_2068" class="slider-area mag-box">
-                        <div id="tie-main-slider-14-block_2068" class="tie-main-slider main-slider grid-5-first-big grid-5-slider boxed-slider grid-slider-wrapper tie-slick-slider-wrapper" data-slider-id="14" data-speed="3000">
-                            <div class="main-slider-inner">
-                                <div class="containerblock_2068">
-                                    <div class="tie-slick-slider">
-                                        <ul class="tie-slider-nav"></ul>
-                                        <div class="slide">
-                                            <% @slide_articles.each do |article| %>
-                                            <div class="grid-item lazy-bg slide-id-1959 tie-slide-1 is-trending">
-                                                <img data-lazy="<%= article.image.detail %>" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKYAAABkCAMAAAA7drv6AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////AAAAVcLTfgAAAAF0Uk5TAEDm2GYAAAAqSURBVHja7MEBDQAAAMKg909tDjegAAAAAAAAAAAAAAAAAAAAAH5NgAEAQTwAAWZtItYAAAAASUVORK5CYII="
-                                                     width="780" height="470" alt="<%= article.get_name %>" title="<%= article.get_name %>">
-                                                <div class="slide-bg"></div>
-                                                <a href="<%= article_link(article) %>" class="all-over-thumb-link" aria-label="<%= article.get_name %>" title="<%= article.get_name %>"></a> 
-                                                <div class="thumb-overlay">
-                                                    <span class="post-cat-wrap"><%= link_to article.get_category_name, category_link(article.category), title: article.get_category_name, class: 'post-cat' %></span>
-                                                    <div class="thumb-content">
-                                                        <div class="thumb-meta">
-                                                            <span class="trending-post fa fa-bolt " aria-hidden="true"></span>
-                                                            <% if article.date_public.present? %>
-                                                            <span class="date meta-item fa-before"><%= article.date_public.strftime("%A, %d/%m/%Y") %></span>
-                                                            <% end %>
+                    <section class="slider-area mag-box">
+                        <div class="slider-area-inner">
+                            <div id="tie-main-slider-14-block_1354" class="tie-main-slider main-slider grid-5-first-big grid-5-slider boxed-slider grid-slider-wrapper tie-slick-slider-wrapper" data-slider-id="14" data-speed="3000">
+                                <div class="main-slider-inner">
+                                    <div class="containerblock_1354">
+                                        <div class="tie-slick-slider">
+                                            <ul class="tie-slider-nav"></ul>
+                                            <% if @slider_articles.count <= 5 %>
+                                                <div class="slide">
+                                                    <% @slider_articles[0..4].each do |article| %>
+                                                        <div style="background-image:url(<%= article.image.detail %>)" class="grid-item tie-slide-1 tie-audio">
+                                                            <a href="<%= article_detail_link(article) %>" class="all-over-thumb-link" aria-label="<%= article.get_name %>" title="<%= article.get_name %>"></a>
+                                                            <div class="thumb-overlay">
+                                                                <span class="post-cat-wrap">
+                                                                    <% if article.category.use_show_list? %>
+                                                                        <%= link_to article.get_category_name, category_listing_link(article.category), title: article.get_category_name, class: 'post-cat' %>
+                                                                    <% else %>
+                                                                        <%= link_to article.get_category_name, category_detail_link(article.category), title: article.get_category_name, class: 'post-cat' %>
+                                                                    <% end %>
+                                                                </span>
+                                                                <div class="thumb-content">
+                                                                    <div class="thumb-meta"><span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span></div>
+                                                                    <h2 class="thumb-title text-justify"><%= link_to truncate(article.get_name, length: 75), article_detail_link(article), title: article.get_name %></h2>
+                                                                    <div class="thumb-desc text-justify"><%= truncate(article.meta_description, length: 160) %></div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <h2 class="thumb-title"><%= link_to truncate(article.get_name, length: 70), article_link(article), title: article.get_name %></h2>
-                                                        <div class="thumb-desc text-justify"><%= truncate(article.meta_description, length: 200) %></div>
-                                                    </div>
+                                                    <% end %>
                                                 </div>
-                                            </div>
+                                            <% else %>
+                                                <div class="slide">
+                                                    <% @slider_articles[0..4].each do |article| %>
+                                                        <div style="background-image:url(<%= article.image.detail %>)" class="grid-item tie-slide-1 tie-audio">
+                                                            <a href="<%= article_detail_link(article) %>" class="all-over-thumb-link" aria-label="<%= article.get_name %>" title="<%= article.get_name %>"></a>
+                                                            <div class="thumb-overlay">
+                                                                <span class="post-cat-wrap">
+                                                                    <% if article.category.use_show_list? %>
+                                                                        <%= link_to article.get_category_name, category_listing_link(article.category), title: article.get_category_name, class: 'post-cat' %>
+                                                                    <% else %>
+                                                                        <%= link_to article.get_category_name, category_detail_link(article.category), title: article.get_category_name, class: 'post-cat' %>
+                                                                    <% end %>
+                                                                </span>
+                                                                <div class="thumb-content">
+                                                                    <div class="thumb-meta"><span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span></div>
+                                                                    <h2 class="thumb-title text-justify"><%= link_to truncate(article.get_name, length: 75), article_detail_link(article), title: article.get_name %></h2>
+                                                                    <div class="thumb-desc text-justify"><%= truncate(article.meta_description, length: 160) %></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <% end %>
+                                                </div>
+                                                <div class="slide">
+                                                    <% @slider_articles[5..9].each do |article| %>
+                                                        <div style="background-image:url(<%= article.image.detail %>)" class="grid-item tie-slide-1 tie-audio">
+                                                            <a href="<%= article_detail_link(article) %>" class="all-over-thumb-link" aria-label="<%= article.get_name %>" title="<%= article.get_name %>"></a>
+                                                            <div class="thumb-overlay">
+                                                                <span class="post-cat-wrap">
+                                                                    <% if article.category.use_show_list? %>
+                                                                        <%= link_to article.get_category_name, category_listing_link(article.category), title: article.get_category_name, class: 'post-cat' %>
+                                                                    <% else %>
+                                                                        <%= link_to article.get_category_name, category_detail_link(article.category), title: article.get_category_name, class: 'post-cat' %>
+                                                                    <% end %>
+                                                                </span>
+                                                                <div class="thumb-content">
+                                                                    <div class="thumb-meta"><span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span></div>
+                                                                    <h2 class="thumb-title text-justify"><%= link_to truncate(article.get_name, length: 75), article_detail_link(article), title: article.get_name %></h2>
+                                                                    <div class="thumb-desc text-justify"><%= truncate(article.meta_description, length: 160) %></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <% end %>
+                                                </div>
                                             <% end %>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>	
                     </section>
                 </div>
             </div>
-        </div>
+        </div>	
     </div>
 </div>
-<% end %>
-<div id="tiepost-2487-section-2226" class="section-wrapper container normal-width without-background">
-    <div class="section-item sidebar-right has-sidebar">
+<div id="tiepost-1020-section-749" class="section-wrapper container normal-width without-background">
+    <div class="section-item sidebar-right has-sidebar" style="" >
         <div class="container-normal">
             <div class="tie-row main-content-row">
-                <!-- @start_todo --><!-- @end_todo -->
-                <%= stylesheet_link_tag '/css/widgets.min.css' %>
+                <div class="main-content tie-col-md-8 tie-col-xs-12" role="main">
+                    <% if @module_01_get_articles.count >= 6 %>
+                        <div id="tie-block_3151" class="mag-box big-post-left-box big-thumb-left-box first-post-gradient has-custom-color" data-current="1">
+                            <div class="container-wrapper">
+                                <div class="mag-box-title the-global-title">
+                                    <h3>Hoạt Động Ban Trị Sự Mới Nhất</h3>
+                                    <div class="tie-alignright">
+                                        <div class="mag-box-options">
+                                            <ul class="mag-box-filter-links is-flex-tabs">
+                                                <% @module_01.children.get_active.each do |category| %>
+                                                    <% if category.use_show_list? %>
+                                                        <li><%= link_to category.get_name, category_listing_link(category), title: category.get_name %></li>
+                                                    <% else %>
+                                                        <li><%= link_to category.get_name, category_detail_link(category), title: category.get_name %></li>
+                                                    <% end %>
+                                                <% end %>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mag-box-container clearfix">
+                                    <ul class="posts-items posts-list-container">
+                                        <li class="post-item tie-audio">
+                                            <div class="big-thumb-left-box-inner" style="background-image:url(<%= @module_01_get_first_article.image.detail %>)">
+                                                <a aria-label="<%= @module_01_get_first_article.get_name %>" href="<%= article_detail_link(@module_01_get_first_article) %>" 
+                                                   class="post-thumb" title="<%= @module_01_get_first_article.get_name %>"></a>
+                                                <div class="post-overlay">
+                                                    <div class="post-content">
+                                                        <% if @module_01_get_first_article.category.use_show_list? %>
+                                                            <% link_to @module_01_get_first_article.get_category_name, 
+                                                               category_listing_link(@module_01_get_first_article.category), title: @module_01_get_first_article.get_category_name, class: 'post-cat' %>
+                                                        <% else %>
+                                                            <% link_to @module_01_get_first_article.get_category_name, 
+                                                               category_detail_link(@module_01_get_first_article.category), title: @module_01_get_first_article.get_category_name, class: 'post-cat' %>
+                                                        <% end %>
+                                                        <h2 class="post-title text-justify">
+                                                            <%= link_to @module_01_get_first_article.get_name, 
+                                                                article_detail_link(@module_01_get_first_article), title: @module_01_get_first_article.get_name %>
+                                                        </h2>
+                                                        <div class="thumb-meta">
+                                                            <div class="post-meta clearfix">
+                                                                <% if @module_01_get_first_article.author.present? %>
+                                                                    <span class="author-meta single-author no-avatars">
+                                                                        <span class="meta-item meta-author-wrapper meta-author-1">
+                                                                            <span class="meta-author">
+                                                                                <%= link_to @module_01_get_first_article.get_author_name, 
+                                                                                    'javascript:void(0)', title: @module_01_get_first_article.get_author_name, class: 'author-name tie-icon' %>
+                                                                            </span>
+                                                                        </span>
+                                                                    </span>
+                                                                <% end %>
+                                                                <span class="date meta-item tie-icon"><%= @module_01_get_first_article.date_public.strftime("%d-%m-%Y") %></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <% @module_01_get_articles[1..5].each do |article| %>
+                                            <li class="post-item  tie-audio">
+                                                <a aria-label="<%= article.get_name %>" href="<%= article_detail_link(article) %>" title="<%= article.get_name %>" class="post-thumb">
+                                                    <img width="220" height="150" src="<%= article.image.sidebar %>" class="attachment-jannah-image-small size-jannah-image-small tie-small-image wp-post-image" alt="<%= article.get_name %>" title="<%= article.get_name %>" loading="lazy" /></a>
+                                                <div class="post-details">
+                                                    <div class="post-meta clearfix">
+                                                        <span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span>
+                                                    </div>
+                                                    <h2 class="post-title text-justify">
+                                                        <%= link_to truncate(article.get_name, length: 60), article_detail_link(article), title: article.get_name %>
+                                                    </h2>
+                                                </div>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                    <% if @module_02_get_articles.count >= 5 %>
+                        <div id="tie-block_1160" class="mag-box big-post-top-box has-first-big-post box-dark-skin dark-skin has-custom-color" data-current="1">
+                            <div class="container-wrapper">
+                                <div class="mag-box-title the-global-title">
+                                    <h3>Hoạt Động Ban Ngành</h3>
+                                    <div class="tie-alignright">
+                                        <div class="mag-box-options">
+                                            <ul class="mag-box-filter-links is-flex-tabs">
+                                                <% if @module_02.use_show_list? %>
+                                                    <li><%= link_to 'Tất cả', category_listing_link(@module_02), title: 'Tất cả', class: 'actice' %></li>
+                                                <% else %>
+                                                    <li><%= link_to 'Tất cả', category_detail_link(@module_02), title: 'Tất cả', class: 'actice' %></li>
+                                                <% end %>
+                                                <% @module_02.children.get_active.each do |category| %>
+                                                    <% if category.use_show_list? %>
+                                                        <li><%= link_to category.get_name, category_listing_link(category), title: category.get_name %></li>
+                                                    <% else %>
+                                                        <li><%= link_to category.get_name, category_detail_link(category), title: category.get_name %></li>
+                                                    <% end %>
+                                                <% end %>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mag-box-container clearfix">
+                                    <ul class="posts-items posts-list-container">
+                                        <li class="post-item  tie-audio">
+                                            <a aria-label="<%= @module_02_get_first_article.get_name %>" href="<%= article_detail_link(@module_02_get_first_article) %>" class="post-thumb">
+                                                <span class="post-cat-wrap">
+                                                    <span class="post-cat tie-cat-18"><%= @module_02_get_first_article.get_category_name %></span>
+                                                </span>
+                                                <img width="390" height="220" src="<%= @module_02_get_first_article.image.listing %>" class="attachment-jannah-image-large size-jannah-image-large wp-post-image" alt="<%= @module_02_get_first_article.get_name %>" title="<%= @module_02_get_first_article.get_name %>" loading="lazy" srcset="<%= @module_02_get_first_article.image.listing %> 390w, <%= @module_02_get_first_article.image.listing_300x169 %> 300w, <%= @module_02_get_first_article.image.listing_768x432 %> 768w, <%= @module_02_get_first_article.image.listing_1024x576 %> 1024w" sizes="(max-width: 390px) 100vw, 390px" />
+                                            </a>
+                                            <div class="post-details">
+                                                <div class="post-meta clearfix">
+                                                    <% if @module_02_get_first_article.author.present? %>
+                                                        <span class="author-meta single-author no-avatars">
+                                                            <span class="meta-item meta-author-wrapper meta-author-1">
+                                                                <span class="meta-author">
+                                                                    <%= link_to @module_02_get_first_article.get_author_name, 
+                                                                        'javascript:void(0)', title: @module_02_get_first_article.get_author_name, class: 'author-name tie-icon' %>
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    <% end %>
+                                                    <span class="date meta-item tie-icon"><%= @module_02_get_first_article.date_public.strftime("%d-%m-%Y") %></span>
+                                                </div>
+                                                <h2 class="post-title text-justify">
+                                                    <%= link_to @module_02_get_first_article.get_name, article_detail_link(@module_02_get_first_article), title: @module_02_get_first_article.get_name %>
+                                                </h2>
+                                                <p class="post-excerpt post-color-white text-justify"><%= truncate(@module_02_get_first_article.meta_description, length: 160) %></p>
+                                                <%= link_to 'Đọc tiếp ... &raquo;'.html_safe, article_detail_link(@module_02_get_first_article), title: @module_02_get_first_article.get_name, class: 'more-link button' %>
+                                            </div>
+                                        </li>
+                                        <% @module_02_get_articles[1..4].each do |article| %>
+                                            <li class="post-item  tie-audio">
+                                                <a aria-label="<%= article.get_name %>" href="<%= article_detail_link(article) %>" title="<%= article.get_name %>" class="post-thumb">
+                                                    <img width="220" height="150" src="<%= article.image.sidebar %>" class="attachment-jannah-image-small size-jannah-image-small tie-small-image wp-post-image" alt="<%= article.get_name %>" title="<%= article.get_name %>" loading="lazy" />
+                                                </a>
+                                                <div class="post-details">
+                                                    <div class="post-meta clearfix">
+                                                        <span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span>
+                                                    </div>
+                                                    <h2 class="post-title text-justify">
+                                                        <%= link_to truncate(article.get_name, length: 75), article_detail_link(article), title: article.get_name %>
+                                                    </h2>
+                                                </div>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                    <% if @module_03_get_articles.count >= 5 %>
+                        <% if @module_04_get_articles.count >= 5 %>
+                        <div id="tie-block_1810" class="mag-box tie-col-sm-6 half-box has-first-big-post has-custom-color first-half-box" data-current="1">
+                        <% else %>
+                        <div id="tie-block_1810" class="mag-box tie-col-sm-12 half-box has-first-big-post has-custom-color first-half-box" data-current="1">
+                        <% end %>
+                            <div class="container-wrapper">
+                                <div class="mag-box-title the-global-title">
+                                    <h3>Tự Viện</h3>
+                                    <div class="tie-alignright">
+                                        <div class="mag-box-options">
+                                            <ul class="mag-box-filter-links is-flex-tabs">
+                                                <% @module_03.children.get_active.each do |category| %>
+                                                    <% if category.use_show_list? %>
+                                                        <li><%= link_to category.get_name, category_listing_link(category), title: category.get_name %></li>
+                                                    <% else %>
+                                                        <li><%= link_to category.get_name, category_detail_link(category), title: category.get_name %></li>
+                                                    <% end %>
+                                                <% end %>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mag-box-container clearfix">
+                                    <ul class="posts-items posts-list-container">
+                                        <li class="post-item  tie-audio">
+                                            <a aria-label="<%= @module_03_get_first_article.get_name %>" href="<%= article_detail_link(@module_03_get_first_article) %>" title="<%= @module_03_get_first_article.get_name %>" class="post-thumb">
+                                                <span class="post-cat-wrap">
+                                                    <span class="post-cat tie-cat-19"><%= @module_03_get_first_article.get_category_name %></span>
+                                                </span>
+                                                <img width="390" height="220" src="<%= @module_03_get_first_article.image.listing %>" class="attachment-jannah-image-large size-jannah-image-large wp-post-image" alt="<%= @module_03_get_first_article.get_name %>" title="<%= @module_03_get_first_article.get_name %>" loading="lazy" />
+                                            </a>
+                                            <div class="post-details">
+                                                <div class="post-meta clearfix">
+                                                    <% if @module_03_get_first_article.author.present? %>
+                                                        <span class="author-meta single-author no-avatars">
+                                                            <span class="meta-item meta-author-wrapper meta-author-1">
+                                                                <span class="meta-author">
+                                                                    <%= link_to @module_03_get_first_article.get_author_name, 
+                                                                        'javascript:void(0)', title: @module_03_get_first_article.get_author_name, class: 'author-name tie-icon' %>
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    <% end %>
+                                                    <span class="date meta-item tie-icon"><%= @module_03_get_first_article.date_public.strftime("%d-%m-%Y") %></span>
+                                                </div>
+                                                <h2 class="post-title text-justify">
+                                                    <%= link_to truncate(@module_03_get_first_article.get_name, length: 60), article_detail_link(@module_03_get_first_article), title: @module_03_get_first_article.get_name %>
+                                                </h2>
+                                                <p class="post-excerpt text-justify"><%= truncate(@module_03_get_first_article.meta_description, length: 100) %></p>
+                                                <%= link_to 'Đọc tiếp ... &raquo;'.html_safe, article_detail_link(@module_03_get_first_article), title: @module_03_get_first_article.get_name, class: 'more-link button' %>
+                                            </div>
+                                        </li>
+                                        <% @module_03_get_articles[1..4].each do |article| %>
+                                            <li class="post-item  tie-audio">
+                                                <a aria-label="<%= article.get_name %>" href="<%= article_detail_link(article) %>" title="<%= article.get_name %>" class="post-thumb">
+                                                    <img width="220" height="150" src="<%= article.image.sidebar %>" class="attachment-jannah-image-small size-jannah-image-small tie-small-image wp-post-image" alt="<%= article.get_name %>" title="<%= article.get_name %>" loading="lazy" />
+                                                </a>
+                                                <div class="post-details">
+                                                    <div class="post-meta clearfix">
+                                                        <span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span>
+                                                    </div>
+                                                    <h2 class="post-title text-justify">
+                                                        <%= link_to truncate(article.get_name, length: 60), article_detail_link(article), title: article.get_name %>
+                                                    </h2>
+                                                </div>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                    <% if @module_04_get_articles.count >= 5 %>
+                        <div id="tie-block_304" class="mag-box tie-col-sm-6 half-box has-first-big-post has-custom-color second-half-box" data-current="1">
+                            <div class="container-wrapper">
+                                <div class="mag-box-title the-global-title">
+                                    <h3>Văn Bản</h3>
+                                    <div class="tie-alignright">
+                                        <div class="mag-box-options">
+                                            <ul class="mag-box-filter-links is-flex-tabs">
+                                                <% @module_04.children.get_active.each do |category| %>
+                                                    <% if category.use_show_list? %>
+                                                        <li><%= link_to category.get_name, category_listing_link(category), title: category.get_name %></li>
+                                                    <% else %>
+                                                        <li><%= link_to category.get_name, category_detail_link(category), title: category.get_name %></li>
+                                                    <% end %>
+                                                <% end %>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mag-box-container clearfix">
+                                    <ul class="posts-items posts-list-container">
+                                        <li class="post-item  tie-audio">
+                                            <a aria-label="<%= @module_04_get_first_article.get_name %>" href="<%= article_detail_link(@module_04_get_first_article) %>" title="<%= @module_04_get_first_article.get_name %>" class="post-thumb">
+                                                <span class="post-cat-wrap">
+                                                    <span class="post-cat tie-cat-19"><%= @module_04_get_first_article.get_category_name %></span>
+                                                </span>
+                                                <img width="390" height="220" src="<%= @module_04_get_first_article.image.listing %>" class="attachment-jannah-image-large size-jannah-image-large wp-post-image" alt="<%= @module_04_get_first_article.get_name %>" title="<%= @module_04_get_first_article.get_name %>" loading="lazy" />
+                                            </a>
+                                            <div class="post-details">
+                                                <div class="post-meta clearfix">
+                                                    <% if @module_04_get_first_article.author.present? %>
+                                                        <span class="author-meta single-author no-avatars">
+                                                            <span class="meta-item meta-author-wrapper meta-author-1">
+                                                                <span class="meta-author">
+                                                                    <%= link_to @module_04_get_first_article.get_author_name, 
+                                                                        'javascript:void(0)', title: @module_04_get_first_article.get_author_name, class: 'author-name tie-icon' %>
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    <% end %>
+                                                    <span class="date meta-item tie-icon"><%= @module_04_get_first_article.date_public.strftime("%d-%m-%Y") %></span>
+                                                </div>
+                                                <h2 class="post-title text-justify">
+                                                    <%= link_to truncate(@module_04_get_first_article.get_name, length: 60), article_detail_link(@module_04_get_first_article), title: @module_04_get_first_article.get_name %>
+                                                </h2>
+                                                <p class="post-excerpt text-justify"><%= truncate(@module_04_get_first_article.meta_description, length: 100) %></p>
+                                                <%= link_to 'Đọc tiếp ... &raquo;'.html_safe, article_detail_link(@module_04_get_first_article), title: @module_04_get_first_article.get_name, class: 'more-link button' %>
+                                            </div>
+                                        </li>
+                                        <% @module_04_get_articles[1..4].each do |article| %>
+                                            <li class="post-item  tie-audio">
+                                                <a aria-label="<%= article.get_name %>" href="<%= article_detail_link(article) %>" title="<%= article.get_name %>" class="post-thumb">
+                                                    <img width="220" height="150" src="<%= article.image.sidebar %>" class="attachment-jannah-image-small size-jannah-image-small tie-small-image wp-post-image" alt="<%= article.get_name %>" title="<%= article.get_name %>" loading="lazy" />
+                                                </a>
+                                                <div class="post-details">
+                                                    <div class="post-meta clearfix">
+                                                        <span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span>
+                                                    </div>
+                                                    <h2 class="post-title text-justify">
+                                                        <%= link_to truncate(article.get_name, length: 60), article_detail_link(article), title: article.get_name %>
+                                                    </h2>
+                                                </div>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                    <div class="clearfix half-box-clearfix"></div>
+                </div>
+                <%= render 'layouts/erp/frontend/sidebar' %>
             </div>
         </div>
     </div>

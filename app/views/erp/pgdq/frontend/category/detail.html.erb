@@ -1,0 +1,135 @@
+<% title @category.get_name %>
+<% content_for :metas do %>
+<meta property="og:locale" content="vi-VN" />
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="<%= @category.get_name %> &#8211; GHPGVN Huyện Định Quán"/>
+<% if @meta_description.present? %><meta property="og:description" content="<%= @meta_description %>"/><% else %><meta property="og:description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
+<meta property="og:url" content="https://phatgiaodinhquan.org<%= category_detail_link(@category) %>"/>
+<meta property="og:site_name" content="<%= @category.get_name %>" />
+<meta property="og:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
+<meta property="og:image:alt" content="GHPGVN Huyện Định Quán"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="560"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="https://phatgiaodinhquan.org<%= category_detail_link(@category) %>"/>
+<meta name="twitter:title" content="<%= @category.get_name %> &#8211; GHPGVN Huyện Định Quán" />
+<% if @meta_description.present? %><meta name="twitter:description" content="<%= @meta_description %>"/><% else %><meta name="twitter:description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
+<meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
+<meta name="twitter:image:alt" content="GHPGVN Huyện Định Quán"/>
+<% end %>
+
+<% if @newest_articles.count > 0 %>
+    <div id="category-slider" class="section-wrapper container-full without-background">
+        <div class="section-item full-width is-first-section" style="" >
+            <div class="container">
+                <section id="tie-category-videos" class="slider-area mag-box">
+                    <div class="slider-area-inner">
+                        <div id="tie-main-slider-13-category-videos" class="tie-main-slider main-slider grid-5-big-centerd grid-5-slider boxed-slider grid-slider-wrapper tie-slick-slider-wrapper" data-slider-id="13"  data-speed="3000">
+                            <div class="main-slider-inner">
+                                <div class="containercategory-videos">
+                                    <div class="tie-slick-slider">
+                                        <ul class="tie-slider-nav"></ul>
+                                        <div class="slide">
+                                            <% @newest_articles.each do |article| %>
+                                                <div style="background-image:url(<%= article.image.detail %>)" class="grid-item tie-slide-1">
+                                                    <a href="" class="all-over-thumb-link" aria-label=""></a>
+                                                    <div class="thumb-overlay">
+                                                        <span class="post-cat-wrap">
+                                                            <% if article.category.use_show_list? %>
+                                                                <%= link_to article.get_category_name, category_listing_link(article.category), title: article.get_category_name, class: 'post-cat' %>
+                                                            <% else %>
+                                                                <%= link_to article.get_category_name, category_detail_link(article.category), title: article.get_category_name, class: 'post-cat' %>
+                                                            <% end %>
+                                                        </span>
+                                                        <div class="thumb-content">
+                                                            <div class="thumb-meta">
+                                                                <span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span>
+                                                            </div>
+                                                            <h2 class="thumb-title">
+                                                                <%= link_to article.get_name, article_detail_link(article), title: article.get_name %>
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <% end %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+<% end %>
+<div id="content" class="site-content container">
+    <div id="main-content-row" class="tie-row main-content-row">
+        <div class="main-content tie-col-md-8 tie-col-xs-12" role="main">
+            <header class="entry-header-outer container-wrapper">
+                <nav id="breadcrumb">
+                    <%= link_to '<span class="tie-icon-home" aria-hidden="true"></span> Trang Chủ'.html_safe, root_link, title: 'Trang Chủ' %>
+                    <% if !@category.parent.nil? %>
+                        <em class="delimiter"><span class="fa fa-angle-right"></span></em>
+                        <% if @category.parent.use_show_list? %>
+                            <%= link_to @category.parent.get_name, category_listing_link(@category.parent), title: @category.parent.get_name %>
+                        <% else %>
+                            <%= link_to @category.parent.get_name, category_detail_link(@category.parent), title: @category.parent.get_name %>
+                        <% end %>
+                    <% end %>
+                    <em class="delimiter"><span class="fa fa-angle-right"></span></em><span class="current"><%= @category.get_name %></span>
+                </nav>
+                <h1 class="page-title"><%= @category.get_name %></h1>
+                <% if @meta_description.present? %>
+                    <div class="taxonomy-description entry text-justify">
+                        <p><%= @meta_description %></p>
+                    </div>
+                <% end %>
+            </header>
+            <% if @articles.count > 0 %>
+                <div class="mag-box wide-post-box">
+                    <div class="container-wrapper">
+                        <div class="mag-box-container clearfix">
+                            <ul id="posts-container" data-layout="default" data-settings="{'uncropped_image':'jannah-image-post','category_meta':false,'post_meta':true,'excerpt':'true','excerpt_length':'20','read_more':'true','read_more_text':false,'media_overlay':false,'title_length':0,'is_full':false,'is_category':true}" class="posts-items">
+                                <% @articles.each do |article| %>
+                                    <li class="post-item post type-post status-publish format-standard has-post-thumbnail category-tie-tech tag-classic tie-audio">
+                                        <a aria-label="<%= article.get_name %>" href="<%= article_detail_link(article) %>" title="<%= article.get_name %>" class="post-thumb">
+                                            <img width="390" height="220" src="<%= article.image.listing %>" class="attachment-jannah-image-large size-jannah-image-large wp-post-image" alt="" loading="lazy" />
+                                        </a>
+                                        <div class="post-details">
+                                            <div class="post-meta clearfix">
+                                                <% if article.author.present? %>
+                                                    <span class="author-meta single-author no-avatars">
+                                                        <span class="meta-item meta-author-wrapper meta-author-1">
+                                                            <span class="meta-author">
+                                                                <%= link_to article.get_author_name, 'javascript:void(0)', title: article.get_author_name, class: 'author-name tie-icon' %>
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                <% end %>
+                                                <span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span>
+                                            </div>
+                                            <h2 class="post-title text-justify">
+                                                <%= link_to article.get_name, article_detail_link(article), title: article.get_name %>
+                                            </h2>
+                                            <p class="post-excerpt text-justify"><%= truncate(article.meta_description, length: 160) %></p>
+                                            <%= link_to 'Đọc tiếp ... &raquo;'.html_safe, article_detail_link(article), title: article.get_name, class: 'more-link button' %>
+                                        </div>
+                                    </li>
+                                <% end %>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <% if @articles.count > 20 %>
+                    <div class="pages-nav">
+                        <%= will_paginate @articles, previous_label: '&laquo;'.html_safe, next_label: '&raquo;'.html_safe, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 1 %>
+                    </div>
+                <% end %>
+          <% end %>
+        </div>
+        <%= render 'layouts/erp/frontend/sidebar' %>
+    </div>
+</div>

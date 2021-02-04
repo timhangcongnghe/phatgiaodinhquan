@@ -1,0 +1,9 @@
+<% content_for :title do %><%= @author.get_short_name %><% end %>
+<% content_for :page_title do %><a href="<%= erp_pgdq.backend_authors_path %>"><i class="fa fa-rss"></i>  <%= t('.authors') %></a> / Cập nhật: <%= @author.get_short_name %><% end %>
+<% content_for :page_toolbar do %><%= erp_component('button/create', {text: t('.create'), href: erp_pgdq.new_backend_author_path, class: 'btn-noborder'}) %><% end %>
+<div class="row">
+    <div class="col-md-12">
+        <% if @author.errors.any? %><%= erp_form_control("form_error_message") %><% end %>
+        <%= render 'form', author: @author %>
+    </div>
+</div>

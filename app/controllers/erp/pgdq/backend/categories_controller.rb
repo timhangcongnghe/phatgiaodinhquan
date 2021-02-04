@@ -84,7 +84,7 @@ module Erp
           end
           
           def category_params
-            params.fetch(:category, {}).permit(:image, :name, :parent_id, :meta_keywords, :meta_description, :tags, :content)
+            params.fetch(:category, {}).permit(:image, :name, :parent_id, :use_show_list, :use_diff_menu, :meta_keywords, :meta_description, :tags, :content)
           end
       end
     end

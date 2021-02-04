@@ -2,11 +2,13 @@ module Erp::Pgdq
   class Article < ApplicationRecord
     mount_uploader :image, Erp::Pgdq::ArticleUploader
     
-    belongs_to :creator, class_name: "Erp::User"
-    belongs_to :category, class_name: "Erp::Pgdq::Category"
+    belongs_to :creator, class_name: 'Erp::User'
+    belongs_to :category, class_name: 'Erp::Pgdq::Category'
+    belongs_to :author, class_name: 'Erp::Pgdq::Author'
     
     validates :name, :presence => true
     validates :category_id, :presence => true
+    validates :author_id, :presence => true
     validates :date_public, :presence => true
     validates :name, :uniqueness => true
     
@@ -16,6 +18,18 @@ module Erp::Pgdq
     
     def self.get_articles
       self.get_active.order('date_public DESC')
+    end
+    
+    def self.get_newest_articles
+      self.get_active.order('date_public DESC').limit(10)
+    end
+    
+    def self.get_sidebar_newest_articles
+      self.get_active.order('date_public DESC').limit(5)
+    end
+    
+    def self.get_sidebar_new_update_articles
+      self.get_active.order('updated_at DESC').limit(5)
     end
     
     def self.get_slider_articles
@@ -81,7 +95,7 @@ module Erp::Pgdq
         keyword = keyword.strip.downcase
         query = query.where('LOWER(name) LIKE ?', "%#{keyword}%")
       end
-      query = query.limit(20).map{|article| {value: article.id, text: article.get_name} }
+      query = query.limit(10).map{|article| {value: article.id, text: article.get_name} }
     end
     
     def archive
@@ -100,8 +114,16 @@ module Erp::Pgdq
       category.present? ? category.get_name : ''
     end
 		
-		def get_full_category_name
+		def get_category_full_name
       category.present? ? category.get_full_name : ''
+    end
+    
+		def get_author_name
+      author.present? ? author.get_short_name : ''
+    end
+    
+    def get_author_long_name
+      author.present? ? author.get_long_name : ''
     end
 		
 		after_save :update_cache_search

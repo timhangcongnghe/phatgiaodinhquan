@@ -1,193 +1,252 @@
-<% title 'Giới Thiệu Thành Viên Ban Trị Sự' %>
+<% title 'Thành Viên Ban Trị Sự' %>
 <% content_for :metas do %>
-<meta property="og:locale" content="vi" />
+<meta property="og:locale" content="vi-VN" />
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="Giới Thiệu Thành Viên Ban Trị Sự | Phật Giáo Định Quán"/>
-<meta property="og:description" content="Trang tin Phật Sự Online cập nhật những thông tin, hình ảnh, hoạt động Ban ngành, hoạt động Phật Sự tại huyện Định Quán, tỉnh Đồng Nai."/>
-<meta property="og:url" content="https://phatgiaodinhquan.org<%= about_link %>"/>
-<meta property="og:site_name" content="Phật Giáo Định Quán" />
+<meta property="og:title" content="Thành Viên Ban Trị Sự &#8211; GHPGVN Huyện Định Quán"/>
+<% if @meta_description.present? %><meta property="og:description" content="<%= @meta_description %>"/><% else %><meta property="og:description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
+<meta property="og:url" content="https://phatgiaodinhquan.org<%= member_link %>"/>
+<meta property="og:site_name" content="Thành Viên Ban Trị Sự" />
 <meta property="og:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
-<meta property="og:image:alt" content="Giới Thiệu Thành Viên Ban Trị Sự"/>
+<meta property="og:image:alt" content="GHPGVN Huyện Định Quán"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="560"/>
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:site" content="https://phatgiaodinhquan.org<%= about_link %>"/>
-<meta name="twitter:title" content="Giới Thiệu Thành Viên Ban Trị Sự | Phật Giáo Định Quán" />
-<meta name="twitter:description" content="Trang tin Phật Sự Online cập nhật những thông tin, hình ảnh, hoạt động Ban ngành, hoạt động Phật Sự tại huyện Định Quán, tỉnh Đồng Nai."/>
+<meta name="twitter:site" content="https://phatgiaodinhquan.org<%= member_link %>"/>
+<meta name="twitter:title" content="Thành Viên Ban Trị Sự &#8211; GHPGVN Huyện Định Quán" />
+<% if @meta_description.present? %><meta name="twitter:description" content="<%= @meta_description %>"/><% else %><meta name="twitter:description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
 <meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
-<meta name="twitter:image:alt" content="Giới Thiệu Thành Viên Ban Trị Sự"/>
+<meta name="twitter:image:alt" content="GHPGVN Huyện Định Quán"/>
 <% end %>
 
-<%= stylesheet_link_tag '/css/style.min.css' %>
-<%= stylesheet_link_tag '/css/single.min.css' %>
-<%= stylesheet_link_tag '/css/shortcodes.min.css' %>
-<%= stylesheet_link_tag '/css/taqyeem.min.css' %>
-<%= stylesheet_link_tag '/css/taqyeem-buttons-style.css' %>
-<div id="content" class="site-content container">
-<div class="tie-row main-content-row">
-   <div class="main-content tie-col-md-8 tie-col-xs-12" role="main">
-      <article id="the-post" class="container-wrapper post-content tie-standard">
-         <header class="entry-header-outer">
+<div class="container fullwidth-entry-title-wrapper">
+    <div style="background-image:url(/img/gioi-thieu-ghpgvn-huyen-dinh-quan-01.jpg)" class="fullwidth-entry-title single-big-img container-wrapper tie-parallax">
+        <div class="thumb-overlay"></div>
+        <header class="entry-header-outer">
             <nav id="breadcrumb">
-               <a href="<%= erp_pgdq.root_path %>" title="Quay về trang chủ"><span class="fa fa-home" aria-hidden="true"></span> Trang Chủ</a>               
-               <em class="delimiter"><span class="fa fa-angle-right"></span></em><span class="current">Giới Thiệu Thành Viên Ban Trị Sự</span>
-            </nav>            
+                <%= link_to '<span class="tie-icon-home" aria-hidden="true"></span> Trang Chủ'.html_safe, root_link, title: 'Trang Chủ' %>
+                <em class="delimiter"><span class="fa fa-angle-right"></em><span class="current">Thành Viên Ban Trị Sự</span>
+            </nav>
             <div class="entry-header">
-               <h1 class="post-title entry-title">Giới Thiệu Thành Viên Ban Trị Sự</h1>
-               <div id="single-post-meta" class="post-meta clearfix">
-                  <span class="date meta-item tie-icon"><strong>Ngày đăng: </strong>Sunday, 03/04/2016</span>
-                  <span class="meta-item last-updated"><strong>Ngày cập nhật: </strong>09:05 PM Saturday, 12/09/2020</span>
-               </div>
+                <h1 class="post-title entry-title">Thành Viên Ban Trị Sự</h1>
+                <div id="single-post-meta" class="post-meta clearfix">
+                    <span class="author-meta single-author with-avatars">
+                        <span class="meta-item meta-author-wrapper meta-author-1">
+                            <span class="meta-author-avatar">
+                                <a href="javascript:void(0)" title="GHPGVN Huyện Định Quán">
+                                    <img alt='GHPGVN Huyện Định Quán' title="GHPGVN Huyện Định Quán" src='/img/author-140x140-lite.png' srcset='/img/author-280x280-lite.png 2x' class='avatar avatar-140 photo' height='140' width='140' loading='lazy'/>
+                                </a>
+                            </span>
+                            <span class="meta-author">
+                                <%= link_to 'GHPGVN Huyện Định Quán', 'javascript:void(0)', title: 'GHPGVN Huyện Định Quán', class: 'author-name tie-icon' %>
+                            </span>
+                            <a href="mailto:phatgiaodinhquan.org@gmail.com" class="author-email-link" target="_blank" rel="nofollow noopener" title="Gửi email">
+                                <span class="tie-icon-envelope" aria-hidden="true"></span>
+                                <span class="screen-reader-text">Gửi email</span>
+                            </a>
+                        </span>
+                    </span>
+                    <span class="date meta-item tie-icon"><strong>Ngày đăng: </strong>03-04-2016</span>
+                    <span class="date meta-item tie-icon"><strong>Ngày cập nhật: </strong>12-09-2020</span>
+                </div>
             </div>
-         </header>
-         <div class="entry-content text-justify entry clearfix">
-            <h2 class="text-center">Danh Sách Thành Viên Ban Trị Sự GHPGVN Huyện Định Quán (Khoá VII Nhiệm Kỳ 2016 - 2021)</h2>
-            <div class="table-is-responsive">
-               <table>
-                  <thead>
-                     <tr>
-                        <th class="text-center">STT</th>
-                        <th class="text-center">ĐẠO HIỆU</th>
-                        <th class="text-center">CHÙA / TỊNH XÁ</th>
-                        <th class="text-center">CHỨC VỤ</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr>
-                        <td class="text-center text-bold">1</td>
-                        <td class="text-center">TT. Thích Minh Dũng</td>
-                        <td class="text-center">Tịnh Xá Bửu Sơn</td>
-                        <td class="text-center">Chứng Minh BTS</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">2</td>
-                        <td class="text-center">TT. Thích Quảng Trí</td>
-                        <td class="text-center">Chùa Trúc Lâm</td>
-                        <td class="text-center">Cố Vấn BTS</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">3</td>
-                        <td class="text-center">TT. Thích Đồng Ngạn</td>
-                        <td class="text-center">Chùa Pháp Quang</td>
-                        <td class="text-center">Trưởng BTS kiêm Trưởng ban Tăng sự</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">4</td>
-                        <td class="text-center">ĐĐ. Thích Nhuận Đức</td>
-                        <td class="text-center">Chùa Nam Sơn</td>
-                        <td class="text-center">Phó Thường trực BTS</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">5</td>
-                        <td class="text-center">TT. Thích Pháp Đăng</td>
-                        <td class="text-center">Chùa Từ Thiện</td>
-                        <td class="text-center">Phó BTS kiêm Trưởng ban Pháp chế</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">6</td>
-                        <td class="text-center">NT. TN Như Thiền</td>
-                        <td class="text-center">Chùa Pháp Hoa</td>
-                        <td class="text-center">Phó BTS kiêm Trưởng ban Từ thiện Xã hội</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">7</td>
-                        <td class="text-center">ĐĐ. Thích Huệ Trí</td>
-                        <td class="text-center">Chùa Linh Quang</td>
-                        <td class="text-center">Chánh Thư ký BTS</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">8</td>
-                        <td class="text-center">ĐĐ. Thích Huệ Hạnh</td>
-                        <td class="text-center">Tu viện Từ Bi</td>
-                        <td class="text-center">Phó Thư ký BTS</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">9</td>
-                        <td class="text-center">ĐĐ. Thích Pháp Tân</td>
-                        <td class="text-center">Chùa Thái Hoà</td>
-                        <td class="text-center">Trưởng ban Hoằng pháp</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">10</td>
-                        <td class="text-center">ĐĐ. Thích Quảng Nhuận</td>
-                        <td class="text-center">Chùa Huyền Quang</td>
-                        <td class="text-center">Trưởng ban Kiểm soát</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">11</td>
-                        <td class="text-center">ĐĐ. Thích Phước Lộc</td>
-                        <td class="text-center">Chùa Phước Lộc</td>
-                        <td class="text-center">Ủy viên BTS</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">12</td>
-                        <td class="text-center">ĐĐ. Thích Hộ Huệ</td>
-                        <td class="text-center">Chùa Pháp Độ</td>
-                        <td class="text-center">Ủy viên BTS</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">13</td>
-                        <td class="text-center">NS. TN Như Châu</td>
-                        <td class="text-center">Hoa Nghiêm Thiền Tự</td>
-                        <td class="text-center">Trưởng phân Ban Ni giới</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">14</td>
-                        <td class="text-center">SC. TN Như Huệ</td>
-                        <td class="text-center">Chùa Thiên Chơn</td>
-                        <td class="text-center">Thủ quỹ BTS</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">15</td>
-                        <td class="text-center">SC. TN Chúc Hoà</td>
-                        <td class="text-center">Chùa Linh Quang</td>
-                        <td class="text-center">Trưởng ban Thông tin Truyền thông</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">16</td>
-                        <td class="text-center">SC. TN Diệu Sinh</td>
-                        <td class="text-center">Tịnh xá Bửu Sơn</td>
-                        <td class="text-center">Trưởng ban Kinh tế Tài chánh</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">17</td>
-                        <td class="text-center">SC. TN Dung Liên</td>
-                        <td class="text-center">Tịnh xá Ngọc Định</td>
-                        <td class="text-center">Uỷ viên BTS</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">18</td>
-                        <td class="text-center">SC. TN Linh Hảo</td>
-                        <td class="text-center">Thiền viện Trúc Lâm Chân Pháp</td>
-                        <td class="text-center">Uỷ viên BTS</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">19</td>
-                        <td class="text-center">SC. TN Đức Nghiêm</td>
-                        <td class="text-center">Chùa Long Ẩn</td>
-                        <td class="text-center">Uỷ viên BTS</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">20</td>
-                        <td class="text-center">SC. TN Tịnh Thoại</td>
-                        <td class="text-center">Chùa Tịnh Quảng Xá</td>
-                        <td class="text-center">Uỷ viên BTS</td>
-                     </tr>
-                     <tr>
-                        <td class="text-center text-bold">21</td>
-                        <td class="text-center">Phật tử Thiện Ngộ</td>
-                        <td class="text-center">Ấp 5, xã Phú Vinh</td>
-                        <td class="text-center">Trưởng ban Văn hoá</td>
-                     </tr>
-                  </tbody>
-               </table></div>
-         </div>
-      </article>
-   </div>
-   <%= stylesheet_link_tag '/css/widgets.min.css' %>
-   <aside class="sidebar tie-col-md-4 tie-col-xs-12 normal-side is-sticky" aria-label="">
-      <%= render 'erp/pgdq/frontend/modules/sidebar' %>
-   </aside>
+            <a id="go-to-content" href="#go-to-content"><span class="tie-icon-angle-down"></span></a>
+        </header>
+    </div>
 </div>
+<div id="content" class="site-content container">
+    <div id="main-content-row" class="tie-row main-content-row">
+        <div class="main-content tie-col-md-8 tie-col-xs-12" role="main">
+            <article id="the-post" class="container-wrapper post-content tie-video">
+                <div class="entry-content entry clearfix text-justify">
+                  <h2 class="text-center">Danh Sách Thành Viên Ban Trị Sự GHPGVN Huyện Định Quán (Khoá VII Nhiệm Kỳ 2016 - 2021)</h2>
+                  <div class="table-is-responsive">
+                      <table>
+                          <thead>
+                             <tr>
+                                <th class="text-center">STT</th>
+                                <th class="text-center">ĐẠO HIỆU</th>
+                                <th class="text-center">CHÙA / TỊNH XÁ</th>
+                                <th class="text-center">CHỨC VỤ</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                             <tr>
+                                <td class="text-center text-bold">1</td>
+                                <td class="text-center">TT. Thích Minh Dũng</td>
+                                <td class="text-center">Tịnh Xá Bửu Sơn</td>
+                                <td class="text-center">Chứng Minh BTS</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">2</td>
+                                <td class="text-center">TT. Thích Quảng Trí</td>
+                                <td class="text-center">Chùa Trúc Lâm</td>
+                                <td class="text-center">Cố Vấn BTS</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">3</td>
+                                <td class="text-center">TT. Thích Đồng Ngạn</td>
+                                <td class="text-center">Chùa Pháp Quang</td>
+                                <td class="text-center">Trưởng BTS kiêm Trưởng ban Tăng sự</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">4</td>
+                                <td class="text-center">ĐĐ. Thích Nhuận Đức</td>
+                                <td class="text-center">Chùa Nam Sơn</td>
+                                <td class="text-center">Phó Thường trực BTS</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">5</td>
+                                <td class="text-center">TT. Thích Pháp Đăng</td>
+                                <td class="text-center">Chùa Từ Thiện</td>
+                                <td class="text-center">Phó BTS kiêm Trưởng ban Pháp chế</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">6</td>
+                                <td class="text-center">NT. TN Như Thiền</td>
+                                <td class="text-center">Chùa Pháp Hoa</td>
+                                <td class="text-center">Phó BTS kiêm Trưởng ban Từ thiện Xã hội</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">7</td>
+                                <td class="text-center">ĐĐ. Thích Huệ Trí</td>
+                                <td class="text-center">Chùa Linh Quang</td>
+                                <td class="text-center">Chánh Thư ký BTS</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">8</td>
+                                <td class="text-center">ĐĐ. Thích Huệ Hạnh</td>
+                                <td class="text-center">Tu viện Từ Bi</td>
+                                <td class="text-center">Phó Thư ký BTS</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">9</td>
+                                <td class="text-center">ĐĐ. Thích Pháp Tân</td>
+                                <td class="text-center">Chùa Thái Hoà</td>
+                                <td class="text-center">Trưởng ban Hoằng pháp</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">10</td>
+                                <td class="text-center">ĐĐ. Thích Quảng Nhuận</td>
+                                <td class="text-center">Chùa Huyền Quang</td>
+                                <td class="text-center">Trưởng ban Kiểm soát</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">11</td>
+                                <td class="text-center">ĐĐ. Thích Phước Lộc</td>
+                                <td class="text-center">Chùa Phước Lộc</td>
+                                <td class="text-center">Ủy viên BTS</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">12</td>
+                                <td class="text-center">ĐĐ. Thích Hộ Huệ</td>
+                                <td class="text-center">Chùa Pháp Độ</td>
+                                <td class="text-center">Ủy viên BTS</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">13</td>
+                                <td class="text-center">NS. TN Như Châu</td>
+                                <td class="text-center">Hoa Nghiêm Thiền Tự</td>
+                                <td class="text-center">Trưởng phân Ban Ni giới</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">14</td>
+                                <td class="text-center">SC. TN Như Huệ</td>
+                                <td class="text-center">Chùa Thiên Chơn</td>
+                                <td class="text-center">Thủ quỹ BTS</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">15</td>
+                                <td class="text-center">SC. TN Chúc Hoà</td>
+                                <td class="text-center">Chùa Linh Quang</td>
+                                <td class="text-center">Trưởng ban Thông tin Truyền thông</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">16</td>
+                                <td class="text-center">SC. TN Diệu Sinh</td>
+                                <td class="text-center">Tịnh xá Bửu Sơn</td>
+                                <td class="text-center">Trưởng ban Kinh tế Tài chánh</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">17</td>
+                                <td class="text-center">SC. TN Dung Liên</td>
+                                <td class="text-center">Tịnh xá Ngọc Định</td>
+                                <td class="text-center">Uỷ viên BTS</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">18</td>
+                                <td class="text-center">SC. TN Linh Hảo</td>
+                                <td class="text-center">Thiền viện Trúc Lâm Chân Pháp</td>
+                                <td class="text-center">Uỷ viên BTS</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">19</td>
+                                <td class="text-center">SC. TN Đức Nghiêm</td>
+                                <td class="text-center">Chùa Long Ẩn</td>
+                                <td class="text-center">Uỷ viên BTS</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">20</td>
+                                <td class="text-center">SC. TN Tịnh Thoại</td>
+                                <td class="text-center">Chùa Tịnh Quảng Xá</td>
+                                <td class="text-center">Uỷ viên BTS</td>
+                             </tr>
+                             <tr>
+                                <td class="text-center text-bold">21</td>
+                                <td class="text-center">Phật tử Thiện Ngộ</td>
+                                <td class="text-center">Ấp 5, xã Phú Vinh</td>
+                                <td class="text-center">Trưởng ban Văn hoá</td>
+                             </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <p style="text-align: right;"><em><strong>Tin, ảnh: </strong>GHPGVN Huyện Định Quán</p>
+                  <div class="post-bottom-meta post-bottom-tags post-tags-modern">
+                        <div class="post-bottom-meta-title"><span class="tie-icon-tags" aria-hidden="true"></span> Nhãn bài viết</div>
+                        <span class="tagcloud">
+                            <%= link_to 'phat giao dong nai', 'javascript:void(0)', title: 'phat giao dong nai', rel: 'tag' %>
+                            <%= link_to 'phat giao dinh quan', 'javascript:void(0)', title: 'phat giao dinh quan', rel: 'tag' %>
+                            <%= link_to 'ban tri su phat giao', 'javascript:void(0)', title: 'ban tri su phat giao', rel: 'tag' %>
+                            <%= link_to 'ban tri su dinh quan', 'javascript:void(0)', title: 'ban tri su dinh quan', rel: 'tag' %>
+                            <%= link_to 'phat giao dinh quan', 'javascript:void(0)', title: 'phat giao dinh quan', rel: 'tag' %>
+                            <%= link_to 'phat su online', 'javascript:void(0)', title: 'phat su online', rel: 'tag' %>
+                            <%= link_to 'tin tuc phat su', 'javascript:void(0)', title: 'tin tuc phat su', rel: 'tag' %>
+                            <%= link_to 'phat tu dinh quan', 'javascript:void(0)', title: 'phat tu dinh quan', rel: 'tag' %>
+                            <%= link_to 'tin tuc phat giao dinh quan', 'javascript:void(0)', title: 'tin tuc phat giao dinh quan', rel: 'tag' %>
+                            <%= link_to 'phat su', 'javascript:void(0)', title: 'phat su', rel: 'tag' %>
+                            <%= link_to 'gdpt dinh quan', 'javascript:void(0)', title: 'gdpt dinh quan', rel: 'tag' %>
+                            <%= link_to 'phap am phat giao', 'javascript:void(0)', title: 'phap am phat giao', rel: 'tag' %>
+                        </span>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div id="share-buttons-bottom" class="share-buttons share-buttons-bottom">
+                    <div class="share-links  icons-text">
+                        <div class="share-title">
+                            <span class="tie-icon-share" aria-hidden="true"></span>
+                            <span> Chia sẻ</span>
+                        </div>
+                        <a href="//www.facebook.com/sharer.php?u=//phatgiaodinhquan.org<%= about_link %>" rel="external noopener nofollow" title="Facebook" target="_blank" class="facebook-share-btn  large-share-button" data-raw="//www.facebook.com/sharer.php?u=//phatgiaodinhquan.org<%= about_link %>">
+                            <span class="share-btn-icon tie-icon-facebook"></span>
+                            <span class="social-text">Facebook</span>
+                        </a>
+                        <a href="//twitter.com/intent/tweet?text=Giới Thiệu GHPGVN Huyện Định Quán;url=//phatgiaodinhquan.org<%= about_link %>" rel="external noopener nofollow" title="Twitter" target="_blank" class="twitter-share-btn  large-share-button" data-raw="//twitter.com/intent/tweet?text=Giới Thiệu GHPGVN Huyện Định Quán;url=//phatgiaodinhquan.org<%= about_link %>">
+                            <span class="share-btn-icon tie-icon-twitter"></span>
+                            <span class="social-text">Twitter</span>
+                        </a>
+                        <a href="//web.skype.com/share?url=//phatgiaodinhquan.org<%= about_link %>;text=Giới Thiệu GHPGVN Huyện Định Quán" rel="external noopener nofollow" title="Skype" target="_blank" class="skype-share-btn  large-share-button" data-raw="//web.skype.com/share?url=//phatgiaodinhquan.org<%= about_link %>&text=Giới Thiệu GHPGVN Huyện Định Quán">
+                            <span class="share-btn-icon tie-icon-skype"></span>
+                            <span class="social-text">Skype</span>
+                        </a>
+                        <a href="//www.facebook.com/dialog/send?app_id=5303202981&display=popup&link=//phatgiaodinhquan.org<%= about_link %>&redirect_uri=//phatgiaodinhquan.org<%= about_link %>" rel="external noopener nofollow" title="Messenger" target="_blank" class="messenger-desktop-share-btn messenger-share-btn  large-share-button" data-raw="//www.facebook.com/dialog/send?app_id=5303202981&display=popup&link=//phatgiaodinhquan.org<%= about_link %>&redirect_uri=//phatgiaodinhquan.org<%= about_link %>">
+                            <span class="share-btn-icon tie-icon-messenger"></span>
+                            <span class="social-text">Messenger</span>
+                        </a>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        <%= render 'layouts/erp/frontend/sidebar' %>
+    </div>
 </div>

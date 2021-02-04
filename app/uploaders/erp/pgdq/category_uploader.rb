@@ -9,6 +9,10 @@ module Erp
       version :system do
         process resize_to_fill: [150, 150]
       end
+      
+      version :listing do
+        process resize_to_fill: [780, 470]
+      end
     end
   end
 end

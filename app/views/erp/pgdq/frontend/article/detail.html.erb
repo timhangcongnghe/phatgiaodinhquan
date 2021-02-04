@@ -1,0 +1,210 @@
+<% title @article.get_name %>
+<% content_for :metas do %>
+<meta property="og:locale" content="vi-VN" />
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="<%= @article.get_name %> &#8211; GHPGVN Huyện Định Quán"/>
+<% if @meta_description.present? %><meta property="og:description" content="<%= @meta_description %>"/><% else %><meta property="og:description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
+<meta property="og:url" content="https://phatgiaodinhquan.org<%= article_detail_link(@article) %>"/>
+<meta property="og:site_name" content="<%= @article.get_name %>" />
+<meta property="og:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
+<meta property="og:image:alt" content="GHPGVN Huyện Định Quán"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="560"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="https://phatgiaodinhquan.org<%= article_detail_link(@article) %>"/>
+<meta name="twitter:title" content="<%= @article.get_name %> &#8211; GHPGVN Huyện Định Quán" />
+<% if @meta_description.present? %><meta name="twitter:description" content="<%= @meta_description %>"/><% else %><meta name="twitter:description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
+<meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
+<meta name="twitter:image:alt" content="GHPGVN Huyện Định Quán"/>
+<% end %>
+
+<div class="container fullwidth-entry-title-wrapper">
+    <div style="background-image:url(<%= @article.image.listing_1024x576 %>)" class="fullwidth-entry-title single-big-img container-wrapper tie-parallax">
+        <div class="thumb-overlay"></div>
+        <header class="entry-header-outer">
+            <nav id="breadcrumb">
+                <%= link_to '<span class="tie-icon-home" aria-hidden="true"></span> Trang Chủ'.html_safe, root_link, title: 'Trang Chủ' %>
+                <% if !@category.parent.nil? %>
+                    <em class="delimiter"><span class="fa fa-angle-right"></span></em>
+                    <% if @category.parent.use_show_list? %>
+                        <%= link_to @category.parent.get_name, category_listing_link(@category.parent), title: @category.parent.get_name %>
+                    <% else %>
+                        <%= link_to @category.parent.get_name, category_detail_link(@category.parent), title: @category.parent.get_name %>
+                    <% end %>
+                <% end %>
+                <% if @category.parent.use_show_list? %>
+                    <em class="delimiter"><span class="fa fa-angle-right"></em><%= link_to @category.get_name, category_listing_link(@category), title: @category.get_name %>
+                <% else %>
+                    <em class="delimiter"><span class="fa fa-angle-right"></em><%= link_to @category.get_name, category_detail_link(@category), title: @category.get_name %>
+                <% end %>
+                <em class="delimiter"><span class="fa fa-angle-right"></em><span class="current"><%= @article.get_name %></span>
+            </nav>
+            <div class="entry-header">
+                <span class="post-cat-wrap">
+                    <% if @category.use_show_list? %>
+                        <%= link_to @category.get_name, category_listing_link(@category), title: @category.get_name, class: 'post-cat tie-cat-19' %>
+                    <% else %>
+                        <%= link_to @category.get_name, category_detail_link(@category), title: @category.get_name, class: 'post-cat tie-cat-19' %>
+                    <% end %>
+                </span>
+                <h1 class="post-title entry-title"><%= @article.get_name %></h1>
+                <div id="single-post-meta" class="post-meta clearfix">
+                    <% if @article.author.present? %>
+                        <span class="author-meta single-author with-avatars">
+                            <span class="meta-item meta-author-wrapper meta-author-1">
+                                <% if @article.author.image.present? %>
+                                    <span class="meta-author-avatar">
+                                        <a href="javascript:void(0)" title="<%= @article.get_author_name %>">
+                                            <img alt='<%= @article.get_author_name %>' title="<%= @article.get_author_name %>" src='<%= @article.author.image.detail_1x %>' srcset='<%= @article.author.image.detail_2x %> 2x' class='avatar avatar-140 photo' height='140' width='140' loading='lazy'/>
+                                        </a>
+                                    </span>
+                                <% else %>
+                                    <span class="meta-author-avatar">
+                                        <a href="javascript:void(0)" title="<%= @article.get_author_name %>">
+                                            <img alt='<%= @article.get_author_name %>' title="<%= @article.get_author_name %>" src='/img/author-140x140-lite.png' srcset='/img/author-280x280-lite.png 2x' class='avatar avatar-140 photo' height='140' width='140' loading='lazy'/>
+                                        </a>
+                                    </span>
+                                <% end %>
+                                <span class="meta-author">
+                                    <%= link_to @article.get_author_name, 'javascript:void(0)', title: @article.get_author_name, class: 'author-name tie-icon' %>
+                                </span>
+                                <% if @article.author.email.present? %>
+                                    <a href="mailto:<%= @article.author.email %>" class="author-email-link" target="_blank" rel="nofollow noopener" title="Gửi email">
+                                        <span class="tie-icon-envelope" aria-hidden="true"></span>
+                                        <span class="screen-reader-text">Gửi email</span>
+                                    </a>
+                                <% else %>
+                                    <a href="mailto:phatgiaodinhquan.org@gmail.com" class="author-email-link" target="_blank" rel="nofollow noopener" title="Gửi email">
+                                        <span class="tie-icon-envelope" aria-hidden="true"></span>
+                                        <span class="screen-reader-text">Gửi email</span>
+                                    </a>
+                                <% end %>
+                            </span>
+                        </span>
+                    <% end %>
+                    <span class="date meta-item tie-icon"><strong>Ngày đăng: </strong><%= @article.date_public.strftime("%d-%m-%Y") %></span>
+                    <span class="date meta-item tie-icon"><strong>Ngày cập nhật: </strong><%= @article.updated_at.strftime("%d-%m-%Y") %></span>
+                </div>
+            </div>
+            <a id="go-to-content" href="#go-to-content"><span class="tie-icon-angle-down"></span></a>
+        </header>
+    </div>
+</div>
+<div id="content" class="site-content container">
+    <div id="main-content-row" class="tie-row main-content-row">
+        <div class="main-content tie-col-md-8 tie-col-xs-12" role="main">
+            <article id="the-post" class="container-wrapper post-content tie-video">
+                <div class="entry-content entry clearfix text-justify">
+                  <%= @article.content.html_safe %>
+                  <% if @article.author.present? %><p style="text-align: right;"><em><strong>Tin, ảnh: </strong><%= @article.get_author_long_name %></em></p><% end %>
+                  <% if @article.tags.present? %>
+                      <div class="post-bottom-meta post-bottom-tags post-tags-modern">
+                            <div class="post-bottom-meta-title"><span class="tie-icon-tags" aria-hidden="true"></span> Nhãn bài viết</div>
+                            <span class="tagcloud">
+                                <% @article.tags.split(', ').each do |tag| %>
+                                    <%= link_to tag, 'javascript:void(0)', title: tag, rel: 'tag' %>
+                                <% end %>
+                            </span>
+                        </div>
+                  <% end %>
+                </div>
+                <div class="clearfix"></div>
+                <div id="share-buttons-bottom" class="share-buttons share-buttons-bottom">
+                    <div class="share-links  icons-text">
+                        <div class="share-title">
+                            <span class="tie-icon-share" aria-hidden="true"></span>
+                            <span> Chia sẻ</span>
+                        </div>
+                        <a href="//www.facebook.com/sharer.php?u=//phatgiaodinhquan.org<%= article_detail_link(@article) %>" rel="external noopener nofollow" title="Facebook" target="_blank" class="facebook-share-btn  large-share-button" data-raw="//www.facebook.com/sharer.php?u=//phatgiaodinhquan.org<%= article_detail_link(@article) %>">
+                            <span class="share-btn-icon tie-icon-facebook"></span>
+                            <span class="social-text">Facebook</span>
+                        </a>
+                        <a href="//twitter.com/intent/tweet?text=<%= @article.get_name %>;url=//phatgiaodinhquan.org<%= article_detail_link(@article) %>" rel="external noopener nofollow" title="Twitter" target="_blank" class="twitter-share-btn  large-share-button" data-raw="//twitter.com/intent/tweet?text=<%= @article.get_name %>;url=//phatgiaodinhquan.org<%= article_detail_link(@article) %>">
+                            <span class="share-btn-icon tie-icon-twitter"></span>
+                            <span class="social-text">Twitter</span>
+                        </a>
+                        <a href="//web.skype.com/share?url=//phatgiaodinhquan.org<%= article_detail_link(@article) %>;text=<%= @article.get_name %>" rel="external noopener nofollow" title="Skype" target="_blank" class="skype-share-btn  large-share-button" data-raw="//web.skype.com/share?url=//phatgiaodinhquan.org<%= article_detail_link(@article) %>&text=<%= @article.get_name %>">
+                            <span class="share-btn-icon tie-icon-skype"></span>
+                            <span class="social-text">Skype</span>
+                        </a>
+                        <a href="//www.facebook.com/dialog/send?app_id=5303202981&display=popup&link=//phatgiaodinhquan.org<%= article_detail_link(@article) %>&redirect_uri=//phatgiaodinhquan.org<%= article_detail_link(@article) %>" rel="external noopener nofollow" title="Messenger" target="_blank" class="messenger-desktop-share-btn messenger-share-btn  large-share-button" data-raw="//www.facebook.com/dialog/send?app_id=5303202981&display=popup&link=//phatgiaodinhquan.org<%= article_detail_link(@article) %>&redirect_uri=//phatgiaodinhquan.org<%= article_detail_link(@article) %>">
+                            <span class="share-btn-icon tie-icon-messenger"></span>
+                            <span class="social-text">Messenger</span>
+                        </a>
+                        
+                    </div>
+                </div>
+            </article>
+            <div class="post-components">
+                <% if @article.author.present? %>
+                    <div class="about-author container-wrapper about-author-1">
+                        <% if @article.author.image.present? %>
+                            <div class="author-avatar">
+                                <a href="javascript:void(0)" title="<%= @article.get_author_name %>">
+                                    <img alt='<%= @article.get_author_name %>' title="<%= @article.get_author_name %>" src='<%= @article.author.image.detail_1x %>' srcset='<%= @article.author.image.detail_2x %> 2x' class='avatar avatar-180 photo' height='180' width='180' loading='lazy'/>
+                                </a>
+                            </div>
+                        <% else %>
+                            <div class="author-avatar">
+                                <a href="javascript:void(0)" title="<%= @article.get_author_name %>">
+                                    <img alt='<%= @article.get_author_name %>' title="<%= @article.get_author_name %>" src='/img/author-140x140.png' srcset='/img/author-280x280.png 2x' class='avatar avatar-180 photo' height='180' width='180' loading='lazy'/>
+                                </a>
+                            </div>
+                        <% end %>
+                        <div class="author-info">
+                            <h3 class="author-name"><%= link_to @article.get_author_name, 'javascript:void(0)', title: @article.get_author_name %></h3>
+                            <div class="author-bio text-justify"><%= @article.author.description %></div>
+                            <ul class="social-icons">
+                                <li class="social-icons-item">
+                                    <a href="<%= @article.author.email %>" rel="external noopener nofollow" target="_blank" class="social-link url-social-icon">
+                                        <span class="tie-icon-home" aria-hidden="true"></span>
+                                        <span class="screen-reader-text">Website</span>
+                                    </a>
+                                </li>
+                                <li class="social-icons-item">
+                                    <a href="<%= @article.author.facebook %>" rel="external noopener nofollow" target="_blank" class="social-link facebook-social-icon">
+                                        <span class="tie-icon-facebook" aria-hidden="true"></span>
+                                        <span class="screen-reader-text">Facebook</span>
+                                    </a>
+                                </li>
+                                <li class="social-icons-item">
+                                    <a href="<%= @article.author.twitter %>" rel="external noopener nofollow" target="_blank" class="social-link twitter-social-icon">
+                                        <span class="tie-icon-twitter" aria-hidden="true"></span>
+                                        <span class="screen-reader-text">Twitter</span>
+                                    </a>
+                                </li>
+                                <li class="social-icons-item">
+                                    <a href="<%= @article.author.instagram %>" rel="external noopener nofollow" target="_blank" class="social-link instagram-social-icon">
+                                        <span class="tie-icon-instagram" aria-hidden="true"></span>
+                                        <span class="screen-reader-text">Instagram</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                <% end %>
+                <% if @related_articles.count > 0 %>
+                    <div id="related-posts" class="container-wrapper has-extra-post">
+                        <div class="mag-box-title the-global-title"><h3>Bài Viết Liên Quan</h3></div>
+                        <div class="related-posts-list">
+                            <% @related_articles.each do |article| %>
+                                <div class="related-item tie-video">
+                                    <a aria-label="<%= article.get_name %>" href="<%= article_detail_link(article) %>" title="<%= article.get_name %>" class="post-thumb">
+                                        <img width="390" height="220" src="<%= article.image.listing %>" class="attachment-jannah-image-large size-jannah-image-large wp-post-image" alt="<%= article.get_name %>" title="<%= article.get_name %>" loading="lazy" />
+                                    </a>
+                                    <h3 class="post-title">
+                                        <%= link_to truncate(article.get_name, length: 60), article_detail_link(article), title: article.get_name %>
+                                    </h3>
+                                    <div class="post-meta clearfix"><span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span></div>				
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+        <%= render 'layouts/erp/frontend/sidebar' %>
+    </div>
+</div>

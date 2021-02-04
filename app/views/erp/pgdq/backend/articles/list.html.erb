@@ -2,8 +2,11 @@
     <thead>
         <tr>
             <th width='1%'><%= erp_datalist_check_all %></th>
+            <% if get_columns(params).include?("image") %>
+                <th class="text-left" width='10%'><%= t('image') %></th>
+            <% end %>
             <% if get_columns(params).include?("name") %>
-                <th class="text-left" width='40%'><%= t('.name') %></th>
+                <th class="text-center" width='40%'><%= t('.name') %></th>
             <% end %>
             <% if get_columns(params).include?("category") %>
                 <th class="text-center" width='25%'><%= t('.category') %></th>
@@ -24,34 +27,32 @@
         <% @articles.each do |article| %>
             <tr class="odd gradeX">
                 <td><%= erp_datalist_check_row(id: article.id) %></td>
-                <% if get_columns(params).include?("name") %>
+                <% if get_columns(params).include?("image") %>
                     <td class="text-left">
-                        <%= link_to article.get_name, erp_pgdq.edit_backend_article_path(article), class: 'title', title: article.get_name %>
-                        <% if article.alias.present? %><br><strong>alias: </strong><em><%= article.alias %></em><% end %>
+                        <% if !article.image.nil? %>
+                            <%= link_to image_tag(article.image.system, class: 'image-datalist', width: '70%', height: 'auto', alt: article.get_name), erp_pgdq.edit_backend_article_path(article), title: article.get_name %>
+                        <% end %>
                     </td>
                 <% end %>
                 <% if get_columns(params).include?("name") %>
-                    <td class="text-center"><%= article.get_full_category_name %></td>
+                    <td class="text-left">
+                        <%= link_to article.get_name, erp_pgdq.edit_backend_article_path(article), class: 'title', title: article.get_name %>
+                        <% if article.author.present? %><br><br><em><strong>Tác giả: </strong><%= article.get_author_name %></em><% end %>
+                    </td>
+                <% end %>
+                <% if get_columns(params).include?("name") %>
+                    <td class="text-center"><%= article.get_category_full_name %></td>
                 <% end %>
                 <% if get_columns(params).include?("status") %>
                     <td class="text-center">
-                        <% if article.is_slider == true %>
-                            <br>
-                            <span class="label bg-primary">
-                                <%= t('.article_is_slider') %>
-                            </span>
-                        <% end %>
+                        <% if article.is_slider == true %><br><span class="label bg-primary"><%= t('.article_is_slider') %></span><% end %>
                     </td>
                 <% end %>
                 <% if get_columns(params).include?("creator") %>
                     <td class="text-center"><%= erp_component('avatar', { user: article.creator }) %></td>
                 <% end %>
                 <% if get_columns(params).include?("created_at") %>
-                    <td class="text-center">
-                        <% if article.date_public.present? %>
-                            <%= article.date_public.strftime("%d-%m-%Y") %>
-                        <% end %>
-                    </td>
+                    <td class="text-center"><%= article.date_public.strftime("%d-%m-%Y") %></td>
                 <% end %>                
                 <td class="text-right">
                     <div class="btn-group">
@@ -59,15 +60,11 @@
                             <i class="fa fa-cog"></i><%= t('core.options') %><i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu pull-right">
-                            <li>
-                                <%= link_to '<i class="fa fa-edit"></i>'.html_safe + t('.edit'), 
-                                    erp_pgdq.edit_backend_article_path(article) %>
-                            </li>
+                            <li><%= link_to '<i class="fa fa-edit"></i>'.html_safe + t('.edit'), 
+                                    erp_pgdq.edit_backend_article_path(article) %></li>
                             <li class="divider"></li>
-                            <li>
-                                <%= link_to '<i class="fa fa-trash"></i>'.html_safe + t('.delete'), 
-                                    erp_pgdq.backend_article_path(article), method: 'DELETE', data: {confirm: t('delete_confirm')}, class: 'ajax-link' %>
-                            </li>
+                            <li><%= link_to '<i class="fa fa-trash"></i>'.html_safe + t('.delete'), 
+                                    erp_pgdq.backend_article_path(article), method: 'DELETE', data: {confirm: t('delete_confirm')}, class: 'ajax-link' %></li>
                         </ul>
                     </div>
                 </td>
@@ -75,6 +72,5 @@
         <% end %>
     </tbody>
 </table>
-
 <% if @articles.empty? %><div class="datalist-empty-line"><%= t('.no_matching_records_found') %></div><% end %>
 <%= erp_datalist_pagination(@articles) %>

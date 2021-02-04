@@ -4,17 +4,28 @@ vi:
       backend:
         sidebar:
           articles: "Danh sách bài viết"
-          article: "Bài viết"
+          article: "Các bài viết"
           article_category: "Chuyên mục"
+          author: "Tác giả bài viết"
   activerecord:
     errors:
       models:
+        erp/pgdq/author:
+          attributes:
+            short_name:
+              blank: "không được để trống."
+              taken: "không được trùng lặp."
+            long_name:
+              blank: "không được để trống."
+              taken: "không được trùng lặp."
         erp/pgdq/article:
           attributes:
             name:
               blank: "không được để trống."
               taken: "không được trùng lặp."
             category_id:
+              blank: "không được để trống."
+            author_id:
               blank: "không được để trống."
             date_public:
               blank: "không được để trống."
@@ -26,6 +37,51 @@ vi:
   erp:
     pgdq:
       backend:
+        authors:
+          create:
+            success: "Thêm tác giả thành công."
+          update:
+            success: "Cập nhật tác giả thành công."
+          destroy:
+            success: "Xóa tác giả thành công."
+          index:
+            authors: "Danh sách tác giả"
+            create: "Thêm tác giả mới"
+            short_name: "Tên tác giả (Ngắn)"
+            long_name: "Tên tác giả (Đầy đủ)"
+            article_count: "Số bài viết"
+          new:
+            authors: "Danh sách tác giả"
+            create: "Thêm tác giả mới"
+          edit:
+            authors: "Danh sách tác giả"
+            create: "Thêm tác giả mới"
+            edit: "Cập nhật"
+          list:
+            short_name: "Tên tác giả (Ngắn)"
+            long_name: "Tên tác giả (Đầy đủ)"
+            article_count: "Số bài viết"
+            edit: "Cập nhật"
+            delete: "Xóa tác giả"
+            no_matching_records_found: "Danh sách hiện đang trống."
+          form:
+            short_name: "Tên tác giả (Ngắn)"
+            placeholder_short_name: "Nhập tên tác giả (Ngắn)..."
+            long_name: "Tên tác giả (Đầy đủ)"
+            placeholder_long_name: "Nhập tên tác giả (Đầy đủ)..."
+            email: "Địa chỉ Email"
+            placeholder_email: "Nhập địa chỉ Email..."
+            facebook: "Địa chỉ FaceBook"
+            placeholder_facebook: "Nhập địa chỉ FaceBook..."
+            youtube: "Địa chỉ Youtube"
+            placeholder_youtube: "Nhập địa chỉ Youtube..."
+            twitter: "Địa chỉ Twitter"
+            placeholder_twitter: "Nhập địa chỉ Twitter..."
+            instagram: "Địa chỉ Instagram"
+            placeholder_instagram: "Nhập địa chỉ Instagram..."
+            tiktok: "Địa chỉ Tiktok"
+            placeholder_tiktok: "Nhập địa chỉ Tiktok..."
+            description: "Giới thiệu về tác giả"
         articles:
           create:
             success: "Thêm bài viết mới thành công."
@@ -57,6 +113,8 @@ vi:
             placeholder_name: "Nhập tên bài viết..."
             category: "Chuyên mục bài viết"
             choose_category: "Chọn chuyên mục bài viết"
+            author: "Tác giả bài viết"
+            choose_author: "Chọn tác giả bài viết"
             date_public: "Ngày đăng tin"
             choose_date_public: "Chọn ngày đăng tin"
             meta_keywords: "SEO (Meta Keywords)"
@@ -70,14 +128,14 @@ vi:
             is_slider: "Chọn hiển thị slide"
         categories:
           create:
-            success: "Thêm chuyên mục mới thành công."
+            success: "Thêm chuyên mục thành công."
           update:
             success: "Cập nhật chuyên mục thành công."
           destroy:
-            success: "Đã xóa chuyên mục thành công."
+            success: "Xóa chuyên mục thành công."
           index:
             categories: "Danh sách chuyên mục"
-            create: "Thêm chuyên mục mới"
+            create: "Thêm chuyên mục"
             name: "Tên chuyên mục"
             parent_category: "Chuyên mục cha"
           list:
@@ -88,19 +146,24 @@ vi:
             no_matching_records_found: "Danh sách hiện đang trống."
           new:
             categories: "Danh sách chuyên mục"
-            create: "Thêm chuyên mục mới"
+            create: "Thêm chuyên mục"
           edit:
             categories: "Danh sách chuyên mục"
-            create: "Thêm chuyên mục mới"
+            create: "Thêm chuyên mục"
+            edit: "Cập nhật"
           form:
             name: "Tên chuyên mục"
             placeholder_name: "Nhập tên chuyên mục..."
             parent_category: "Chuyên mục cha"
             choose_parent_category: "Chọn chuyên mục cha"
             meta_keywords: "SEO (Meta Keywords)"
-            placeholder_meta_keywords: "Nhập meta keywords cho SEO"
+            placeholder_meta_keywords: "Nhập meta keywords..."
             meta_description: "SEO (Meta Description)"
-            placeholder_meta_description: "Nhập meta description cho SEO"
+            placeholder_meta_description: "Nhập meta description..."
             tags: "Nhãn bài viết"
-            placeholder_tags: "Nhập nhãn bài viết"
+            placeholder_tags: "Nhập nhãn bài viết..."
             content: "Mô tả chuyên mục"
+            category_use_diff_menu: "Dùng menu khác (Mặc định)"
+            use_diff_menu: "Sử dụng"
+            category_use_show_list: "Hiển thị danh sách (Chuyên mục)"
+            use_show_list: "Sử dụng"

@@ -1,0 +1,198 @@
+<header id="theme-header" class="theme-header header-layout-3 main-nav-dark main-nav-default-dark main-nav-below main-nav-boxed has-stream-item top-nav-active top-nav-light top-nav-default-light top-nav-above has-shadow has-normal-width-logo mobile-header-default">
+    <nav id="top-nav" class="has-date-breaking-components top-nav header-nav has-breaking-news" aria-label="Secondary Navigation">
+        <div class="container">
+            <div class="topbar-wrapper">
+                <div class="topbar-today-date tie-icon">&nbsp;<%= Time.now.strftime("%d-%m-%Y") %></div>
+                <div class="tie-alignleft">
+                    <div class="breaking controls-is-active">
+                        <span class="breaking-title">
+                        <span class="tie-icon-bolt breaking-icon" aria-hidden="true"></span>
+                        <span class="breaking-title-text">Tin mới đăng</span>
+                        </span>
+                        <ul id="breaking-news-in-header" class="breaking-news" data-type="reveal" data-arrows="true">
+                            <% Erp::Pgdq::Article.get_newest_articles.each do |article| %>
+                                <li class="news-item">
+                                    <%= link_to article.get_name, article_detail_link(article), title: article.get_name %>
+                                </li>
+                            <% end %>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tie-alignright">
+                    <ul class="components">
+                        <li class="social-icons-item">
+                            <a class="social-link soundcloud-social-icon" rel="external noopener nofollow" target="_blank" href="" title="SoundCloud">
+                                <span class="tie-social-icon tie-icon-soundcloud"></span>
+                                <span class="screen-reader-text">SoundCloud</span>
+                            </a>
+                        </li>
+                        <li class="social-icons-item">
+                            <a class="social-link youtube-social-icon" rel="external noopener nofollow" target="_blank" href="" title="YouTube">
+                                <span class="tie-social-icon tie-icon-youtube"></span>
+                                <span class="screen-reader-text">YouTube</span>
+                            </a>
+                        </li>
+                        <li class="social-icons-item">
+                            <a class="social-link twitter-social-icon" rel="external noopener nofollow" target="_blank" href="" title="Twitter">
+                                <span class="tie-social-icon tie-icon-twitter"></span>
+                                <span class="screen-reader-text">Twitter</span>
+                            </a>
+                        </li>
+                        <li class="social-icons-item">
+                            <a class="social-link facebook-social-icon" rel="external noopener nofollow" target="_blank" href="" title="FaceBook">
+                                <span class="tie-social-icon tie-icon-facebook"></span>
+                                <span class="screen-reader-text">FaceBook</span>
+                            </a>
+                        </li>
+                    </ul>	
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container header-container">
+        <div class="tie-row logo-row">
+            <div class="logo-wrapper">
+                <div class="tie-col-md-4 logo-container clearfix">
+                    <div id="mobile-header-components-area_1" class="mobile-header-components">
+                        <ul class="components">
+                            <li class="mobile-component_menu custom-menu-link">
+                                <a href="javascript:void(0);" id="mobile-menu-icon" class="">
+                                    <span class="tie-mobile-menu-icon nav-icon is-layout-1"></span>
+                                    <span class="screen-reader-text">Menu</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="logo" class="image-logo" >
+                        <a title="GHPGVN Huyện Định Quán" href="<%= root_link %>">
+                            <picture class="tie-logo-default tie-logo-picture">
+                                <source class="tie-logo-source-default tie-logo-source" srcset="/img/logo.png">
+                                <img class="tie-logo-img-default tie-logo-img" src="/img/logo.png" alt="GHPGVN Huyện Định Quán" title="GHPGVN Huyện Định Quán" width="299" height="49" style="max-height:49px!important;width:auto;" />
+                            </picture>
+                            <h1 class="h1-off">GHPGVN Huyện Định Quán</h1>
+                        </a>
+                    </div>
+                    <div id="mobile-header-components-area_2" class="mobile-header-components">
+                        <ul class="components">
+                            <li class="mobile-component_search custom-menu-link">
+                                <a href="javascript:void(0);" class="tie-search-trigger-mobile">
+                                    <span class="tie-icon-search tie-search-icon" aria-hidden="true"></span>
+                                    <span class="screen-reader-text">Nhập từ khóa tìm kiếm...</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tie-col-md-8 stream-item stream-item-top-wrapper">
+                <div class="stream-item-top">
+                    <a href="" title="" target="_blank" rel="nofollow noopener">
+                        <img src="/img/mung-xuan-di-lac-2021.png" alt="GHPGVN Huyện Định Quán Mừng Xuân Di Lặc PL.2565 DL.2021" title="GHPGVN Huyện Định Quán Mừng Xuân Di Lặc PL.2565 DL.2021" width="720" height="90" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-nav-wrapper">
+        <nav id="main-nav" data-skin="search-in-main-nav" class="main-nav header-nav live-search-parent"  aria-label="Primary Navigation">
+            <div class="container">
+                <div class="main-menu-wrapper">
+                    <div id="menu-components-wrap">
+                        <div class="main-menu main-menu-wrap tie-alignleft">
+                            <div id="main-nav-menu" class="main-menu header-menu">
+                                <ul id="menu-tielabs-main-menu" class="menu" role="menubar">
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home tie-current-menu">
+                                        <%= link_to 'Trang Chủ', root_link, title: 'Trang Chủ GHPGVN Huyện Định Quán' %>
+                                    </li>
+                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children mega-menu mega-cat ">
+                                        <%= link_to 'Giới Thiệu', about_link, title: 'Giới Thiệu' %>
+                                        <ul class="sub-menu menu-sub-content">
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                <%= link_to 'GHPGVN Huyện Định Quán', about_link, title: 'GHPGVN Huyện Định Quán'  %>
+                                            </li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                <%= link_to 'Thành Viên Ban Trị Sự', member_link, title: 'Thành Viên Ban Trị Sự' %>
+                                            </li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                <%= link_to 'Danh Sách Tự Viện', pagoda_link, title: 'Danh Sách Tự Viện' %>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <% Erp::Pgdq::Category.get_main_categories.each do |category_parent| %>
+                                        <% if category_parent.use_diff_menu? %>
+                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children mega-menu mega-links mega-links-3col ">
+                                                <% if category_parent.use_show_list? %>
+                                                    <%= link_to category_parent.get_name, category_listing_link(category_parent), title: category_parent.get_name %>
+                                                <% else %>
+                                                    <%= link_to category_parent.get_name, category_detail_link(category_parent), title: category_parent.get_name %>
+                                                <% end %>
+                                                <div class="mega-menu-block menu-sub-content">
+                                                    <ul class="sub-menu-columns">
+                                                        <% category_parent.children.get_active.each do |category_child_1| %>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children mega-link-column ">
+                                                                <% if category_child_1.use_show_list? %>
+                                                                    <%= link_to category_child_1.get_name, category_listing_link(category_child_1), title: category_child_1.get_name, class: 'mega-links-head' %>
+                                                                <% else %>
+                                                                    <%= link_to category_child_1.get_name, category_detail_link(category_child_1), title: category_child_1.get_name, class: 'mega-links-head' %>
+                                                                <% end %>
+                                                                <ul class="sub-menu-columns-item">
+                                                                    <% category_child_1.children.get_active.each do |category_child_2| %>
+                                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                                                            <% if category_child_2.use_show_list? %>
+                                                                                <a href="<%= category_listing_link(category_child_2) %>" title="<%= category_child_2.get_name %>">
+                                                                                    <span aria-hidden="true" class="mega-links-default-icon"></span><%= category_child_2.get_name %>
+                                                                                </a>
+                                                                            <% else %>
+                                                                                <a href="<%= category_detail_link(category_child_2) %>" title="<%= category_child_2.get_name %>">
+                                                                                    <span aria-hidden="true" class="mega-links-default-icon"></span><%= category_child_2.get_name %>
+                                                                                </a>
+                                                                            <% end %>
+                                                                        </li>
+                                                                    <% end %>
+                                                                </ul>
+                                                            </li>
+                                                        <% end %>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        <% else %>
+                                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children mega-menu mega-cat ">
+                                                <% if category_parent.use_show_list? %>
+                                                    <%= link_to category_parent.get_name, category_listing_link(category_parent), title: category_parent.get_name %>
+                                                <% else %>
+                                                    <%= link_to category_parent.get_name, category_detail_link(category_parent), title: category_parent.get_name %>
+                                                <% end %>
+                                                <ul class="sub-menu menu-sub-content">
+                                                    <% category_parent.children.get_active.each do |category_child| %>
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                            <% if category_child.use_show_list? %>
+                                                                <%= link_to category_child.get_name, category_listing_link(category_child), title: category_child.get_name %>
+                                                            <% else %>
+                                                                <%= link_to category_child.get_name, category_detail_link(category_child), title: category_child.get_name %>
+                                                            <% end %>
+                                                        </li>
+                                                    <% end %>
+                                                </ul>
+                                            </li>
+                                        <% end %>
+                                    <% end %>
+                                </ul>
+                            </div>
+                        </div>
+                        <ul class="components">
+                            <li class="search-bar menu-item custom-menu-link" aria-label="Tìm kiếm">
+                                <form method="get" id="search" action="">
+                                    <input class="is-ajax-search" inputmode="search" type="text" name="" title="Tìm kiếm" placeholder="Nhập từ khóa..." />
+                                    <button type="submit">
+                                        <span class="tie-icon-search tie-search-icon" aria-hidden="true"></span>
+                                        <span class="screen-reader-text">Tìm kiếm</span>
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>

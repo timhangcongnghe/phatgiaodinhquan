@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <%= erp_form_control("dataselect", {
                                 name: 'article[category_id]',
                                 value: article.category_id,
@@ -32,7 +32,20 @@
                                 placeholder: t('.choose_category'),
                                 label: t('.category'),
                                 url: erp_pgdq.dataselect_backend_categories_path(format: 'json'),
+                                required: true,
                                 errors: article.errors.full_messages_for(:category_id)
+                            }) %>
+                        </div>
+                        <div class="col-md-6">
+                            <%= erp_form_control("dataselect", {
+                                name: 'article[author_id]',
+                                value: article.author_id,
+                                text: article.get_author_name,
+                                placeholder: t('.choose_author'),
+                                label: t('.author'),
+                                url: erp_pgdq.dataselect_backend_authors_path(format: 'json'),
+                                required: true,
+                                errors: article.errors.full_messages_for(:author_id)
                             }) %>
                         </div>
                     </div>
@@ -91,11 +104,6 @@
             </div>
         </div>
     </div>
-    <%= erp_component('button/save', {
-        text: t('submit')
-    }) %>
-    <%= erp_component('button/cancel', {
-        text: t('cancel'),
-        href: erp_pgdq.backend_articles_path
-    }) %>
+    <%= erp_component('button/save', {text: t('submit')}) %>
+    <%= erp_component('button/cancel', {text: t('cancel'), href: erp_pgdq.backend_articles_path}) %>
 <% end %>

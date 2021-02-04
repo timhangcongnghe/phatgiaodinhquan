@@ -1,0 +1,103 @@
+<%= form_for([erp_pgdq, :backend, author], html: {multipart: true}) do |f| %>
+    <div class="row">
+        <div class="col-md-2">
+            <%= erp_form_control('image', {
+                img_src: author.image.system,
+                name: 'author[image]',
+                width: 150,
+                height: 150
+            }) %>
+        </div>
+        <div class="col-md-10">
+            <div class="portlet light bordered">
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <%= erp_form_control("text", {
+                                name: 'author[short_name]',
+                                value: author.get_short_name,
+                                label: t('.short_name'),
+                                placeholder: t('.placeholder_short_name'),
+                                required: true,
+                                errors: author.errors.full_messages_for(:short_name)
+                            }) %>
+                        </div>
+                        <div class="col-md-6">
+                            <%= erp_form_control("text", {
+                                name: 'author[long_name]',
+                                value: author.get_long_name,
+                                label: t('.long_name'),
+                                placeholder: t('.placeholder_long_name'),
+                                required: true,
+                                errors: author.errors.full_messages_for(:long_name)
+                            }) %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <%= erp_form_control("text", {
+                                name: 'author[email]',
+                                value: author.email,
+                                label: t('.email'),
+                                placeholder: t('.placeholder_email')
+                            }) %>
+                        </div>
+                        <div class="col-md-4">
+                            <%= erp_form_control("text", {
+                                name: 'author[facebook]',
+                                value: author.facebook,
+                                label: t('.facebook'),
+                                placeholder: t('.placeholder_facebook')
+                            }) %>
+                        </div>
+                        <div class="col-md-4">
+                            <%= erp_form_control("text", {
+                                name: 'author[youtube]',
+                                value: author.youtube,
+                                label: t('.youtube'),
+                                placeholder: t('.placeholder_youtube')
+                            }) %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <%= erp_form_control("text", {
+                                name: 'author[twitter]',
+                                value: author.twitter,
+                                label: t('.twitter'),
+                                placeholder: t('.placeholder_twitter')
+                            }) %>
+                        </div>
+                        <div class="col-md-4">
+                            <%= erp_form_control("text", {
+                                name: 'author[instagram]',
+                                value: author.instagram,
+                                label: t('.instagram'),
+                                placeholder: t('.placeholder_instagram')
+                            }) %>
+                        </div>
+                        <div class="col-md-4">
+                            <%= erp_form_control("text", {
+                                name: 'author[tiktok]',
+                                value: author.tiktok,
+                                label: t('.tiktok'),
+                                placeholder: t('.placeholder_tiktok')
+                            }) %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <%= erp_form_control("textarea", {
+                                name: 'author[description]',
+                                value: author.description,
+                                label: t('.description')
+                            }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= erp_component('button/save', {text: t('submit')}) %>
+    <%= erp_component('button/cancel', {text: t('cancel'), href: erp_pgdq.backend_authors_path}) %>
+<% end %>

@@ -25,7 +25,7 @@ module Erp
           
           if @article.save
             if request.xhr?
-              render json: { status: 'success', text: @article.name, value: @article.id }
+              render json: {status: 'success', text: @article.name, value: @article.id}
             else
               redirect_to erp_pgdq.edit_backend_article_path(@article), notice: t('.success')
             end
@@ -41,7 +41,7 @@ module Erp
         def update
           if @article.update(article_params)
             if request.xhr?
-              render json: { status: 'success', text: @article.name, value: @article.id }
+              render json: {status: 'success', text: @article.name, value: @article.id}
             else
               redirect_to erp_pgdq.edit_backend_article_path(@article), notice: t('.success')
             end
@@ -53,8 +53,8 @@ module Erp
         def destroy
           @article.destroy          
           respond_to do |format|
-            format.html { redirect_to erp_pgdq.backend_articles_path, notice: t('.success') }
-            format.json {render json: { 'message': t('.success'), 'type': 'success' }}
+            format.html {redirect_to erp_pgdq.backend_articles_path, notice: t('.success')}
+            format.json {render json: {'message': t('.success'), 'type': 'success'}}
           end
         end
         
@@ -70,7 +70,7 @@ module Erp
           end
           
           def article_params
-            params.fetch(:article, {}).permit(:is_slider, :image, :name, :category_id, :date_public, :meta_description, :tags, :content)
+            params.fetch(:article, {}).permit(:is_slider, :image, :name, :category_id, :author_id, :date_public, :meta_description, :tags, :content)
           end
       end
     end
