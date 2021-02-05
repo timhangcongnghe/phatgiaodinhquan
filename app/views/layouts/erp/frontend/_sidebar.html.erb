@@ -148,7 +148,7 @@
             <ul>
                 <% Erp::Pgdq::Author.get_active.each do |author| %>  
                     <li class="cat-item cat-counter tie-cat-item-2">
-                        <%= link_to author.get_short_name, 'javascript:void(0)', title: author.get_short_name %> <span><%= author.get_article_count %></span>
+                        <%= link_to author.get_short_name, author_link(author), title: author.get_short_name %> <span><%= author.get_article_count %></span>
                     </li>
                 <% end %>
             </ul>

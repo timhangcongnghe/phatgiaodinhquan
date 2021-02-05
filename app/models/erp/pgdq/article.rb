@@ -98,6 +98,17 @@ module Erp::Pgdq
       query = query.limit(10).map{|article| {value: article.id, text: article.get_name} }
     end
     
+    def self.frontend_search(params)
+      query = self.get_articles
+      
+      if params[:keys].present?
+        keyword = params[:keys].strip.downcase
+        query = query.where("LOWER(erp_pgdq_articles.cache_search) LIKE ?", "%#{keyword}%")
+      end
+      
+      return query
+    end
+    
     def archive
 			update_columns(archived: true)
 		end

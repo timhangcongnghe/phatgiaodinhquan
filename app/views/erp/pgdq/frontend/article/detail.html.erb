@@ -55,19 +55,19 @@
                             <span class="meta-item meta-author-wrapper meta-author-1">
                                 <% if @article.author.image.present? %>
                                     <span class="meta-author-avatar">
-                                        <a href="javascript:void(0)" title="<%= @article.get_author_name %>">
+                                        <a href="<%= author_link(@article.author) %>" title="<%= @article.get_author_name %>">
                                             <img alt='<%= @article.get_author_name %>' title="<%= @article.get_author_name %>" src='<%= @article.author.image.detail_1x %>' srcset='<%= @article.author.image.detail_2x %> 2x' class='avatar avatar-140 photo' height='140' width='140' loading='lazy'/>
                                         </a>
                                     </span>
                                 <% else %>
                                     <span class="meta-author-avatar">
-                                        <a href="javascript:void(0)" title="<%= @article.get_author_name %>">
+                                        <a href="<%= author_link(@article.author) %>" title="<%= @article.get_author_name %>">
                                             <img alt='<%= @article.get_author_name %>' title="<%= @article.get_author_name %>" src='/img/author-140x140-lite.png' srcset='/img/author-280x280-lite.png 2x' class='avatar avatar-140 photo' height='140' width='140' loading='lazy'/>
                                         </a>
                                     </span>
                                 <% end %>
                                 <span class="meta-author">
-                                    <%= link_to @article.get_author_name, 'javascript:void(0)', title: @article.get_author_name, class: 'author-name tie-icon' %>
+                                    <%= link_to @article.get_author_name, author_link(@article.author), title: @article.get_author_name, class: 'author-name tie-icon' %>
                                 </span>
                                 <% if @article.author.email.present? %>
                                     <a href="mailto:<%= @article.author.email %>" class="author-email-link" target="_blank" rel="nofollow noopener" title="Gửi email">
@@ -141,19 +141,19 @@
                     <div class="about-author container-wrapper about-author-1">
                         <% if @article.author.image.present? %>
                             <div class="author-avatar">
-                                <a href="javascript:void(0)" title="<%= @article.get_author_name %>">
+                                <a href="<%= author_link(@article.author) %>" title="<%= @article.get_author_name %>">
                                     <img alt='<%= @article.get_author_name %>' title="<%= @article.get_author_name %>" src='<%= @article.author.image.detail_1x %>' srcset='<%= @article.author.image.detail_2x %> 2x' class='avatar avatar-180 photo' height='180' width='180' loading='lazy'/>
                                 </a>
                             </div>
                         <% else %>
                             <div class="author-avatar">
-                                <a href="javascript:void(0)" title="<%= @article.get_author_name %>">
+                                <a href="<%= author_link(@article.author) %>" title="<%= @article.get_author_name %>">
                                     <img alt='<%= @article.get_author_name %>' title="<%= @article.get_author_name %>" src='/img/author-140x140.png' srcset='/img/author-280x280.png 2x' class='avatar avatar-180 photo' height='180' width='180' loading='lazy'/>
                                 </a>
                             </div>
                         <% end %>
                         <div class="author-info">
-                            <h3 class="author-name"><%= link_to @article.get_author_name, 'javascript:void(0)', title: @article.get_author_name %></h3>
+                            <h3 class="author-name"><%= link_to @article.get_author_name, author_link(@article.author), title: @article.get_author_name %></h3>
                             <div class="author-bio text-justify"><%= @article.author.description %></div>
                             <ul class="social-icons">
                                 <li class="social-icons-item">

@@ -122,7 +122,7 @@
                 }
             </script>
         <% end %>
-        <% if params[:controller] == 'erp/pgdq/frontend/info' && params[:action] == 'member' %>
+        <% if params[:controller] == 'erp/pgdq/frontend/info' && params[:action] == 'pagoda' %>
             <script type="application/ld+json">
                 {
                     "@context": "https://schema.org/", 
@@ -138,6 +138,26 @@
                         "position": 2, 
                         "name": "Danh Sách Tự Viện",
                         "item": "https://phatgiaodinhquan.org<%= pagoda_link %>"  
+                    }]
+                }
+            </script>
+        <% end %>
+        <% if params[:controller] == 'erp/pgdq/frontend/info' && params[:action] == 'author' %>
+            <script type="application/ld+json">
+                {
+                    "@context": "https://schema.org/", 
+                    "@type": "BreadcrumbList", 
+                    "itemListElement": [{
+                        "@type": "ListItem", 
+                        "position": 1, 
+                        "name": "GHPGVN Huyện Định Quán",
+                        "item": "https://phatgiaodinhquan.org/"  
+                    },
+                    {
+                        "@type": "ListItem", 
+                        "position": 2, 
+                        "name": "Tác Giả <%= @author.get_short_name %>",
+                        "item": "https://phatgiaodinhquan.org<%= author_link(@author) %>"  
                     }]
                 }
             </script>
@@ -330,13 +350,13 @@
                         </a>
                         <div id="mobile-container">
                             <div id="mobile-search">
-                                <form role="search" method="get" class="search-form" action="">
+                                <%= form_tag(search_link, method: "get", class: "search-form") do %>
                                     <label>
-                                    <span class="screen-reader-text">Tìm kiếm:</span>
-                                    <input type="search" class="search-field" placeholder="Nhập từ khóa tìm kiếm..." value="" name="" />
+                                        <span class="screen-reader-text">Tìm kiếm:</span>
+                                        <input type="search" class="search-field" placeholder="Nhập từ khóa tìm kiếm..." autocomplete="off" name="keys" />
                                     </label>
                                     <input type="submit" class="search-submit" value="Tìm kiếm" />
-                                </form>
+                                <% end %>
                             </div>
                             <div id="mobile-menu" class="hide-menu-icons"></div>
                             <div id="mobile-social-icons" class="social-icons-widget solid-social-icons">
@@ -378,14 +398,14 @@
                 <span class="screen-reader-text">Đóng</span>
             </a>
             <div class="popup-search-wrap-inner">
-                <div class="live-search-parent pop-up-live-search" data-skin="live-search-popup" aria-label="Search">
-                    <form method="get" class="tie-popup-search-form" action="">
-                        <input class="tie-popup-search-input " inputmode="search" type="text" name="" title="Nhập từ khóa tìm kiếm..." autocomplete="off" placeholder="Nhập từ khóa tìm kiếm..." />
+                <div class="live-search-parent pop-up-live-search" data-skin="live-search-popup" aria-label="Tìm kiếm">
+                    <%= form_tag(search_link, method: "get", class: "tie-popup-search-form") do %>
+                        <input class="tie-popup-search-input " type="text" name="keys" title="Nhập từ khóa tìm kiếm..." autocomplete="off" placeholder="Nhập từ khóa tìm kiếm..." />
                         <button class="tie-popup-search-submit" type="submit">
                             <span class="tie-icon-search tie-search-icon" aria-hidden="true"></span>
                             <span class="screen-reader-text">Tìm kiếm</span>
                         </button>
-                    </form>
+                    <% end %>
                 </div>
             </div>
         </div>

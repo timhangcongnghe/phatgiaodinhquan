@@ -17,6 +17,14 @@ module Erp
         erp_pgdq.pagoda_path
       end
       
+      def author_link(author)
+        erp_pgdq.author_path(author_id: author.id, author_name: author.alias)
+      end
+      
+      def search_link
+        erp_pgdq.search_path
+      end
+      
       def category_listing_link(category)
         erp_pgdq.category_listing_path(category_id: category.id, category_name: category.alias)
       end

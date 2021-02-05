@@ -33,7 +33,7 @@
                                         <div class="slide">
                                             <% @newest_articles.each do |article| %>
                                                 <div style="background-image:url(<%= article.image.detail %>)" class="grid-item tie-slide-1">
-                                                    <a href="" class="all-over-thumb-link" aria-label=""></a>
+                                                    <a href="<%= article_detail_link(article) %>" title="<%= article.get_name %>" class="all-over-thumb-link" aria-label="<%= article.get_name %>"></a>
                                                     <div class="thumb-overlay">
                                                         <span class="post-cat-wrap">
                                                             <% if article.category.use_show_list? %>
@@ -103,7 +103,7 @@
                                                     <span class="author-meta single-author no-avatars">
                                                         <span class="meta-item meta-author-wrapper meta-author-1">
                                                             <span class="meta-author">
-                                                                <%= link_to article.get_author_name, 'javascript:void(0)', title: article.get_author_name, class: 'author-name tie-icon' %>
+                                                                <%= link_to article.get_author_name, author_link(article.author), title: article.get_author_name, class: 'author-name tie-icon' %>
                                                             </span>
                                                         </span>
                                                     </span>

@@ -87,7 +87,7 @@
             <div class="tie-col-md-8 stream-item stream-item-top-wrapper">
                 <div class="stream-item-top">
                     <a href="" title="" target="_blank" rel="nofollow noopener">
-                        <img src="/img/mung-xuan-di-lac-2021.png" alt="GHPGVN Huyện Định Quán Mừng Xuân Di Lặc PL.2565 DL.2021" title="GHPGVN Huyện Định Quán Mừng Xuân Di Lặc PL.2565 DL.2021" width="720" height="90" />
+                        <img src="/img/mung-xuan-di-lac-2021.jpg" alt="GHPGVN Huyện Định Quán Mừng Xuân Di Lặc PL.2565 DL.2021" title="GHPGVN Huyện Định Quán Mừng Xuân Di Lặc PL.2565 DL.2021" width="720" height="90" />
                     </a>
                 </div>
             </div>
@@ -181,13 +181,13 @@
                         </div>
                         <ul class="components">
                             <li class="search-bar menu-item custom-menu-link" aria-label="Tìm kiếm">
-                                <form method="get" id="search" action="">
-                                    <input class="is-ajax-search" inputmode="search" type="text" name="" title="Tìm kiếm" placeholder="Nhập từ khóa..." />
+                                <%= form_tag(search_link, method: "get") do %>
+                                    <input type="text" name="keys" title="Tìm kiếm" autocomplete="off" placeholder="Nhập từ khóa..." />
                                     <button type="submit">
                                         <span class="tie-icon-search tie-search-icon" aria-hidden="true"></span>
                                         <span class="screen-reader-text">Tìm kiếm</span>
                                     </button>
-                                </form>
+                                <% end %>
                             </li>
                         </ul>
                     </div>

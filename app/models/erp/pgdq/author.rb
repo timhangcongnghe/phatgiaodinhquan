@@ -94,5 +94,12 @@ module Erp::Pgdq
     def get_article_count
 			self.articles.count
 		end
+    
+    after_save :create_alias
+    
+    def create_alias
+      name = self.short_name
+      self.update_column(:alias, name.to_ascii.downcase.to_s.gsub(/[^0-9a-z \/\-\.]/i, '').gsub(/[ \/\.]+/i, '-').strip)
+    end
   end
 end

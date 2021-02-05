@@ -5,6 +5,8 @@ Erp::Pgdq::Engine.routes.draw do
   get "/gioi-thieu-ghpgvn-huyen-dinh-quan" => "frontend/info#about", as: :about
   get "/thanh-vien-ban-tri-su" => "frontend/info#member", as: :member
   get "/danh-sach-tu-vien" => "frontend/info#pagoda", as: :pagoda
+  get "/tac-gia/:author_name-aid:author_id" => "frontend/info#author", as: :author
+  get "/tim-kiem" => "frontend/info#search", as: :search
   
   get "/chu-de/:category_name-cid:category_id" => "frontend/category#listing", as: :category_listing
   get "/danh-sach/:category_name-cid:category_id" => "frontend/category#detail", as: :category_detail
