@@ -63,6 +63,7 @@ vi:
             article_count: "Số bài viết"
             edit: "Cập nhật"
             delete: "Xóa tác giả"
+            custom_order: "Sắp xếp"
             no_matching_records_found: "Danh sách hiện đang trống."
           form:
             short_name: "Tên tác giả (Ngắn)"

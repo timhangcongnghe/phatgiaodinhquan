@@ -20,6 +20,9 @@
             <% if get_columns(params).include?("created_at") %>
                 <th class="text-center"><%= t('created_at') %></th>
             <% end %>
+            <th width="7%" class="sortable text-nowrap text-center" sort-by='erp_pgdq_authors.custom_order'>
+                <%= t('.custom_order') %>                
+            </th>
             <th class="text-right" width="7%"><%= t('actions') %></th>
         </tr>
     </thead>
@@ -48,7 +51,22 @@
                 <% end %>
                 <% if get_columns(params).include?("created_at") %>
                     <td class="text-center"><%= author.created_at.strftime("%d-%m-%Y") %></td>
-                <% end %>                
+                <% end %>
+                <td class="text-center text-semibold">
+                    <%= author.custom_order %>
+                    <% if params[:sort_by] == 'erp_pgdq_authors.custom_order' %>
+                        <a data-method="PUT" 
+                           href="<%= params[:sort_direction] == 'asc' ? erp_pgdq.move_up_backend_authors_path(id: author) : erp_pgdq.move_down_backend_authors_path(id: author) %>"
+                           class="ajax-link">
+                           <i class="fa fa-caret-square-o-up icon-big"></i>
+                        </a>
+                        <a data-method="PUT"
+                           href="<%= params[:sort_direction] == 'asc' ? erp_pgdq.move_down_backend_authors_path(id: author) : erp_pgdq.move_up_backend_authors_path(id: author) %>"
+                           class="ajax-link">
+                           <i class="fa fa-caret-square-o-down icon-big"></i>
+                        </a>
+                    <% end %>
+                </td>
                 <td class="text-right">
                     <div class="btn-group">
                         <a class="btn btn-default btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">

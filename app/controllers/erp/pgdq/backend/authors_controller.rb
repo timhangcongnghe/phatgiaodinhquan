@@ -2,7 +2,7 @@ module Erp
   module Pgdq
     module Backend
       class AuthorsController < Erp::Backend::BackendController
-        before_action :set_author, only: [:edit, :update, :destroy]
+        before_action :set_author, only: [:move_up, :move_down, :edit, :update, :destroy]
 
         def list
           @authors = Author.search(params).paginate(:page => params[:page], :per_page => 20)
@@ -61,6 +61,20 @@ module Erp
         def dataselect
           respond_to do |format|
             format.json {render json: Author.dataselect(params[:keyword])}
+          end
+        end
+        
+        def move_up
+          @author.move_up
+          respond_to do |format|
+            format.json {render json: {}}
+          end
+        end
+
+        def move_down
+          @author.move_down
+          respond_to do |format|
+            format.json {render json: {}}
           end
         end
         

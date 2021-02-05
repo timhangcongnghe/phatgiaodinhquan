@@ -34,6 +34,8 @@ Erp::Pgdq::Engine.routes.draw do
         collection do
           post 'list'
           get 'dataselect'
+          put 'move_up'
+          put 'move_down'
         end
       end
     end

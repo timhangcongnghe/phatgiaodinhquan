@@ -1,5 +1,6 @@
 module Erp::Pgdq
   class Author < ApplicationRecord
+    include Erp::CustomOrder
     mount_uploader :image, Erp::Pgdq::AuthorUploader
     
     belongs_to :creator, class_name: 'Erp::User'
@@ -11,7 +12,7 @@ module Erp::Pgdq
     validates :long_name, :uniqueness => true
     
     def self.get_active
-			self.where(archived: false).order('short_name ASC')
+			self.where(archived: false).order('custom_order ASC')
 		end
     
     def self.filter(query, params)
