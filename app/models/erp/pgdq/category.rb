@@ -9,7 +9,6 @@ module Erp::Pgdq
     has_many :articles, class_name: "Erp::Pgdq::Article"
     
     validates :name, :presence => true
-    validates :name, :uniqueness => true
     validates :title_name, :presence => true
     validates :title_name, :uniqueness => true
     validates :title_name, length: {maximum: 60}
