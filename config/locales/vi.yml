@@ -161,6 +161,10 @@ vi:
             success: "Thêm chuyên mục thành công."
           update:
             success: "Cập nhật chuyên mục thành công."
+          archive:
+            success: "Ẩn chuyên mục thành công."
+          unarchive:
+            success: "Hiện chuyên mục thành công."
           destroy:
             success: "Xóa chuyên mục thành công."
           index:

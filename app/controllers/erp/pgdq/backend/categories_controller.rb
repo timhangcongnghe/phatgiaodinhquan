@@ -2,7 +2,7 @@ module Erp
   module Pgdq
     module Backend
       class CategoriesController < Erp::Backend::BackendController
-        before_action :set_category, only: [:move_up, :move_down, :edit, :update, :destroy]
+        before_action :set_category, only: [:move_up, :move_down, :archive, :unarchive, :edit, :update, :destroy]
 
         def list
           @categories = Category.search(params).paginate(:page => params[:page], :per_page => 20)
@@ -61,6 +61,20 @@ module Erp
         def dataselect
           respond_to do |format|
             format.json {render json: Category.dataselect(params[:keyword])}
+          end
+        end
+        
+        def archive
+          @category.archive
+          respond_to do |format|
+            format.json {render json: {'message': t('.success'), 'type': 'success'}}
+          end
+        end
+        
+        def unarchive
+          @category.unarchive
+          respond_to do |format|
+            format.json {render json: {'message': t('.success'), 'type': 'success'}}
           end
         end
 

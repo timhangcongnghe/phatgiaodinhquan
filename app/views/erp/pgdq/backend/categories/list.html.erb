@@ -8,6 +8,9 @@
             <% if get_columns(params).include?("name") %>
                 <th class="text-center" width='40%'><%= t('.name') %></th>
             <% end %>
+            <% if get_columns(params).include?("status") %>
+                <th class="text-center"><%= t('status') %></th>
+            <% end %>
             <% if get_columns(params).include?("creator") %>
                 <th class="text-center"><%= t('creator') %></th>
             <% end %>
@@ -34,6 +37,15 @@
                         <%= link_to category.get_full_name, erp_pgdq.edit_backend_category_path(category), class: 'title', title: category.get_full_name %>
                         <% if category.alias.present? %><br><strong>alias: </strong><em><%= category.alias %></em><% end %>
                         <% if category.title_name.present? %><br><em><strong>Tiêu đề trang (<%= category.get_title_name.length %>): </strong><%= category.get_title_name %></em><% end %>
+                    </td>
+                <% end %>
+                <% if get_columns(params).include?("status") %>
+                    <td class="text-center">
+                        <% if category.archived == true %>
+                            <span class="label label-sm label-danger"><%= t('archived') %></span>
+                        <% else %>
+                            <span class="label label-sm label-success"><%= t('active') %></span>
+                        <% end %>
                     </td>
                 <% end %>
                 <% if get_columns(params).include?("creator") %>
@@ -92,6 +104,19 @@
                             <li><%= link_to '<i class="fa fa-edit"></i>'.html_safe + t('.edit'), 
                                     erp_pgdq.edit_backend_category_path(category) %></li>
                             <li class="divider"></li>
+                            <% if !category.archived %>
+                                <li>
+                                    <%= link_to '<i class="fa fa-eye-slash"></i> '.html_safe + t('archive'), 
+                                        erp_pgdq.archive_backend_categories_path(id: category),
+                                        method: 'PUT', data: {confirm: t('.archive_confirm')}, class: 'ajax-link' %>
+                                </li>
+                            <% else %>
+                                <li>
+                                    <%= link_to '<i class="fa fa-eye"></i> '.html_safe + t('unarchive'), 
+                                        erp_pgdq.unarchive_backend_categories_path(id: category),
+                                        method: 'PUT', data: {confirm: t('.unarchive_confirm')}, class: 'ajax-link' %>
+                                </li>
+                            <% end %>
                             <li><%= link_to '<i class="fa fa-trash"></i>'.html_safe + t('.delete'), 
                                     erp_pgdq.backend_category_path(category), method: 'DELETE', data: {confirm: t('delete_confirm')}, class: 'ajax-link' %></li>
                         </ul>

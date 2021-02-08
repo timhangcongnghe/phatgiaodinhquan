@@ -20,6 +20,8 @@ Erp::Pgdq::Engine.routes.draw do
           get 'dataselect'
           put 'move_up'
           put 'move_down'
+          put 'archive'
+					put 'unarchive'
         end
       end
       

@@ -7,6 +7,7 @@
         {text: t('.name'), name: 'erp_pgdq_categories.name'},
         {text: t('.parent_category'), name: 'parents_erp_pgdq_categories.name', select: {name: 'parents_erp_pgdq_categories.id', data_url: erp_pgdq.dataselect_backend_categories_path}}
     ],
+    filters: [{text: t('archived'), name: 'show_archived', value: true, checked: false}],
     columns: [
         {text: t('image'), name: 'image', value: true, checked: true},
         {text: t('.name'), name: 'name', value: true, checked: true},
