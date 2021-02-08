@@ -69,7 +69,7 @@
                                 <source class="tie-logo-source-default tie-logo-source" srcset="/img/logo.png">
                                 <img class="tie-logo-img-default tie-logo-img" src="/img/logo.png" alt="GHPGVN Huyện Định Quán" title="GHPGVN Huyện Định Quán" width="299" height="49" style="max-height:49px!important;width:auto;" />
                             </picture>
-                            <h1 class="h1-off">GHPGVN Huyện Định Quán</h1>
+                            <% if params[:controller] == 'erp/pgdq/frontend/home' && params[:action] == 'index' %><h1 class="h1-off">GHPGVN Huyện Định Quán</h1><% else %><h2 class="h2-off">GHPGVN Huyện Định Quán</h2><% end %>
                         </a>
                     </div>
                     <div id="mobile-header-components-area_2" class="mobile-header-components">

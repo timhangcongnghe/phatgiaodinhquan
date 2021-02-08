@@ -13,7 +13,7 @@ module Erp::Pgdq
     validates :date_public, :presence => true
     validates :name, :uniqueness => true
     validates :title_name, :uniqueness => true
-    validates :title_name, length: {maximum: 60}
+    validates :title_name, length: {maximum: 70}
     
     def self.get_active
 			self.where(archived: false).where(active_display: true)
