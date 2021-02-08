@@ -84,7 +84,7 @@ module Erp
           end
           
           def author_params
-            params.fetch(:author, {}).permit(:image, :short_name, :long_name, :description, :email, :facebook, :youtube, :twitter, :instagram, :tiktok)
+            params.fetch(:author, {}).permit(:image, :title_name, :short_name, :long_name, :description, :email, :facebook, :youtube, :twitter, :instagram, :tiktok)
           end
       end
     end

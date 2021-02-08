@@ -38,6 +38,7 @@
                 <% if get_columns(params).include?("short_name") %>
                     <td class="text-center">
                         <%= link_to author.get_short_name, erp_pgdq.edit_backend_author_path(author), class: 'title', title: author.get_short_name %>
+                        <% if author.title_name.present? %><br><em><strong>Tiêu đề trang (<%= author.get_title_name.length %>): </strong><%= author.get_title_name %></em><% end %>
                     </td>
                 <% end %>
                 <% if get_columns(params).include?("long_name") %>

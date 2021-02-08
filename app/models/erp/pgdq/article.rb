@@ -7,13 +7,16 @@ module Erp::Pgdq
     belongs_to :author, class_name: 'Erp::Pgdq::Author'
     
     validates :name, :presence => true
+    validates :title_name, :presence => true
     validates :category_id, :presence => true
     validates :author_id, :presence => true
     validates :date_public, :presence => true
     validates :name, :uniqueness => true
+    validates :title_name, :uniqueness => true
+    validates :title_name, length: {maximum: 60}
     
     def self.get_active
-			self.where(archived: false)
+			self.where(archived: false).where(active_display: true)
 		end
     
     def self.get_articles
@@ -120,6 +123,10 @@ module Erp::Pgdq
 		def get_name
       self.name
     end
+    
+    def get_title_name
+      self.title_name
+    end
 		
 		def get_category_name
       category.present? ? category.get_name : ''
@@ -136,6 +143,14 @@ module Erp::Pgdq
     def get_author_long_name
       author.present? ? author.get_long_name : ''
     end
+    
+    def check_active_display
+			update_columns(active_display: true)
+		end
+
+    def uncheck_active_display
+			update_columns(active_display: false)
+		end
 		
 		after_save :update_cache_search
 		after_save :create_alias
@@ -147,7 +162,7 @@ module Erp::Pgdq
 		end
         
     def create_alias
-      name = self.name
+      name = self.title_name
       self.update_column(:alias, name.to_ascii.downcase.to_s.gsub(/[^0-9a-z \/\-\.]/i, '').gsub(/[ \/\.]+/i, '-').strip)
     end
   end

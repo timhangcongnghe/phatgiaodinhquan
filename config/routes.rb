@@ -27,6 +27,8 @@ Erp::Pgdq::Engine.routes.draw do
         collection do
           post 'list'
           get 'dataselect'
+          put 'check_active_display'
+          put 'uncheck_active_display'
         end
       end
       

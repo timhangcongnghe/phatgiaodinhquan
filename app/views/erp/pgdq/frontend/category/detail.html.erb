@@ -1,11 +1,11 @@
-<% title @category.get_name %>
+<% title @category.get_title_name %>
 <% content_for :metas do %>
 <meta property="og:locale" content="vi-VN" />
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="<%= @category.get_name %> &#8211; GHPGVN Huyện Định Quán"/>
+<meta property="og:title" content="<%= @category.get_title_name %> &#8211; GHPGVN Huyện Định Quán"/>
 <% if @meta_description.present? %><meta property="og:description" content="<%= @meta_description %>"/><% else %><meta property="og:description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
 <meta property="og:url" content="https://phatgiaodinhquan.org<%= category_detail_link(@category) %>"/>
-<meta property="og:site_name" content="<%= @category.get_name %>" />
+<meta property="og:site_name" content="<%= @category.get_title_name %>" />
 <meta property="og:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
 <meta property="og:image:alt" content="GHPGVN Huyện Định Quán"/>
 <meta property="og:image:width" content="1200"/>
@@ -13,7 +13,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:site" content="https://phatgiaodinhquan.org<%= category_detail_link(@category) %>"/>
-<meta name="twitter:title" content="<%= @category.get_name %> &#8211; GHPGVN Huyện Định Quán" />
+<meta name="twitter:title" content="<%= @category.get_title_name %> &#8211; GHPGVN Huyện Định Quán" />
 <% if @meta_description.present? %><meta name="twitter:description" content="<%= @meta_description %>"/><% else %><meta name="twitter:description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
 <meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
 <meta name="twitter:image:alt" content="GHPGVN Huyện Định Quán"/>
@@ -47,7 +47,7 @@
                                                                 <span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span>
                                                             </div>
                                                             <h2 class="thumb-title">
-                                                                <%= link_to article.get_name, article_detail_link(article), title: article.get_name %>
+                                                                <%= link_to truncate(article.get_name, length: 70), article_detail_link(article), title: article.get_name %>
                                                             </h2>
                                                         </div>
                                                     </div>

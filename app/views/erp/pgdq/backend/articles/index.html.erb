@@ -8,7 +8,8 @@
         {text: t('.category'), name: 'erp_pgdq_categories.name', select: {name: 'erp_pgdq_categories.id', data_url: erp_pgdq.dataselect_backend_categories_path}},
         {text: t('creator'), name: 'erp_users.name', select: {name: 'erp_users.id', data_url: erp.dataselect_backend_users_path}}
     ],
-    filters: [{text: t('.is_slider'), name: 'is_slider', value: true, checked: false}],
+    filters: [{text: t('.is_slider'), name: 'erp_pgdq_articles.is_slider', value: true, checked: false},
+              {text: t('.yes_active_display'), name: 'erp_pgdq_articles.active_display', value: true, checked: false}],
     columns: [
         {text: t('image'), name: 'image', value: true, checked: true},
         {text: t('.name'), name: 'name', value: true, checked: true},

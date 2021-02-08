@@ -33,6 +33,7 @@
                     <td class="text-left">
                         <%= link_to category.get_full_name, erp_pgdq.edit_backend_category_path(category), class: 'title', title: category.get_full_name %>
                         <% if category.alias.present? %><br><strong>alias: </strong><em><%= category.alias %></em><% end %>
+                        <% if category.title_name.present? %><br><em><strong>Tiêu đề trang (<%= category.get_title_name.length %>): </strong><%= category.get_title_name %></em><% end %>
                     </td>
                 <% end %>
                 <% if get_columns(params).include?("creator") %>

@@ -37,7 +37,8 @@
                 <% if get_columns(params).include?("name") %>
                     <td class="text-left">
                         <%= link_to article.get_name, erp_pgdq.edit_backend_article_path(article), class: 'title', title: article.get_name %>
-                        <% if article.author.present? %><br><br><em><strong>Tác giả: </strong><%= article.get_author_name %></em><% end %>
+                        <% if article.author.present? %><br><em><strong>Tác giả: </strong><%= article.get_author_name %></em><% end %>
+                        <% if article.title_name.present? %><br><em><strong>Tiêu đề trang (<%= article.get_title_name.length %>): </strong><%= article.get_title_name %></em><% end %>
                     </td>
                 <% end %>
                 <% if get_columns(params).include?("name") %>
@@ -45,7 +46,9 @@
                 <% end %>
                 <% if get_columns(params).include?("status") %>
                     <td class="text-center">
-                        <% if article.is_slider == true %><br><span class="label bg-primary"><%= t('.article_is_slider') %></span><% end %>
+                        <% if article.active_display == false %><br><span class="label label-danger"><%= t('.no_active_display') %></span>
+                        <% else %><br><span class="label label-success"><%= t('.yes_active_display') %></span><% end %>
+                        <% if article.is_slider == true %><br><span class="label label-success"><%= t('.article_is_slider') %></span><% end %>
                     </td>
                 <% end %>
                 <% if get_columns(params).include?("creator") %>
@@ -62,6 +65,17 @@
                         <ul class="dropdown-menu pull-right">
                             <li><%= link_to '<i class="fa fa-edit"></i>'.html_safe + t('.edit'), 
                                     erp_pgdq.edit_backend_article_path(article) %></li>
+                            <% if !article.active_display %>
+                                <li><%= link_to '<i class="fa fa-check-square-o"></i> '.html_safe + t('.check_active_display'), 
+                                        erp_pgdq.check_active_display_backend_articles_path(id: article),
+                                        method: 'PUT', data: {confirm: t('.check_active_display_confirm')}, class: 'ajax-link' %>
+                                </li>
+                            <% else %>
+                                <li><%= link_to '<i class="fa fa-check-square-o"></i> '.html_safe + t('.uncheck_active_display'), 
+                                        erp_pgdq.uncheck_active_display_backend_articles_path(id: article),
+                                        method: 'PUT', data: {confirm: t('.uncheck_active_display_confirm')}, class: 'ajax-link' %>
+                                </li>
+                            <% end %>
                             <li class="divider"></li>
                             <li><%= link_to '<i class="fa fa-trash"></i>'.html_safe + t('.delete'), 
                                     erp_pgdq.backend_article_path(article), method: 'DELETE', data: {confirm: t('delete_confirm')}, class: 'ajax-link' %></li>

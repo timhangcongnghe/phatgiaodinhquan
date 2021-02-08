@@ -12,7 +12,7 @@
                         <ul id="breaking-news-in-header" class="breaking-news" data-type="reveal" data-arrows="true">
                             <% Erp::Pgdq::Article.get_newest_articles.each do |article| %>
                                 <li class="news-item">
-                                    <%= link_to article.get_name, article_detail_link(article), title: article.get_name %>
+                                    <%= link_to truncate(article.get_name, length: 70), article_detail_link(article), title: article.get_name %>
                                 </li>
                             <% end %>
                         </ul>

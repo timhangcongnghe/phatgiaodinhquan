@@ -156,7 +156,7 @@
                     {
                         "@type": "ListItem", 
                         "position": 2, 
-                        "name": "Tác Giả <%= @author.get_short_name %>",
+                        "name": "<%= @author.get_title_name %>",
                         "item": "https://phatgiaodinhquan.org<%= author_link(@author) %>"  
                     }]
                 }
@@ -177,14 +177,14 @@
                 {
                     "@type": "ListItem", 
                     "position": 2, 
-                    "name": "<%= @category.get_name %>",
+                    "name": "<%= @category.get_title_name %>",
                     "item": "https://phatgiaodinhquan.org<%= category_listing_link(@category) %>"  
                 }]
                 <% else %>
                 {
                     "@type": "ListItem", 
                     "position": 2, 
-                    "name": "<%= @category.parent.get_name %>",
+                    "name": "<%= @category.parent.get_title_name %>",
                     <% if @category.parent.use_show_list? %>
                     "item": "https://phatgiaodinhquan.org<%= category_listing_link(@category.parent) %>"
                     <% else %>
@@ -194,7 +194,7 @@
                 {
                     "@type": "ListItem", 
                     "position": 3, 
-                    "name": "<%= @category.get_name %>",
+                    "name": "<%= @category.get_title_name %>",
                     "item": "http://phatgiaodinhquan.org<%= category_listing_link(@category) %>"  
                 }]
                 <% end %>
@@ -216,14 +216,14 @@
                 {
                     "@type": "ListItem", 
                     "position": 2, 
-                    "name": "<%= @category.get_name %>",
+                    "name": "<%= @category.get_title_name %>",
                     "item": "https://phatgiaodinhquan.org<%= category_detail_link(@category) %>"  
                 }]
                 <% else %>
                 {
                     "@type": "ListItem", 
                     "position": 2, 
-                    "name": "<%= @category.parent.get_name %>",
+                    "name": "<%= @category.parent.get_title_name %>",
                     <% if @category.parent.use_show_list? %>
                     "item": "https://phatgiaodinhquan.org<%= category_listing_link(@category.parent) %>"
                     <% else %>
@@ -233,7 +233,7 @@
                 {
                     "@type": "ListItem", 
                     "position": 3, 
-                    "name": "<%= @category.get_name %>",
+                    "name": "<%= @category.get_title_name %>",
                     "item": "http://phatgiaodinhquan.org<%= category_detail_link(@category) %>"  
                 }]
                 <% end %>
@@ -255,7 +255,7 @@
                     {
                         "@type": "ListItem", 
                         "position": 2, 
-                        "name": "<%= @category.get_name %>",
+                        "name": "<%= @category.get_title_name %>",
                         <% if @category.use_show_list? %>
                             "item": "https://phatgiaodinhquan.org<%= category_listing_link(@category) %>"
                         <% else %>
@@ -265,14 +265,14 @@
                     {
                         "@type": "ListItem", 
                         "position": 3, 
-                        "name": "<%= @article.get_name %>",
+                        "name": "<%= @article.get_title_name %>",
                         "item": "https://phatgiaodinhquan.org<%= article_detail_link(@article) %>"  
                     }]
                 <% else %>
                     {
                         "@type": "ListItem", 
                         "position": 2, 
-                        "name": "<%= @category.parent.get_name %>",
+                        "name": "<%= @category.parent.get_title_name %>",
                         <% if @category.parent.use_show_list? %>
                             "item": "https://phatgiaodinhquan.org<%= category_listing_link(@category.parent) %>"
                         <% else %>
@@ -282,7 +282,7 @@
                     {
                         "@type": "ListItem", 
                         "position": 3, 
-                        "name": "<%= @category.get_name %>",
+                        "name": "<%= @category.get_title_name %>",
                         <% if @category.use_show_list? %>
                             "item": "https://phatgiaodinhquan.org<%= category_listing_link(@category) %>"
                         <% else %>
@@ -292,7 +292,7 @@
                     {
                         "@type": "ListItem", 
                         "position": 4, 
-                        "name": "<%= @article.get_name %>",
+                        "name": "<%= @article.get_title_name %>",
                         "item": "https://phatgiaodinhquan.org<%= article_detail_link(@article) %>"  
                     }]
                 <% end %>
@@ -306,7 +306,7 @@
                     "@type": "WebPage",
                     "@id": "phatgiaodinhquan"
                 },
-                "headline": "<%= @article.get_name %> &#8211; GHPGVN Huyện Định Quán",
+                "headline": "<%= @article.get_title_name %> &#8211; GHPGVN Huyện Định Quán",
                 "image": "<%= @article.image.listing_1024x576 %>",
                 <% if @article.date_public.present? %>"datePublished": "<%= @article.date_public.strftime("%d-%m-%Y") %>",<% end %>
                 "dateModified": "<%= @article.updated_at.strftime("%d-%m-%Y") %>",

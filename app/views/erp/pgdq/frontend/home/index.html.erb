@@ -45,7 +45,7 @@
                                                                 </span>
                                                                 <div class="thumb-content">
                                                                     <div class="thumb-meta"><span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span></div>
-                                                                    <h2 class="thumb-title text-justify"><%= link_to truncate(article.get_name, length: 75), article_detail_link(article), title: article.get_name %></h2>
+                                                                    <h2 class="thumb-title text-justify"><%= link_to truncate(article.get_name, length: 70), article_detail_link(article), title: article.get_name %></h2>
                                                                     <div class="thumb-desc text-justify"><%= truncate(article.meta_description, length: 160) %></div>
                                                                 </div>
                                                             </div>
@@ -67,7 +67,7 @@
                                                                 </span>
                                                                 <div class="thumb-content">
                                                                     <div class="thumb-meta"><span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span></div>
-                                                                    <h2 class="thumb-title text-justify"><%= link_to truncate(article.get_name, length: 75), article_detail_link(article), title: article.get_name %></h2>
+                                                                    <h2 class="thumb-title text-justify"><%= link_to truncate(article.get_name, length: 70), article_detail_link(article), title: article.get_name %></h2>
                                                                     <div class="thumb-desc text-justify"><%= truncate(article.meta_description, length: 160) %></div>
                                                                 </div>
                                                             </div>
@@ -88,7 +88,7 @@
                                                                 </span>
                                                                 <div class="thumb-content">
                                                                     <div class="thumb-meta"><span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span></div>
-                                                                    <h2 class="thumb-title text-justify"><%= link_to truncate(article.get_name, length: 75), article_detail_link(article), title: article.get_name %></h2>
+                                                                    <h2 class="thumb-title text-justify"><%= link_to truncate(article.get_name, length: 70), article_detail_link(article), title: article.get_name %></h2>
                                                                     <div class="thumb-desc text-justify"><%= truncate(article.meta_description, length: 160) %></div>
                                                                 </div>
                                                             </div>
@@ -178,7 +178,7 @@
                                                         <span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span>
                                                     </div>
                                                     <h2 class="post-title text-justify">
-                                                        <%= link_to truncate(article.get_name, length: 60), article_detail_link(article), title: article.get_name %>
+                                                        <%= link_to truncate(article.get_name, length: 70), article_detail_link(article), title: article.get_name %>
                                                     </h2>
                                                 </div>
                                             </li>
@@ -253,7 +253,7 @@
                                                         <span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span>
                                                     </div>
                                                     <h2 class="post-title text-justify">
-                                                        <%= link_to truncate(article.get_name, length: 75), article_detail_link(article), title: article.get_name %>
+                                                        <%= link_to truncate(article.get_name, length: 70), article_detail_link(article), title: article.get_name %>
                                                     </h2>
                                                 </div>
                                             </li>
@@ -311,9 +311,9 @@
                                                     <span class="date meta-item tie-icon"><%= @module_03_get_first_article.date_public.strftime("%d-%m-%Y") %></span>
                                                 </div>
                                                 <h2 class="post-title text-justify">
-                                                    <%= link_to truncate(@module_03_get_first_article.get_name, length: 60), article_detail_link(@module_03_get_first_article), title: @module_03_get_first_article.get_name %>
+                                                    <%= link_to truncate(@module_03_get_first_article.get_name, length: 70), article_detail_link(@module_03_get_first_article), title: @module_03_get_first_article.get_name %>
                                                 </h2>
-                                                <p class="post-excerpt text-justify"><%= truncate(@module_03_get_first_article.meta_description, length: 100) %></p>
+                                                <p class="post-excerpt text-justify"><%= truncate(@module_03_get_first_article.meta_description, length: 160) %></p>
                                                 <%= link_to 'Đọc tiếp ... &raquo;'.html_safe, article_detail_link(@module_03_get_first_article), title: @module_03_get_first_article.get_name, class: 'more-link button' %>
                                             </div>
                                         </li>
@@ -327,7 +327,7 @@
                                                         <span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span>
                                                     </div>
                                                     <h2 class="post-title text-justify">
-                                                        <%= link_to truncate(article.get_name, length: 60), article_detail_link(article), title: article.get_name %>
+                                                        <%= link_to truncate(article.get_name, length: 70), article_detail_link(article), title: article.get_name %>
                                                     </h2>
                                                 </div>
                                             </li>
@@ -381,9 +381,9 @@
                                                     <span class="date meta-item tie-icon"><%= @module_04_get_first_article.date_public.strftime("%d-%m-%Y") %></span>
                                                 </div>
                                                 <h2 class="post-title text-justify">
-                                                    <%= link_to truncate(@module_04_get_first_article.get_name, length: 60), article_detail_link(@module_04_get_first_article), title: @module_04_get_first_article.get_name %>
+                                                    <%= link_to truncate(@module_04_get_first_article.get_name, length: 70), article_detail_link(@module_04_get_first_article), title: @module_04_get_first_article.get_name %>
                                                 </h2>
-                                                <p class="post-excerpt text-justify"><%= truncate(@module_04_get_first_article.meta_description, length: 100) %></p>
+                                                <p class="post-excerpt text-justify"><%= truncate(@module_04_get_first_article.meta_description, length: 160) %></p>
                                                 <%= link_to 'Đọc tiếp ... &raquo;'.html_safe, article_detail_link(@module_04_get_first_article), title: @module_04_get_first_article.get_name, class: 'more-link button' %>
                                             </div>
                                         </li>
@@ -397,7 +397,7 @@
                                                         <span class="date meta-item tie-icon"><%= article.date_public.strftime("%d-%m-%Y") %></span>
                                                     </div>
                                                     <h2 class="post-title text-justify">
-                                                        <%= link_to truncate(article.get_name, length: 60), article_detail_link(article), title: article.get_name %>
+                                                        <%= link_to truncate(article.get_name, length: 70), article_detail_link(article), title: article.get_name %>
                                                     </h2>
                                                 </div>
                                             </li>

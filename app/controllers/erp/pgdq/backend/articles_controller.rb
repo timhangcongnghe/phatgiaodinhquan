@@ -2,7 +2,7 @@ module Erp
   module Pgdq
     module Backend
       class ArticlesController < Erp::Backend::BackendController
-        before_action :set_article, only: [:edit, :update, :destroy]
+        before_action :set_article, only: [:uncheck_active_display, :check_active_display, :edit, :update, :destroy]
 
         def list
           @articles = Article.search(params).paginate(:page => params[:page], :per_page => 20)
@@ -64,13 +64,29 @@ module Erp
           end
         end
         
+        def check_active_display
+          @article.check_active_display
+
+          respond_to do |format|
+          format.json {render json: {'message': t('.success'), 'type': 'success'}}
+          end
+        end
+        
+        def uncheck_active_display
+          @article.uncheck_active_display
+
+          respond_to do |format|
+          format.json {render json: {'message': t('.success'), 'type': 'success'}}
+          end
+        end
+        
         private
           def set_article
             @article = Article.find(params[:id])
           end
           
           def article_params
-            params.fetch(:article, {}).permit(:is_slider, :image, :name, :category_id, :author_id, :date_public, :meta_description, :tags, :content)
+            params.fetch(:article, {}).permit(:is_slider, :image, :name, :title_name, :category_id, :author_id, :date_public, :meta_description, :tags, :content)
           end
       end
     end

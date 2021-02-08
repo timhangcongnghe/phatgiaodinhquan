@@ -12,7 +12,17 @@
             <div class="portlet light bordered">
                 <div class="portlet-body">
                     <div class="row">
-                        <div class="col-md-12">
+                      <div class="col-md-6">
+                          <%= erp_form_control("text", {
+                              name: 'article[title_name]',
+                              value: article.get_title_name,
+                              label: t('.title_name'),
+                              placeholder: t('.placeholder_title_name'),
+                              required: true,
+                              errors: article.errors.full_messages_for(:title_name)
+                          }) %>
+                      </div>
+                        <div class="col-md-6">
                             <%= erp_form_control("text", {
                                 name: 'article[name]',
                                 value: article.get_name,

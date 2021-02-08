@@ -15,7 +15,7 @@ module Erp
         end
         
         def author
-          @body_class = ''
+          @body_class = 'archive author author-admin author-1 tie-no-js wrapper-has-shadow block-head-1 magazine1 is-thumb-overlay-disabled is-desktop is-header-layout-3 has-header-ad sidebar-right has-sidebar hide_share_post_top hide_share_post_bottom'
           @author = Erp::Pgdq::Author.find(params[:author_id])
           @articles = Erp::Pgdq::Article.frontend_search(params).where(author_id: params[:author_id]).paginate(:page => params[:page], :per_page => 20)
         end

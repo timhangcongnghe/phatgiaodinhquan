@@ -10,6 +10,9 @@ module Erp::Pgdq
     validates :short_name, :uniqueness => true
     validates :long_name, :presence => true
     validates :long_name, :uniqueness => true
+    validates :title_name, :presence => true
+    validates :title_name, :uniqueness => true
+    validates :title_name, length: {maximum: 60}
     
     def self.get_active
 			self.where(archived: false).order('custom_order ASC')
@@ -84,6 +87,10 @@ module Erp::Pgdq
 			update_columns(archived: false)
 		end
     
+    def get_title_name
+			self.title_name
+		end
+    
     def get_short_name
 			self.short_name
 		end
@@ -93,13 +100,13 @@ module Erp::Pgdq
     end
     
     def get_article_count
-			self.articles.count
+			self.articles.get_active.count
 		end
     
     after_save :create_alias
     
     def create_alias
-      name = self.short_name
+      name = self.title_name
       self.update_column(:alias, name.to_ascii.downcase.to_s.gsub(/[^0-9a-z \/\-\.]/i, '').gsub(/[ \/\.]+/i, '-').strip)
     end
   end

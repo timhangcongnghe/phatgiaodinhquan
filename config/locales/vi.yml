@@ -12,6 +12,10 @@ vi:
       models:
         erp/pgdq/author:
           attributes:
+            title_name:
+              blank: "không được để trống."
+              taken: "không được trùng lặp."
+              too_long: "không dài hơn 60 ký tự"
             short_name:
               blank: "không được để trống."
               taken: "không được trùng lặp."
@@ -23,12 +27,22 @@ vi:
             name:
               blank: "không được để trống."
               taken: "không được trùng lặp."
+            title_name:
+              blank: "không được để trống."
+              taken: "không được trùng lặp."
+              too_long: "không dài hơn 60 ký tự"
             category_id:
               blank: "không được để trống."
             author_id:
               blank: "không được để trống."
             date_public:
               blank: "không được để trống."
+        erp/pgdq/category:
+          attributes:
+            title_name:
+              blank: "không được để trống."
+              taken: "không được trùng lặp."
+              too_long: "không dài hơn 60 ký tự"
     attributes:
       erp/pgdq/article:
         name: "Tiêu đề bài viết"
@@ -70,6 +84,8 @@ vi:
             placeholder_short_name: "Nhập tên tác giả (Ngắn)..."
             long_name: "Tên tác giả (Đầy đủ)"
             placeholder_long_name: "Nhập tên tác giả (Đầy đủ)..."
+            title_name: "Thẻ Title"
+            placeholder_title_name: "Nhập thẻ Title..."
             email: "Địa chỉ Email"
             placeholder_email: "Nhập địa chỉ Email..."
             facebook: "Địa chỉ FaceBook"
@@ -90,12 +106,17 @@ vi:
             success: "Cập nhật bài viết thành công."
           destroy:
             success: "Đã xóa bài viết thành công."
+          check_active_display:
+            success: "Hiển thị bài viết thành công."
+          uncheck_active_display:
+            success: "Tạm ẩn bài viết thành công."
           index:
             articles: "Danh sách bài viết"
             category: "Chuyên mục bài viết"
             create: "Thêm bài viết mới"
             name: "Tiêu đề bài viết"
             is_slider: "Hiển thị slide"
+            yes_active_display: "Đã được hiển thị"
           new:
             articles: "Danh sách bài viết"
             create: "Thêm bài viết mới"
@@ -105,13 +126,21 @@ vi:
           list:
             category: "Chuyên mục bài viết"
             name: "Tiêu đề bài viết"
-            article_is_slider: "Bài viết slide"
+            article_is_slider: "Bài viết trình chiếu"
             edit: "Cập nhật"
             delete: "Xóa bài viết"
+            no_active_display: "Đang bị tạm ẩn"
+            yes_active_display: "Đang được hiển thị"
+            check_active_display: "Hiển thị bài viết"
+            check_active_display_confirm: "Xác nhận hiển thị bài viết này?"
+            uncheck_active_display: "Tạm ẩn bài viết"
+            uncheck_active_display_confirm: "Xác nhận tạm ẩn bài viết này?"
             no_matching_records_found: "Danh sách hiện đang trống."
           form:
-            name: "Tên bài viết"
-            placeholder_name: "Nhập tên bài viết..."
+            name: "Tên bài viết (Full)"
+            placeholder_name: "Nhập tên bài viết (Full)..."
+            title_name: "Thẻ Title"
+            placeholder_title_name: "Nhập thẻ Title..."
             category: "Chuyên mục bài viết"
             choose_category: "Chọn chuyên mục bài viết"
             author: "Tác giả bài viết"
@@ -120,7 +149,7 @@ vi:
             choose_date_public: "Chọn ngày đăng tin"
             meta_keywords: "SEO (Meta Keywords)"
             placeholder_meta_keywords: "Nhập meta keywords cho SEO"
-            meta_description: "SEO (Meta Description)"
+            meta_description: "SEO (Meta Description) <= 160 ký tự"
             placeholder_meta_description: "Nhập meta description cho SEO"
             tags: "Nhãn bài viết"
             placeholder_tags: "Nhập nhãn bài viết"
@@ -155,6 +184,8 @@ vi:
           form:
             name: "Tên chuyên mục"
             placeholder_name: "Nhập tên chuyên mục..."
+            title_name: "Thẻ Title"
+            placeholder_title_name: "Nhập thẻ Title..."
             parent_category: "Chuyên mục cha"
             choose_parent_category: "Chọn chuyên mục cha"
             meta_keywords: "SEO (Meta Keywords)"

@@ -10,6 +10,9 @@ module Erp::Pgdq
     
     validates :name, :presence => true
     validates :name, :uniqueness => true
+    validates :title_name, :presence => true
+    validates :title_name, :uniqueness => true
+    validates :title_name, length: {maximum: 60}
     
     def self.get_active
 			self.where(archived: false).order("custom_order ASC")
@@ -93,6 +96,10 @@ module Erp::Pgdq
 		def get_name
       self.name
     end
+    
+    def get_title_name
+      self.title_name
+    end
 		
 		def get_parent_name
 			parent.present? ? parent.get_full_name : ''
@@ -140,7 +147,7 @@ module Erp::Pgdq
 		end
         
     def create_alias
-      name = self.name
+      name = self.title_name
       self.update_column(:alias, name.to_ascii.downcase.to_s.gsub(/[^0-9a-z \/\-\.]/i, '').gsub(/[ \/\.]+/i, '-').strip)
     end
   end
