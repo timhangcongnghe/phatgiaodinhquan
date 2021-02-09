@@ -153,7 +153,7 @@ module Erp::Pgdq
 		end
 		
 		after_save :update_cache_search
-		after_save :create_alias
+		after_create :create_alias
 		
     def update_cache_search
 			str = []

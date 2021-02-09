@@ -15,7 +15,7 @@ vi:
             title_name:
               blank: "không được để trống."
               taken: "không được trùng lặp."
-              too_long: "không dài hơn 60 ký tự"
+              too_long: "không dài hơn 70 ký tự"
             short_name:
               blank: "không được để trống."
               taken: "không được trùng lặp."
@@ -30,7 +30,7 @@ vi:
             title_name:
               blank: "không được để trống."
               taken: "không được trùng lặp."
-              too_long: "không dài hơn 60 ký tự"
+              too_long: "không dài hơn 70 ký tự"
             category_id:
               blank: "không được để trống."
             author_id:
@@ -42,7 +42,7 @@ vi:
             title_name:
               blank: "không được để trống."
               taken: "không được trùng lặp."
-              too_long: "không dài hơn 60 ký tự"
+              too_long: "không dài hơn 70 ký tự"
             name:
               blank: "không được để trống."
               taken: "không được trùng lặp."

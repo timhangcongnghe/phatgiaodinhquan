@@ -11,7 +11,7 @@ module Erp::Pgdq
     validates :name, :presence => true
     validates :title_name, :presence => true
     validates :title_name, :uniqueness => true
-    validates :title_name, length: {maximum: 60}
+    validates :title_name, length: {maximum: 70}
     
     def self.get_active
 			self.where(archived: false).order("custom_order ASC")
@@ -137,7 +137,7 @@ module Erp::Pgdq
 		end
     
     after_save :update_cache_search
-    after_save :create_alias
+    after_create :create_alias
     
     def update_cache_search
 			str = []
