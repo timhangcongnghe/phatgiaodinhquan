@@ -6,7 +6,7 @@
 <% if @meta_description.present? %><meta property="og:description" content="<%= @meta_description %>"/><% else %><meta property="og:description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
 <meta property="og:url" content="https://phatgiaodinhquan.org<%= article_detail_link(@article) %>"/>
 <meta property="og:site_name" content="<%= @article.get_title_name %>" />
-<meta property="og:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
+<% if @article.image.present? %><meta property="og:image" content="https://phatgiaodinhquan.org<%= @article.image.listing_1024x576 %>"/><% else %><meta property="og:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/><% end %>
 <meta property="og:image:alt" content="GHPGVN Huyện Định Quán"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="560"/>
@@ -15,7 +15,7 @@
 <meta name="twitter:site" content="https://phatgiaodinhquan.org<%= article_detail_link(@article) %>"/>
 <meta name="twitter:title" content="<%= @article.get_title_name %> &#8211; GHPGVN Huyện Định Quán" />
 <% if @meta_description.present? %><meta name="twitter:description" content="<%= @meta_description %>"/><% else %><meta name="twitter:description" content="Trang tin GHPGVN Huyện Định Quán cập nhật liên tục, nhanh chóng những thông tin, hình ảnh, hoạt động Phật sự, Ban Trị sự, Ban ngành và các hoạt động khác tại huyện Định Quán, tỉnh Đồng Nai."/><% end %>
-<meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/>
+<% if @article.image.present? %><meta name="twitter:image" content="https://phatgiaodinhquan.org<%= @article.image.listing_1024x576 %>"/><% else %><meta name="twitter:image" content="https://phatgiaodinhquan.org/img/social-share.jpg"/><% end %>
 <meta name="twitter:image:alt" content="GHPGVN Huyện Định Quán"/>
 <% end %>
 
@@ -105,6 +105,24 @@
                                 <% @article.tags.split(', ').each do |tag| %>
                                     <%= link_to tag, 'javascript:void(0)', title: tag, rel: 'tag' %>
                                 <% end %>
+                            </span>
+                        </div>
+                  <% else %>
+                      <div class="post-bottom-meta post-bottom-tags post-tags-modern">
+                            <div class="post-bottom-meta-title"><span class="tie-icon-tags" aria-hidden="true"></span> Nhãn bài viết</div>
+                            <span class="tagcloud">
+                                <%= link_to 'phat giao dong nai', 'https://phatgiaodinhquan.org/tim-kiem?utf8=%E2%9C%93&keys=phat+giao+dong+nai', title: 'phat giao dong nai', rel: 'tag' %>
+                                <%= link_to 'phat giao dinh quan', 'https://phatgiaodinhquan.org/tim-kiem?utf8=%E2%9C%93&keys=phat+giao+dinh+quan', title: 'phat giao dinh quan', rel: 'tag' %>
+                                <%= link_to 'ban tri su phat giao', 'https://phatgiaodinhquan.org/tim-kiem?utf8=%E2%9C%93&keys=ban+tri+su+phat+giao', title: 'ban tri su phat giao', rel: 'tag' %>
+                                <%= link_to 'ban tri su dinh quan', 'https://phatgiaodinhquan.org/tim-kiem?utf8=%E2%9C%93&keys=ban+tri+su+dinh+quan', title: 'ban tri su dinh quan', rel: 'tag' %>
+                                <%= link_to 'phat giao dinh quan', 'https://phatgiaodinhquan.org/tim-kiem?utf8=%E2%9C%93&keys=phat+giao+dinh+quan', title: 'phat giao dinh quan', rel: 'tag' %>
+                                <%= link_to 'phat su online', 'https://phatgiaodinhquan.org/tim-kiem?utf8=%E2%9C%93&keys=phat+su+online', title: 'phat su online', rel: 'tag' %>
+                                <%= link_to 'tin tuc phat su', 'https://phatgiaodinhquan.org/tim-kiem?utf8=%E2%9C%93&keys=tin+tuc+phat+su', title: 'tin tuc phat su', rel: 'tag' %>
+                                <%= link_to 'phat tu dinh quan', 'https://phatgiaodinhquan.org/tim-kiem?utf8=%E2%9C%93&keys=phat+tu+dinh+quan', title: 'phat tu dinh quan', rel: 'tag' %>
+                                <%= link_to 'tin tuc phat giao dinh quan', 'https://phatgiaodinhquan.org/tim-kiem?utf8=%E2%9C%93&keys=tin+tuc+phat+giao+dinh+quan', title: 'tin tuc phat giao dinh quan', rel: 'tag' %>
+                                <%= link_to 'phat su', 'https://phatgiaodinhquan.org/tim-kiem?utf8=%E2%9C%93&keys=phat+su', title: 'phat su', rel: 'tag' %>
+                                <%= link_to 'gdpt dinh quan', 'https://phatgiaodinhquan.org/tim-kiem?utf8=%E2%9C%93&keys=gdpt+dinh+quan', title: 'gdpt dinh quan', rel: 'tag' %>
+                                <%= link_to 'phap am phat giao', 'https://phatgiaodinhquan.org/tim-kiem?utf8=%E2%9C%93&keys=phap+am+phat+giao', title: 'phap am phat giao', rel: 'tag' %>
                             </span>
                         </div>
                   <% end %>
